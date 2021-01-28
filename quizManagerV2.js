@@ -1739,6 +1739,245 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeSpotify,
 		spotify : '<iframe src="https://open.spotify.com/embed/playlist/2lPZ2VRu358yvn6n6p7rza" width="500" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>',
 		answer : "No answer"
 	});
+
+
+quests[++questIndexBuilder] = {
+		name : "1986 Ins and Outs",
+		hoverover : "Who was born and who died",
+		tags : "saturday,30/1/2021,1986",
+		questInfo: new Array()
+	};
+
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this coming or going?",
+		image : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Gemma_Arterton_TIFF_2%2C_2012.jpg/100px-Gemma_Arterton_TIFF_2%2C_2012.jpg",
+		answer : "Gemma Arterton"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this coming or going?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/James_and_Oliver_Phelps_-_Lucca_Comics_and_Games_2011_-_2.jpg/100px-James_and_Oliver_Phelps_-_Lucca_Comics_and_Games_2011_-_2.jpg",
+	answer : "James and Oliver Phelps (Fred and George Weasely for 1/2 point)"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this coming or going?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Jamie_Bell-8448_%28cropped%29.jpg/100px-Jamie_Bell-8448_%28cropped%29.jpg",
+	answer : "Jamie Bell"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this coming or going?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Lady_Gaga_interview_2016.jpg/100px-Lady_Gaga_interview_2016.jpg",
+	answer : "Lady Gaga"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this coming or going?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Robert_Pattinson_Premiere_of_The_Lost_City_of_Z_at_Zoo_Palast_Berlinale_2017_02.jpg/100px-Robert_Pattinson_Premiere_of_The_Lost_City_of_Z_at_Zoo_Palast_Berlinale_2017_02.jpg",
+	answer : "Robert Pattinson"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this coming or going?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Rafael_Nadal_%286770958139%29.jpg/100px-Rafael_Nadal_%286770958139%29.jpg",
+	answer : "Rafael Nadal"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this coming or going?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Shia_LaBeouf_at_TIFF_2017_%2836949725591%29_%28cropped%29.jpg/100px-Shia_LaBeouf_at_TIFF_2017_%2836949725591%29_%28cropped%29.jpg",
+	answer : "Shia LaBeouf"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this coming or going?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Solange_%28220707%29.jpg/100px-Solange_%28220707%29.jpg",
+	answer : "Solange Knowles"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this coming or going?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Goulding%2C_Staples_Center%2C_Los_Angeles%2C_8th_April_2016_%2843%29-cropped.jpg/100px-Goulding%2C_Staples_Center%2C_Los_Angeles%2C_8th_April_2016_%2843%29-cropped.jpg",
+	answer : "Ellie Goulding"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this coming or going?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Thin_lizzy_22041980_01_400.jpg/100px-Thin_lizzy_22041980_01_400.jpg",
+	answer : "Phil Lynott"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this coming or going?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/James_cagney_promo_photo_%28cropped%2C_centered%29.jpg/100px-James_cagney_promo_photo_%28cropped%2C_centered%29.jpg",
+	answer : "James Cagney"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this coming or going?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Grant%2C_Cary_%28Suspicion%29_01_Crisco_edit.jpg/100px-Grant%2C_Cary_%28Suspicion%29_01_Crisco_edit.jpg",
+	answer : "Cary Grant"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this coming or going?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Harold_Macmillan.jpg/100px-Harold_Macmillan.jpg",
+	answer : "Harold Macmillan"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this coming or going?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Oona_Chaplin_2016.jpg/100px-Oona_Chaplin_2016.jpg",
+	answer : "Oona Chaplin"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this coming or going?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Richard_Madden_by_Gage_Skidmore_2.jpg/100px-Richard_Madden_by_Gage_Skidmore_2.jpg",
+	answer : "Richard Madden"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this coming or going?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Alfie_Allen_by_Gage_Skidmore_2.jpg/100px-Alfie_Allen_by_Gage_Skidmore_2.jpg",
+	answer : "Alfie Allen"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this coming or going?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Emilia_Clarke_by_Gage_Skidmore_2_%28cropped%29.jpg/100px-Emilia_Clarke_by_Gage_Skidmore_2_%28cropped%29.jpg",
+	answer : "Emilia Clarke"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this coming or going?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Kit_harrington_by_sachyn_mital_%28cropped_2%29.jpg/100px-Kit_harrington_by_sachyn_mital_%28cropped_2%29.jpg",
+	answer : "Kit Harrington"	}); 
+
+
+
+
+quests[++questIndexBuilder] = {
+		name : "1992",
+		hoverover : "How much do you know about 1992?",
+		tags : "23/1/2021,saturday,1992,year",
+		questInfo: new Array()
+	};
+
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText, 	
+	question : "who was the first major artist to tour South Africa after the end of the cultural boycott?  " + Table4ColumnStart + "Bruce Springsteen</td><td>Paul Simon</td><td>Queen</td><td>Madonna" + Table4ColumnEnd,
+	answer : "Paul Simon"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText, 	
+	question : "President of the United States George H. W. Bush meets with President of Russia Boris Yeltsin at Camp David, where they formally declare that what is over?  " + Table4ColumnStart + "The Cod war</td><td>The Cold War</td><td>The Cold Sore</td><td>The Oasis/Blur arguments" + Table4ColumnEnd,
+	answer : "The Cold War"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText, 	
+	question : "in South Africa, who vote in favour of political reforms which will end the apartheid regime and create a power-sharing multi-racial government?" + Table4ColumnStart + "Everybody</td><td>Black South Africans</td><td>White South Africans</td><td>The Afrikaans" + Table4ColumnEnd,
+	answer : "White South Africans"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
+	question : "who wins a general election to remain Prime Minister of the UK?",
+		answer : "John Major"
+	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
+	question : "who gains the 26th Grand Prix win of his racing career at Imola, San Marino, becomming the most successful British driver in Grand Prix races, and the fourth worldwide?",
+		answer : "Nigel Mansell"
+	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	
+	question : "what hotline is introduced, enabling members of the public to complain about what being deployed on a road for no apparent reason?  " + Table4ColumnStart + "WonderLine, for Wonderbra adverts</td><td>Cones Hotline, for cones</td><td>LightLine, for traffic lights</td><td>HoleLine, for potholes" + Table4ColumnEnd,
+	image : "https://s3-eu-central-1.amazonaws.com/centaur-wp/marketingweek/prod/content/uploads/2020/03/20163032/Hello-Boys-2-857x500.jpg",
+	answer : "Cones Hotline, for traffic cones deployed for seemingly no reason"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	
+	question : "who becomes England's most expensive footballer in a &#163 3.6 million transfer from Southampton to Blackburn Rovers?" + Table4ColumnStart + "Paul Gascoigne</td><td>David Seaman</td><td>Alan Shearer</td><td>Vinne Jones" + Table4ColumnEnd,
+	image : "https://i2-prod.gazettelive.co.uk/incoming/article15928686.ece/ALTERNATES/s1200c/1_Division-1-Wimbledon-v-Newcastle-United-Plough-Lane.jpg"   ,
+	answer : "Alan Shearer"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	question : "who was getting their toes sucked by John Bryan?",
+	image : "https://i2-prod.mirror.co.uk/incoming/article13385205.ece/ALTERNATES/s1200/3_PAY-John-Bryan-and-Sarah-Ferguson-on-holiday-in-the-south-of-France.jpg"   ,
+	answer : "Sarah, Duchess of York"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText, 	
+	question : "who went from 'toe job to no job' after reportedly making love in a Chelsea top during his affair with Antonia de Sancha?  " ,
+	answer : "David Mellor - 'Minister for Fun'"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText, 	
+	question : "After performing a song protesting alleged child abuse by the Catholic Church, who rips up a photo of Pope John Paul II on Saturday Night Live, causing huge controversy, leading the switchboards at NBC to ring off the hook?  " + Table4ColumnStart + "Bono</td><td>Amy Winehouse</td><td>Sinead O'Connor</td><td>Madonna" + Table4ColumnEnd,
+	answer : "Sinead O'Connor"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText, 	
+	question : "The Church of England votes to allow women to what?  " ,
+	answer : "Become priests"	});
+
+
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText, 	
+	question : "the Queen describes this year as what due to various scandals damaging the image of the Royal Family, as well as the Windsor Castle fire?  " ,
+	answer : "An Annus Horribilis (horrible year)"	});
+
+
+
+quests[++questIndexBuilder] = {
+		name : "1992 Ins and Outs",
+		hoverover : "Who died and who was born in 1992",
+		tags : "23/1/2021,saturday,1992",
+		questInfo: new Array()
+	};
+
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/John_Boyega_by_Gage_Skidmore.jpg/135px-John_Boyega_by_Gage_Skidmore.jpg",
+	answer : "John Boyega"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Daisy_Ridley_by_Gage_Skidmore.jpg/135px-Daisy_Ridley_by_Gage_Skidmore.jpg",
+	answer : "Daisy Ridley"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Sam_Smith_Lollapalooza_2015-1_cropped.jpg/135px-Sam_Smith_Lollapalooza_2015-1_cropped.jpg",
+	answer : "Sam Smith"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Cara_Delevingne_by_Gage_Skidmore.jpg/135px-Cara_Delevingne_by_Gage_Skidmore.jpg",
+	answer : "Cara Delevingne"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Taylor_Lautner_Comic-Con_2012.jpg/120px-Taylor_Lautner_Comic-Con_2012.jpg",
+	answer : "Taylor Lautner"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Miley_Cyrus_Primavera19_-226_%2848986293772%29_%28cropped%29.jpg/120px-Miley_Cyrus_Primavera19_-226_%2848986293772%29_%28cropped%29.jpg",
+	answer : "Miley Cyrus"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Frankie_Howerd_Allan_Warren.jpg/220px-Frankie_Howerd_Allan_Warren.jpg",
+	answer : "Frankie Howerd OBE"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/en/8/8f/Benny_Hill_Smiling.jpg",
+	answer : "Benny Hill"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Robert_Morley_Allan_Warren.jpg/220px-Robert_Morley_Allan_Warren.jpg",
+	answer : "Robert Morley CBE"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/en/thumb/c/c5/Actor_Denholm_Elliott.jpg/220px-Actor_Denholm_Elliott.jpg",
+	answer : "Denholm Elliott CBE"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	question : "Who is this... waving his arms around?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Magnus_Pyke_DMarshall1987.jpg/220px-Magnus_Pyke_DMarshall1987.jpg",
+	answer : "Magnus Pyke OBE FRSE FRIC"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/2015_UEC_Track_Elite_European_Championships_118.JPG/220px-2015_UEC_Track_Elite_European_Championships_118.JPG",
+	answer : "Laura Kenny CBE"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/en/thumb/2/24/Jessica_Plummer_2019.jpg/220px-Jessica_Plummer_2019.jpg",
+	answer : "Jessica Plummer"}) ;
+
+
+quests[++questIndexBuilder] = {//quests[115] = {
+		name : "1992 Movies",
+		hoverover : "What did you watch?",
+		tags : "23/1/2021,saturday,1992,movies",
+		questInfo: new Array()
+	};
+
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",  // swf
+		image : "https://lh3.googleusercontent.com/KsJj9KLp3InQxiO44xdWlQaJ7pI5csH12gbYL3jiaujks5H6ArNGg-E6lzJf-lgoMIRYsqMAMhCBhyXyuuEoGAiZlfbrnKYWsvrDph5Bo-dmFXQy31GR3rB7Ru00O0TzWBbkQ5UCjUk=w1920-h1080",
+		answerimage : "https://lh3.googleusercontent.com/GDVGRHhBgm8Xb9JEw3uEl4Kdx1DIPWn4ikb0t5d7LC96KIHMSWQzXESmAo1WL5VAQ_o8CXSGmGJReymf4Lu1ScoDh0J-qAAUgOgYo-oLuAaed_Wh11j3FLb_VR7O9kTwpRAsT2SB4G0=w1920-h1080"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",  // rocks
+	image : "https://lh3.googleusercontent.com/vyhcChvHFhJO5umtkAnVnA5n9rrHF2xps46G3s9GVOJuYTnX6Y7BnDKOPULvxRl6Y6AgRQeH862r4WTpf8BV0NNl6v5eUCdl8HVGhT-OTCzFQx9lMf5reibURAsw9HN1e518V_Txjv8=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/cQiF2Bfq_bP3mBN5pKT3wo_yOyeKh6nswSJ0mDfIiI4yae8GhGfJfAyK2FvGhv9lu-xUr-Uau30iYOl4SG7yEJ8CGSryteZbL5P9rwsVaFc_oqBTZCRH-kGcMpWrlFqQcpupo1E_sHM=w1920-h1080"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",  // basic
+	image : "https://lh3.googleusercontent.com/GgGpUB1vpYAR5FnBpTxlPdh51ddG8xX5rYMZrvavDnCZCuwcjaU523Annwp3imOp7fC34IatV3XXtHfFgjlWhjr6RWhBz7z5L-fbO4LjCjhTYhfcYKJZbzQ7O65dHEmqBdWkFt4dm-o=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/w9kFI10J-AwFlFTFoDEU97pNBlThBWX6xhgYSl3Tj98yH6gq3s-qq02N2WRbpJtiDtsdNx6pSE0a3ngnw1DnAa2hOZRpR-HCoutYRh8PY-9xSunKMSlbBgMOq5dBeA7UN0EGn9XpwJ8=w1920-h1080"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",  // sister
+	image : "https://lh3.googleusercontent.com/aSpbaG6Emo1uNRASSHcc0tnblVrbMFrMalwEPWcgNpQPDBNnDTyKjU3IGkvzWUEsKOyl-5RK4GPhQR1J0u_1DkD8e4vvrBRJUFg8eG2WAqR6E23KrUklGS9g00rjxPLxa0OzWuTAP2E=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/tRZ4VUzlxtMDGmOpejhdXhEKFMFMlq0caC8GZwbB5V511UskpsUNoc6l2Z8TY6gEwZpXCD2A7Hg4cCNvtRy7B8JpbBZOvllmAn9VvB5iOKOkOZK_QmoYkLOqOOxbEDoBs5IhZ2_F0ZI=w1920-h1080"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",  // wayne
+	image : "https://lh3.googleusercontent.com/dyYTxef8abaNoH92HUfkYaEdWv-I-GcWbNaL0BhgnPbgkPqH3ygujiX7ssEyJm5WZN0Cst_AWg_bwsDRNTy_ETmESxmz2XqrAlZy-pshs7k8Mqnoj5pib-dJ6e26m8-fDnH2RjmvH8I=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/Hzzqs8bakNBE5VXMtGB6NvUPWTkI4_fgqZhoA1uWs3rPEBIVjwGYdqYLMB87e6RcVAEuQxHumf-DHwFS5TKH3aDEtYDMIy8zcvZMy6I2RazoKaQlr91lB__RvKvBjcoJvX6awtJBmJk=w1920-h1080"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",  // batman
+	image : "https://lh3.googleusercontent.com/A_8H65KyQZ1gzrF1_5lrFwVzucT2UIxaTlijsRapD2WRv_IQMB6hDtqKE2W9EtasjqQvAmd2dlrFTzXAw-ho1VUlNVXlk0fVHKLW_knXKT8dwZWKutPfPkYl-QPxSpF74F32tv4aNZk=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/uqy3BywXOivG5TFRLQCXdQdYWQccIOlwrNueMD8xTG3lMU5gMYCu5TfS1Jun4eKHaUfRtWPmJCGp8UmLaIYAxKb83qxHzK9r-lhkC-Lfoemodkk4iozbE7qESHcsHbPBGL_cav81qzU=w1920-h1080"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",  // hellraiser 3
+	image : "https://lh3.googleusercontent.com/BQSdlNTaFXDxsOmUgEQJUASV9bBDWoLIpVgCizlOAPivrZur7oLFHYWtcM9HjSN5pABO04RhlcBYlB_j3IPX52yQSabOkvQQNTrvkcBE2Z8HhBOaReiEfpivpFehveHxdu1g4VgBFkw=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/Mjh6gFXvmHIhb3ahoioj-wdt3tKPPfqQBxItuL2oimIq68LxpivgPeuvQwN8OCiOWDTPyvhHgurQ-sAaSqaSTILiANjXnRR02DtsdrjRpPvpdsSddyFhm9LNMrDdBPEIaQckn5rKocM=w1920-h1080"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",  // bodyguard
+	image : "https://lh3.googleusercontent.com/CPSGRb4ixxFgyQmIbBklAghLaoAYlwNcALppl0-jfycs87sLciSzYfZOgM5MI7yAB3S50cDUEzQIpIL9Fpet-EutqF1fo0SQ6ZTzQJB3VLmkCupgerElNNHaWnnuKmH0j_tjyejhBMM=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/xUjW5LMLU0RR7OAt_7MZegZJcgfPEyHA4KztUJpE0HDAM0MUfU5NUAk3f_XiWWdcbrKnFh9Em1gKVwxHz3Ec8AErS1aEppcz845gTWYtGSgkW0ql8x7CVYlhEfP6WaVjFBIDSi4Plpo=w1920-h1080"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",  // housesitter
+	image : "https://lh3.googleusercontent.com/MDy-exFyy_AGXnqcUJ3df5ba2x34EgTnCYliekgZ4TNIbygx2GxpPaeLdxVi6xLF8boFyHWhArMV6BVrhGkfmTASURfuBYI3MyN-ooay2No3F3sHOF8hDb3Om5WlmPaXgdT7mLtWj3E=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/VQllW9GzVbw4uyhUekYWTWgX4JXxXqNrZuqNYA-YUDRmF7rDTBcwIlw32vXdhlXoFBUBizv2X-tzPScm6t_M0KBOf-1P_fhPrjLLV3BZlnw5lrmZlgAW8Sni-L2ZrtmWV_TGnj7h5RU=w1920-h1080"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",  //  x
+	image : "https://lh3.googleusercontent.com/VROY5cgs3r_RdCY6MslXBmq2fSnCCoXj78lukNGExwQcwelvLERv-bYkOPy-k1HsHEBO7AQS0rgkmYhw6dQX9pintdN0F-Nv2QThGPnbZ3rxlnpStmpCFaWyxZK8VquZBoyPgCaPINg=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/IDS9q6xKoPDSfsfmIPsTvkB0mNvwYxnCqp1WSC2v0mjs_c9FBmjWcVLlNbtIDdaXoWjkbnsLq9bRDj-N9mtZZd5IPvTThDWa2Pk_93r0pItWytXnmhuHKckM-l4OTaUqUbZlKWFa3Wk=w1920-h1080"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",  // dogs
+	image : "https://lh3.googleusercontent.com/ABqbpbJUxAQmXGayN4SH9Uy-_rjhdShH5SzlKTwPq78BkXxUiqh-L7Gz1bXDoQeOxirHvt4mVmJGMu06LGgCF84CzgSZVkUFZ2xpvEvMB30kaTL18AXM3r0tirSaEls2vFpmLOoU2LQ=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/r0NT7Gw0oIWaKxQDiCiCHVJGo5VxDbUTHOZlyjl8aB30Uo5Alzmav1ITJSZw_qObmneLTKugGHsQV553gkxeUuTlsv6Ls823TKa4stwF4F0o0CCX9D9AkxgMfbXb7XPq-0iWksOBK9o=w1920-h1080"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",  // mohicans
+	image : "https://lh3.googleusercontent.com/gklxQKoOXfGnHBXM5hvYhpQOPlwkhqenQPW6Gx6IShKEQSgGHjgEpKo4KRntIUGST9u_I7AN7DYmd-zX3lRjMo4o7HjVbRACaDkma1WbDJEMi8KzP5pZBTOcic_OgTNUjH18CHnKjeA=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/vAxCpSKSCrQ37kPRKuz0TcBJ7qWJZ3Fd7AAjNdQ2ke9_Ph2-PvZiZL9UYK6M6-1gLyvvgiAOW9yRP25DDtyv9XDTRJbis5UQVz23HynLImmu8a8Soj1ZQSgsFpER5Yqv1rBs7ELzEgA=w1920-h1080"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",  // far and away
+	image : "https://lh3.googleusercontent.com/aeQGb7pJgOOy7NmOs20fR1p3oovbQ0kMre8bFHL0hglBOmLf6cw7R0romKK320fR7kgEua9W9jsYBjkVW8u5Bp1QlkD2lZVHrJzgWaenALKxF6JC0Oyn8b53wM-T45yXe2iXBNh5tk8=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/hiNgKv5dFQAo4jnOHGZ6zNxca4GedutY_hs5lR6gDY8lKJzaFM_TbudPSKUdPQm9E-nmas6TOjmWuXVPBQmkyzIj4UsdXgztFCMmOUQkL6NDg-CQ8GyefwHIAaCdpo1Lm3SAljRqW_k=w1920-h1080"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",  // few good
+	image : "https://lh3.googleusercontent.com/eeuMmpA9ZatCCwI1oUzITI9Q5XV1HABgZs3Yym77RBQA5c-gOB1exdvdKrk_9TLFPyCChpBra65hRsenXI-rgxhoMuUgVdjDG2VDNQyMmuJUz_z8l-8OLMeqZGzTDibd5BJK2paPPJE=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/LPoRC6rqFLKgbGQTUlXLOsAQq0IXpEko-NnVBBYughcKyoTkk5Ts7OsSNz-lT6fwJqCHY7rwLAN6_wDYmK9Vsm701CZx0Nx8Wv6HOEALVXyl60jvT1avQzLZqIPBaTT0qongEtzPEEc=w1920-h1080"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",  // scent
+	image : "https://lh3.googleusercontent.com/MegitIfoHUkJrUgFjdU2CTA9zzk7XlEHMY6C0dc59vqCAiV61IV2k8de4C477ZXOW224hMEMhSenxaz7ZQh0n-K6RQMILI4eG192g1bHC97h4fAepjH82HwLVvjDQtpR6mXiujCieK8=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/OlvelDEg89zCs_7KfbJRqv2FumbscmuvJpJAolDwOqZV23Au1qppaqsVtbMoz23-WTQtgTWR0oszw1kCHVSPfQ5AHAUItfEjp0DdxlrPqpYHonmzEBRtpRxQKrB5SXeqzp6DNM4iMwQ=w1920-h1080"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",  // lethal
+	image : "https://lh3.googleusercontent.com/RWwBbccLCJ7WxwFkwZ51XrfgY_PCGcU9orZYTlNwrs1jbGhVlD2IocBUnqsBwbFf0Y8HRtv4PKmzNxK1hBAixqFhn3Y2hIs6DR4-35DsclvjHFRG577puvq4eB4fP74hwTKDt0u_PFY=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/MJUGGaISmK3g756X1QTEvaINakrrcplvfHEchDHqv3xd7YmuyiUOq5wIs7lG0AL0x97S_9gi6TK5CUA7gmTpEAqyCRwkLdPqnCOWc7ja3cfSN5trgpJXtncFf9dMhIh2JDl_8T040hM=w1920-h1080"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",  // home
+	image : "https://lh3.googleusercontent.com/t5U4CZUQMYAZwzGbxNENvWOcDlQAbXlBXvoMC-MyXTN1z3LKmQZFGWrfIEPvH5F-lqxZt8yMGbS02ZK4qi31a6F82gRfL-D6K6njPxO2xHQ2ni8I9W7pnrlXoMV06uCGiztHS3Sat4o=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/OQFHAZuJQPi1V9DZzxb4QNMToOOKqX7RDomAG54fAv-9XHKMhes6kAxXO1XgchopZ2-gNTySGPhxmX9uaPFlU_-Ne2y08i5LNWve5X2MFwoArFUyZNKtNKgwafSbAKzHxvthnqfyVp0=w1920-h1080"	}); 
+
+
+quests[++questIndexBuilder] = {
+		name : "1992 #1s",
+		hoverover : "What was number 1 over the year",
+		tags : "23/1/2021,saturday,1992,music",
+		questInfo: new Array()
+	};
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeSpotify,
+		question : 'Name the song & artist',
+		spotify : '<iframe src="https://open.spotify.com/embed/playlist/5VGZ5mv3svH90msVG4QFGx" width="500" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>',
+		answer : "No answer"
+	});
+
 quests[++questIndexBuilder] = {//quests[96] = {
 		name : "1995 Ins and Outs",
 		hoverover : "Ins and Out",
@@ -4432,6 +4671,9 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePictureAnswer,
 		answer : "Yes",
 		answerimage : "https://lh3.googleusercontent.com/hysV61HJHdCW3758sZ_WNrf0BAKr3fs2tl5nWUmxzyEFT69-60f7YwjcbaY4ke_LQPiIVvxOiBBtUb6Zu5biluOK8TPWfXqb4UK-nXIMpMqDaybUxj71Iiqt3Owaz_SHW64X60l0DYQ=w1920-h1080" 
 	});
+
+
+
 /*
   addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 	question : "",
@@ -4531,7 +4773,7 @@ function SQInit() {
 	tags = tagStringFromURI.split(",");
 
 	document
-			.write("<div id='SQQuiz'; marginTop = '1px'; marginBottom='1px'><span id='SQworkarea' class='grad'><table border='0'><table border='1'>"
+			.write("<div id='SQQuiz'; marginTop = '1px'; marginBottom='1px' ; width:80vw ><span id='SQworkarea' class='grad'><table border='0'><table border='1'>"
 					+ "<tr><td><span id='SQmenu'></span></td>"
 					+ "<td><span id='SQButtons'></span></td></tr></table>"
 					+ "<tr><td><span id='SQAnswer'></span></td></tr>"
