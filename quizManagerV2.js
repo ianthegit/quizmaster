@@ -1,14 +1,4 @@
 
-//Photo getter thingy https://www.publicalbum.org/blog/embedding-google-photos-image
-// Big quiz resource https://readymadepubquiz.com/pub-quizzes-main-menu/
-//Ditloids https://www.quizmasters.biz/DB/Que/Static/Brainteasers/Ditloids_01.html
-//Horror  https://metro.co.uk/2016/03/24/quiz-can-you-guess-these-terrifying-horror-movies-5769102/
-
-//https://www.edinburghnews.scotsman.com/whats-on/arts-and-entertainment/25-funny-pub-quiz-questions-2020-hilarious-and-quirky-trivia-ask-your-online-quiz-plus-answers-2540427
-//  https://www.mylondon.news/whats-on/family-kids-news/take-really-random-questions-quiz-18168558
-//  https://www.stokesentinel.co.uk/whats-on/whats-on-news/ultimate-virtual-pub-quiz-with-4141015
-
-
 
 var meta = document.createElement('meta');
 meta.httpEquiv = "X-Clacks-Overhead";
@@ -16,6 +6,15 @@ meta.content = "GNU Terry Pratchett";
 document.getElementsByTagName('head')[0].appendChild(meta);
 
 
+//Photo getter thingy https://www.publicalbum.org/blog/embedding-google-photos-image
+//Alternate Photo thingy https://www.labnol.org/embed/google/photos/
+// Big quiz resource https://readymadepubquiz.com/pub-quizzes-main-menu/
+//Ditloids https://www.quizmasters.biz/DB/Que/Static/Brainteasers/Ditloids_01.html
+//Horror  https://metro.co.uk/2016/03/24/quiz-can-you-guess-these-terrifying-horror-movies-5769102/
+
+//https://www.edinburghnews.scotsman.com/whats-on/arts-and-entertainment/25-funny-pub-quiz-questions-2020-hilarious-and-quirky-trivia-ask-your-online-quiz-plus-answers-2540427
+//  https://www.mylondon.news/whats-on/family-kids-news/take-really-random-questions-quiz-18168558
+//  https://www.stokesentinel.co.uk/whats-on/whats-on-news/ultimate-virtual-pub-quiz-with-4141015
 
 currQuestIndex = 0;
 currQuestStageIndex = -1;
@@ -34,9 +33,14 @@ tags = new Array();
 tempTags = new Array();
 showAll = 'ShowAll';
 defaultTag = 'Freebie';
+showTags = false;
 today = new Date();
 month = today.getMonth() + 1
 todayString = "" + today.getDate() + "/" + month + "/" + today.getFullYear();
+todayString = "" + today.getFullYear() + "-" + month + "-" + today.getDate();
+passwordEntered=false;
+password='letmein';
+showTagsURI='showTags=1'
 
 questionStyle = 'style="font-family:verdana;color:Black;font-size:30px;topMargin=10px;bottomMargin=10px"';
 answerStyle = 'style="font-family:Courier New;color:Black;font-size:30px;topMargin=0px;bottomMargin=0px;"';
@@ -44,9 +48,8 @@ previousButton = "<input type='button' class='userBtnStop' value='Previous' titl
 nextButton = "<input type='button' class='userBtnNext' value='Next' title='Next' id='Next' onclick='runNextQuestStage()' />";
 answerButton = "<input type='button' class='userBtnNext' value='Answers' title='Answers' id='Next' onclick='runNextQuestStage()' />";
 tagsButton = "<input type='button' class='userBtnStop' value='Categories' title='Categories' id='Categories' onclick='showCategories()' />";
-Table4ColumnStart="<table style='font-family:verdana;color:Black;font-size:30px;topMargin=10px;bottomMargin=10px' width='70%' border='1'><tr><th>1</th><th>2</th><th>3</th><th>4</th></tr><tr><td>";
+Table4ColumnStart="<table style='font-family:verdana;color:Black;font-size:30px;topMargin=10px;bottomMargin=10px' width='95%' border='1'><tr><th>1</th><th>2</th><th>3</th><th>4</th></tr><tr><td>";
 Table4ColumnEnd=" </td></tr></table>";
-
 quests = new Array();
 
 function getMonthName(index) {
@@ -75,7 +78,7 @@ questIndexBuilder = -1;
 quests[++questIndexBuilder] = {
 		name : "1920",
 		hoverover : "What do you know about 100 years ago",
-		tags : "saturday,2/1/2021,year,1920",
+		tags : "saturday,2/1/2021,year,1920,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
@@ -130,7 +133,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 quests[++questIndexBuilder] = {
 		name : "1920 Ins",
 		hoverover : "Who was born 100 years ago",
-		tags : "saturday,2/1/2021,1920",
+		tags : "saturday,2/1/2021,1920,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
@@ -195,7 +198,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
 quests[++questIndexBuilder] = { //84
 		name : "1954",
 		hoverover : "What happened in 1954",
-		tags : "saturday,7/11/2020,year,1954",
+		tags : "saturday,7/11/2020,year,1954,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
@@ -250,8 +253,8 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 
 quests[++questIndexBuilder] = {//quests[85] = {
 		name : "1954 Ins",
-		hoverover : "Who was born in 1954",
-		tags : "saturday,7/11/2020,1954",
+		hoverover : "Who was born in in 1954",
+		tags : "saturday,7/11/2020,1954,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
@@ -341,7 +344,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeSpotify,
 quests[++questIndexBuilder] = {//quests[87] = {
 		name : "1954 Movies",
 		hoverover : "1954 Movies",
-		tags : "saturday,7/11/2020,1954,movies",
+		tags : "saturday,7/11/2020,1954,movies,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,
@@ -390,13 +393,13 @@ addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,
 		answerimage : "https://lh3.googleusercontent.com/nxEHLEfxxsuUVDo_FH-Aioy1dM2iSJEbJ_7raSXnxzBIwCnRr33ZTxd7p8BgGXLFXdCyqZQLzn78yd0pY4mxeu3mIWhmmzeN8JafEVdPL2evdk0CiQnvXd251gp1w2Se67xlwe5O4ew=w1920-h1080"
 	}); 
 
-
-
+  
+  
 
 quests[++questIndexBuilder] = { //84
 		name : "1957",
 		hoverover : "What happened in 1957",
-		tags : "saturday,9/1/2021,1957,year",
+		tags : "saturday,9/1/2021,1957,year,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
@@ -440,7 +443,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 quests[++questIndexBuilder] = {
 		name : "1957 Movies",
 		hoverover : "1957 Movies",
-		tags : "saturday,1957,9/1/2021,movies",
+		tags : "saturday,1957,9/1/2021,movies,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,
@@ -486,7 +489,7 @@ addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,
 quests[++questIndexBuilder] = {
 		name : "1957 Ins and Outs",
 		hoverover : "Who was born or died in 1957",
-		tags : "saturday,9/1/2021,1957",
+		tags : "saturday,9/1/2021,1957,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this?",
@@ -552,9 +555,157 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeSpotify,
 
 
 quests[++questIndexBuilder] = {
+		name : "1963 Movies",
+		hoverover : "1963 Movies",
+		tags : "saturday,1963,6/2/2021,movies,InnerWheel,surfers",
+		questInfo: new Array()
+	};
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie", //Cleopatra
+		image : "https://lh3.googleusercontent.com/TJy1D_VTzgpE9mUkqPXCOCwT6DQnz-QoJeHAG5Tzr7uFM3UYmiFfuOhXAeKgBWcesCVkPDkqx4rU4KTSln8Osaq3hVwIfCtfWHxAk9JyjlQHeiAP91PeLC8Ou7b40m4HaAY7GkTWyDw=w1920-h1080",
+		answerimage : "https://lh3.googleusercontent.com/2YKzMO1eHVYmyrECUTaqTdiuxF6c1o9aUXqVNk9iJRa29KkK7RTq59dWgsmtWeAhjPsdNZrIbIQnen_Nhir-xGsAG_JrCuECA83rrgID3dnLkgSeLM81fM4_YJXxVajV_CS86tTv6QE=w1920-h1080"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie", //the birds
+	image : "https://lh3.googleusercontent.com/WK4Bo0ievK9sHRZNzGjzxrNbyGBAQWeqiDn3ByHL0PtpADTRp8H7V4Q3YCBgqDKUEScZpr75s2M1_xIv-hf1TeBY-KOJ8kChtkdfthG5jJ2Fo_GvaLb01KvICFjqjaQMBtGUcGEVuDo=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/0BAo4EWq7NYjXDb1gKHQqWvqVt5TNjVGW9jYdMUxlBDcxUPxg3h14-EjvfCMRewaY9edUP0q5_EKbXzi8okgk6_zYH9GxeeivE0H5VoE0PTmojVziUclzrpUSWLsFwYSS6DFWDoxJiY=w1920-h1080"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie", //Summer holiday
+	image : "https://lh3.googleusercontent.com/ejyp1w9rs9zIgA4Hol_t6n3lNHYXGaxuDMsVUD95JHa2GgE3G-yDVaSR6btYDDZ4sa9nu4jwD_a6_nUDYr9JpnbDSTn0ekW4cZC3ugufq9XO_lJGPIfRpLBmdNXdLpiWlB4PbhqWLqs=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/4VG6aROxRJlCqa77jCqHDtBeV903xEu7eoG_RKnSbpH8ltpxPmcDmigPhQvyIa2aY12RNQF1iSo1TVSqOWPJ1Ggvky9d3HBnJsS4XwhnOPCpSclM6ZYKgGOLKCxPbmzm4UHLtXk3gXk=w1920-h1080"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie", //Russia
+	image : "https://lh3.googleusercontent.com/hMpwbuMBrp8njZF0WyG-3leb4meZvyBXxmZC2kGCXR5xKObQZkVMZtCg635UKHv52uCHe0izEJZ_9XpBqDvRFAxq7D3YLmCn7UD0fSxTupGH7m_uNYhW80dwI6IfERBUzo9fFRpLZko=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/I3WDtR0KWoCQFu7Le6YHiNzWbFiYpZ8OylgdBnrzI0gKByJAFirqwGNmCIJEUcg2BWPLcxST-d8vfgBwO41WYOb2aqh9zkn38NrQii5VKdHXsYsU42JYIFNete-XuKjwrEDoaRzimtg=w1920-h1080"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie", //Escape
+	image : "https://lh3.googleusercontent.com/d2p91JGP0l1SAjFuxai0Md6CAznlnwnnCr1aVq35idqDJUvtoYPDFX_piYKFhIsRVJxlWrpuMDyB6s1zLXgDm7ACyOv-KV7k0r9tvxCIanXKHISwGoD2R6eMkZEU_uC67_vJSb-lTkc=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/b3tJaVaw3X8RW_vAo9HrXa0e6YDT67PxLw1mE700siLQ3V1pSSS8nHnvRhhf4h3Og9Y7ppNOmPAIGhVw6mAH8qOHE5gDmiPGW5mRnRIsrF1bxY0sMCNb6sOZpSfRLhI-ZnAuqHi5dxc=w1920-h1080"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie", //Servant
+	image : "https://lh3.googleusercontent.com/t6A0Xb5FQgsLg51rwDv8kzk_XKAeehUucdAtkICL3AQIRy7c4DGXbc1bzVc_RVCN4LoYX38DZ0uVO449N_ExLAghxZd7ylb1V7YYhZ68_jFk2rBVtZ46gTZP8WyNunwfCP69xT9H7Jc=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/gCqgJaw540fA5HhdFJPwREzBNLtsQs5e_ruEYRI12ISuk8pTQcPBbQScrRuZVNs42ctvIPb1XuemTtMXIysDPQ4FOt4_kPki1dalnUBxjtWg9ltA5LUXoUSViSI0_W6wzLGwdpwM7DA=w1920-h1080"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie", //Hud
+	image : "https://lh3.googleusercontent.com/bEx29Tzjt87e99eJThwYk2HKlbzPWBc-YR_VtUHi9XD6DIwj7eZO04Vf7TvkHV4NktzrEGj40IbnnpExznmYGBqhMDxOPFHfvHctgOxLuHNfeOjWVqki2JdId7i1p3hj6_urnoKMUw8=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/qk5GF2ufbACXsqBlZChsmJtUiITwXTGqVbNCAFBUH6uSDQacGsmYPBedrW4VmbnC3NzTlcyMC1PC9NRg-xBqUbt4Ecz9uAHFwe1gzr7Ef0eukWqPGT90At17IXkgxYf5FoAJgTOzUA8=w1920-h1080"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie", //Tom Jones
+	image : "https://lh3.googleusercontent.com/lPIuXwxehnklbr3NNs_BcDs84oPXgpz1MlxpMyr68Z2KlfmZg0_UygckpZGheKeb3tUONWdb-0BY8V13CLqsjM1zd2t0Ch3iWmC5zNEw7m2L-GO4MgGoneAFqhgb1qp2W7A9STZLro4=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/qEcEOc_xJerQQVIVHOiJ-giW15tIxWyILiav_djkk_zVtyqzrqCqoGPDmW44L-4HrMSMe9sagEEdr8Cfn0Sf045r2ry8C_NbbKxv9wlRkyBE3lsGKiOtGvLPk3xeQqqU8trqr_3KVdQ=w1920-h1080"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie", //McLintock
+	image : "https://lh3.googleusercontent.com/qpscgOOvittlNzZl87hNtHgRXCMOEtXdcheS2ltxAFZ2joWUaceP3mwhKOvQIg5TqbThM1pEsvX33Vjogjg2qxSjelNq1CakEPmdNsf2W-moGdMr8h5fxMdZm4-FLMSGw9Y2I5nkdd0=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/L9o4-OC58foFUy1czFuAZPbJLjDfSmP-lIB4vLhRj6FrXmAys_MnHu_3AMxGWQp6HlkhudS29ZYmmthE-xpHbhiin5FmBacWIZ7YNme7l_cAW_VpzgjdTO1of3diUC3uEgz6RQVFvNg=w1920-h1080"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie", //Stitch
+	image : "https://lh3.googleusercontent.com/hCTIH508C4giLVhMCdh8FKw3959EHXktyt5JMl_EMPrWr9b3RraVTPrOV09JIngzwkMe8STBc6JJboON2Mp_Z29StvHstGMmJ_X2IP00UTKAPCgP4UlDWiA6WD9tbXVS45CpZmYPRwA=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/umURaqVHDfP97AzzYEHRnINLLpYMdRev1FHyJb9IqUGChS9B1HZbvDmo6RxkChV3WP_a5O5oCYDjZgPqYNP6eClREbYFCM6bAAttKSQ_lYiiY2XMKP3R9HZH62GvUqowuMhS3DLC3Uo=w1920-h1080"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie", //Sword
+	image : "https://lh3.googleusercontent.com/qrq9B-voMaPjUbXZeHvOyrQovTMiTG6FNnWtcbWPlzNzurjDik4fPUWacnKynvU2pakv6E7-l1KyOF7nPT-p8jLwsv2Y_Dga8KhikLs4t1MHgS5C5_GMqlaLDS7Ipy-1tYmi7BxOZHM=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/6A3A_-lPXH_ZF4dS-cUaYdCV1-5MkudpViRXFok773A2yk-oNo3lEIV6ldregKPMcyBwHuFGPoFuUzJQaX8NjfyeoR-m7DtGv4EbIGbDOWS05a4od5T-AtL6zQ-VpaKo3umwDZClfNI=w1920-h1080"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie", //Cabs
+	image : "https://lh3.googleusercontent.com/KCwkqzEA38wyp9ATGbciRhCQnQWasXH0kuzRbEEheY8sbyqJ00KV4jL0_AkYJkDDBG7B5BBC92ZnvuJ0Bye_rjnpX4F24T3zn65z_4qhc0zbODE3EbsMB1UTe7npaOxHXxYTj73uOWY=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/C78WB86ctVnRFGUGPt-JxNrrCbNlR30bY-f1YzZRgr6asNMX4x6KM1jGjdfjuqyfo6vdbj9fOLkoylWu_DoYYSDQNo5y8RsM8uWyaV12r4f6aQVrvdwa7uF0azgs7U7KNFiJiGH7ppk=w1920-h1080"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie", //Billy
+	image : "https://lh3.googleusercontent.com/Cepx7oPtixdp8-U1NoXiOvKAWy2YfP5Jlhlat6r_FL4N5bXbCLdNRZOO7NmmEEBUwRZprAqTOrxqyGBuCP-U8QLKyH93mj7jynuofHIiGZA8BPgMEngaZcL-drzD4lhtkqEAQi6TLeY=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/vJAdek-NXA2yLofafh65igvRmg2vdDbmnsId6NehNPR0N77uwUoTBRtKO4m0vYuBqBCCp6qgPJKWmsy4eKVORF7McOWFwQRCOB7u_DwhblUItqykODBA6nBjXHZbjGg5dxS1S1jgxks=w1920-h1080"	}); 
+
+
+
+quests[++questIndexBuilder] = {
+		name : "1963 Ins and Outs",
+		hoverover : "Who was born or died in 1963",
+		tags : "saturday,6/2/2021,1963,InnerWheel,surfers",
+		questInfo: new Array()
+	};
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this?",
+		image : "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Alex_Kingston_Photo_Op_GalaxyCon_Minneapolis_2019.jpg/220px-Alex_Kingston_Photo_Op_GalaxyCon_Minneapolis_2019.jpg",
+		answer : "Alex Kingston"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Jerome_Flynn_2013_%28cropped%29.jpg/220px-Jerome_Flynn_2013_%28cropped%29.jpg",
+	answer : "Jerome Flynn"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Russelltdavies.jpg/220px-Russelltdavies.jpg",
+	answer : "Russel T Davies O B E"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Lisa_Kudrow_at_TIFF_2009.jpg/220px-Lisa_Kudrow_at_TIFF_2009.jpg",
+	answer : "Lisa Kudrow"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Fatboy_Slim_%282006%29.jpg/220px-Fatboy_Slim_%282006%29.jpg",
+	answer : "Fatboy Slim (Norman Cook)"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this (Extra point for his Grange Hill character's name)?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Todd_Carty.jpg/220px-Todd_Carty.jpg",
+	answer : "Todd Carty (Tucker Jenkins)"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Jarvis_Cocker_%282012%29.jpg/267px-Jarvis_Cocker_%282012%29.jpg",
+	answer : "Jarvis Cocker"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/David_Seaman.jpg/220px-David_Seaman.jpg",
+	answer : "David Seaman"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Sinitta.jpg/220px-Sinitta.jpg",
+	answer : "Sinitta"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Lena_Zavaroni_%281974%29.jpg/220px-Lena_Zavaroni_%281974%29.jpg",
+	answer : "Lena Zavaroni"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/en/a/a4/Caroline_Aherne_2001.jpg",
+	answer : "Caroline Aherne"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/DefLappardO2061218-51_%2849913641228%29_%28Cropped%29.jpg/220px-DefLappardO2061218-51_%2849913641228%29_%28Cropped%29.jpg",
+	answer : "Rick Allen (1/2 point for 'Def Leppard drummer' if the spelling is 100% correct).  Allen celebrated his 16th birthday with a performance at the Hammersmith Odeon, when Def Leppard opened for AC/DC."	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Dermot_Mulroney_2013_TIFF_%28cropped%29.jpg/220px-Dermot_Mulroney_2013_TIFF_%28cropped%29.jpg",
+	answer : "Dermott Mulroney"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this?",
+	image : "http://www.gstatic.com/tv/thumb/persons/1282468/1282468_v9_aa.jpg",
+	answer : "Andrew Ridgeley"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Meera_Syal_2017.png/220px-Meera_Syal_2017.png",
+	answer : "Meera Syal"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Sanjeev_Bhaskar_Asian_Awards_2015.jpg/220px-Sanjeev_Bhaskar_Asian_Awards_2015.jpg",
+	answer : "Sanjeev Bhaskar"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Ian_Wright_from_Lee_Dixon_interview_1.jpg/250px-Ian_Wright_from_Lee_Dixon_interview_1.jpg",
+	answer : "Ian Wright"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Eddie_%22The_Eagle%22_Edwards_in_Calgary_2017-03-05.jpg/220px-Eddie_%22The_Eagle%22_Edwards_in_Calgary_2017-03-05.jpg",
+	answer : "Eddie The Eagle (Michael Edwards)"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/James_May_Lancaster_University_2010_%28cropped%29.jpg/100px-James_May_Lancaster_University_2010_%28cropped%29.jpg",
+	answer : "James May"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Jos%C3%A9_Mourinho_in_Kyiv%2C_October_2015.jpg/100px-Jos%C3%A9_Mourinho_in_Kyiv%2C_October_2015.jpg",
+	answer : "Jose Mourinho"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Billy_Baldwin%2C_GLAAD_Awards_2008.jpg/100px-Billy_Baldwin%2C_GLAAD_Awards_2008.jpg",
+	answer : "William Baldwin"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Quentin_Tarantino_by_Gage_Skidmore.jpg/100px-Quentin_Tarantino_by_Gage_Skidmore.jpg",
+	answer : "Quinten Tarantino"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Graham_Norton_Crop.jpg/100px-Graham_Norton_Crop.jpg",
+	answer : "Graham Norton"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Julian_Lennon.png/100px-Julian_Lennon.png",
+	answer : "Julian Lennon"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/George_Michael_02_%28cropped_4%29.jpg/100px-George_Michael_02_%28cropped_4%29.jpg",
+	answer : "George Michael"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Whitney_Houston_Welcome_Home_Heroes_1_cropped.jpg/100px-Whitney_Houston_Welcome_Home_Heroes_1_cropped.jpg",
+	answer : "Whitney Houston"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Brad_Pitt_2019_by_Glenn_Francis.jpg/100px-Brad_Pitt_2019_by_Glenn_Francis.jpg",
+	answer : "Brad Pitt"	}); 
+
+quests[++questIndexBuilder] = {
+		name : "1963 #1s",
+		hoverover : "Oldies",
+		tags : "saturday,music,6/2/2021,1963",
+		questInfo: new Array()
+	};
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeSpotify,
+		question : 'Name the song & artist',
+		spotify : '<iframe src="https://open.spotify.com/embed/playlist/3V22L6FFehjhWgSiR0c9sl"  width="500" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>',
+		answer : "No answers"
+});
+
+quests[++questIndexBuilder] = {
 		name : "1964",
 		hoverover : "What else happened in 1964",
-		tags : "saturday,17/10/2020,1964,year",
+		tags : "saturday,17/10/2020,1964,year,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
@@ -601,7 +752,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 quests[++questIndexBuilder] = {
 		name : "1964 Ins",
 		hoverover : "Recognise these olduns",
-		tags : "saturday,17/10/2020,1964",
+		tags : "saturday,17/10/2020,1964,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
@@ -683,7 +834,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
 quests[++questIndexBuilder] = {
 		name : "1964 Movies",
 		hoverover : "Recognise these films",
-		tags : "saturday,17/10/2020,1964,movies",
+		tags : "saturday,17/10/2020,1964,movies,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
@@ -752,7 +903,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeSpotify,
 quests[++questIndexBuilder] = {//quests[112] = {
 		name : "1965",
 		hoverover : "What happened?",
-		tags : "5/12/2020,saturday,1965,year",
+		tags : "5/12/2020,saturday,1965,year,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
@@ -796,7 +947,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 quests[++questIndexBuilder] = {//quests[110] = {
 		name : "1965 Movies",
 		hoverover : "1965 Movies?",
-		tags : "5/12/2020,saturday,1965,movies",
+		tags : "5/12/2020,saturday,1965,movies,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 	addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",//Clint
@@ -837,9 +988,9 @@ quests[++questIndexBuilder] = {//quests[110] = {
 		answerimage : "https://lh3.googleusercontent.com/jmnoSh6YVkhGM7yJm8M3wEeWCbP6IKl_XILPsREpExapc2bgVDmC8iw1OBgK6s329gV08wpEDxzAop1pHMt9B2pvLDH1NKQmx3oejdkO-slzoWjshdvVwQtPo8RaNZvcUYSf5SM00Mk=w1920-h1080"	}); 
 
 quests[++questIndexBuilder] = {//quests[111] = {
-		name : "1965 Ins and outs",
+		name : "1965 Ins and Outs",
 		hoverover : "Who dies and who was born?",
-		tags : "5/12/2020,saturday,1965",
+		tags : "5/12/2020,saturday,1965,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -904,7 +1055,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeSpotify,
 quests[++questIndexBuilder] = {//quests[1] = {
 		name : "1967",
 		hoverover : "People born in 1967",
-		tags : "saturday,19/9/2020,1967",
+		tags : "saturday,19/9/2020,1967,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
@@ -948,6 +1099,53 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 		answer : "Nick Clegg"
 	});
 
+quests[++questIndexBuilder] = { //
+		name : "1967 Movies",
+		hoverover : "What did Julie stop Charlie & Josie seeing",
+		tags : "2021-2-27,movies,1967",
+		questInfo: new Array()
+	};
+
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,	question : "What movie", // Graduate
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3fkuGNAUdijUJAiuMkiu_WWBdG_bPlIhnetR9tQ4O-V3GYlBgHhN99TSUS9BtYlVJb2xzKLUA1hg-tKnA2PvQbOmLl6YvAsXIhWeBfiqq9tQBYuaFullhZQr4gh0zHSzES3hJ__nBOZOfA8IOdpXJa-EQ=w256-h340-no?authuser=0",
+	answerimage : "https://lh3.googleusercontent.com/pw/ACtC-3cJfkSUpeRl9X2JSIrg3wIiz49QQhyfU8nm67U8KoXfL8Wak-FVdp6D42hz69M5_ugqeCZSEcrQhdwyopHS0eYe5Nc61NCCuPW5NbChdicqVGHw2RjgilJkcqjGvfQNSp_0V2vyPC3szy8NFerfXi25uA=w256-h340-no?authuser=0"}) ;
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,	question : "What movie", // Plank
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3dXUvPfzSLCi200YOfDNK7dPOBUaenjEPvwyjj-FFZs5yx1dcvaSgRSWkrZY5dyKjZBGgXaoZg66qx_23toi7CODwocQBRwW67uftlrznaBMp2c7oxXcjBqQEz-7XuMUxWoFb5ddBijwr9NOD8Npcfh0A=w256-h340-no?authuser=0",
+	answerimage : "https://lh3.googleusercontent.com/pw/ACtC-3dE4wY4JMnJ8uPju6SF0b37G3r-BX2jsUL5GXEELoYzY0_bNjN5At7WsBFZxcWfyZmTEQSczjR25B-n5x4ygkBHzIFkueLuNrp2LNisEPbNterYi-fi2C5qb7u1XhhxhyOkm5JullkZ_lhHpwDunO2UvA=w256-h340-no?authuser=0"}) ;
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,	question : "What movie", // to sir
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3cAFJhu4ojdJu3pldb4-DUQhi0swVgOBXbsBuqrKUiDG2rIH65DD4-zCFJ2ZFYOca5ea3MgzSrj7ze-Sof68-tabd55v55JXoNG591l45aGK_iD7BV-Rdh7Fjv_Lfs9c67YAmTO0G4sO3WlOv4MtHSNcw=w256-h340-no?authuser=0",
+	answerimage : "https://lh3.googleusercontent.com/pw/ACtC-3ckrzO3ML-njjjdcIvf9o1kR2-L5zzV3xls20FsR10mVMEGjmlnRNgscq0h5OYZlx2f6lZbhpXyMV_oPT6A0MOuOV5vkxiscI7DvnDrOLjiP3aTmx9o0jR_Y2SWdoc5xITvliF4ut3fN_fsH5egC6-gtQ=w256-h340-no?authuser=0"}) ;
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,	question : "What movie", // Luke
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3esvMbaJd3zMlfH1_HNrsUIVbWxW7nDDdUW8zaFsLlJD4kjE3pEU2mMG5dPDl5V1SYOymYnLGjTnlTztXQyqh_fxtUFlrJNdkcf995r37a2OtN9QpJ319MapfSpwr__4nlLw0Y51UKWjervY2d7k632Qg=w256-h340-no?authuser=0",
+	answerimage : "https://lh3.googleusercontent.com/pw/ACtC-3dwwwCiZUcvHA34MS5PnKhbJxQXNu4UuZxx8-OXe4cCvyNe67MFxEJXns_T6WWFXNB-HyXn5ZSQfTQIeGMJkTen7tSU6zapej3drWmazB2Lhvd8VESsMl33BYhoLVqK-8uRnUQXvcyh9tMh5xsEPEgLJg=w256-h340-no?authuser=0"}) ;
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,	question : "What movie", // DOzen
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3f8Tr50ZzkQGFGp2z2BKKdr4iw41OQgY2R1-szQObFAnwOCL1wif-i87XegohMr4SWG6lAXazFiHZNVRwZwFb74Y9Z-y9oOpcZROzeUMZ1b98QP62b2NgzLxspXYh1uBoU2OVYjvQfU8sRTVnNB0pGzLA=w256-h340-no?authuser=0",
+	answerimage : "https://lh3.googleusercontent.com/pw/ACtC-3etr_4Vg3KphPU4zq2mnVfeBNXJZVTk6zcNVSEUkaFeCgRUWpb2VglI16hM3S4sJ2Ig-9zXvmQ5Uf05RPT7mh1Cp2L3XaMrcvFC09Kk_98cy7hZ67MxbpJTo3LAJJDCC1ELp1snbJD_2PGACOGU4tJgQA=w256-h340-no?authuser=0"}) ;
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,	question : "What movie", // Dolittle
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3fi98C0E_FUqv6XZb-QaCeOm8YNy44TBjJmHB3ZjoWnh99j03TAvxFWsrHuTX8A1E2K98hULXGmHes3UxPzzNOCMbS_Fk04LJ7ZRO5DPsUTj2QcJHYUMH6X9vEdNYU-haaxhOJRNoiYsPrC1gcjGWbNhw=w256-h340-no?authuser=0",
+	answerimage : "https://lh3.googleusercontent.com/pw/ACtC-3dqy6FsmowPQltRvfpJBpzkyjivX_SqDm3qCwtQ3lM-AdwZFsBm7o6qZce3nZ8tFaKcWV3EI0_6gnY4akd8aTmldd_ecS2kJudCaE56i-MNWKyoltiRdg-zNzZPgmHkyg6Yi219fUo6oGf-_cS9-MGbow=w256-h340-no?authuser=0"}) ;
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,	question : "What movie", // 6
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3cEUVWt0PvppKICA8-VM4o9WX-NmHPPJ1f2Mmq3iTmvrfqdmnBFu9QqC9wtDd_Sx39bZEBOprTIIhzWVYVLH2jg4I_vRlp5OpW16CdLPdVy09WGoqwLZLmJD8ejeeeXBjMdoD4jJgvKrVuLVuZt9N6xNg=w256-h340-no?authuser=0",
+	answerimage : "https://lh3.googleusercontent.com/pw/ACtC-3fsjvvWW45MRavXCvtZxiI6QzFAUY2XpwWIsAGnucHyP_MMLmYzCBO1V_70IHQCPA4AylzGrwZDx3APSCFUkIG4FfD1qS6loNxYGWsCNYiEAk-l0SApg2m9XKAXvmSk-OEc1KW2xjuywm1GyIYs0yQnqg=w256-h340-no?authuser=0"}) ;
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,	question : "What movie", // Shrew
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3ebTRFoba46GY0Z70Vojpd3ur6XVqwM9u6F6X6U1Mp2_juUP7jgZG-GQTqoWiNiX43CdNp-7y2cEPVTirHOTcwpOvJUr26hU4BBHZDEQIQ2PAi6XfPUwNVu1FHmH_-xQohG7tnd6QiovWIsqiQj7S7Dtg=w256-h340-no?authuser=0",
+	answerimage : "https://lh3.googleusercontent.com/pw/ACtC-3cU9_yQT5vr2HXbOFHPCuSlsbtlVBj1kYdIPrQO0heA0yruYtBHBc_1wFaBbu2MhIjkCe8QUql9IkOB7BPyVbqs14Lgf-5gkzwSGaezxZOwE1CGoJ2Zgs3-YEzfmlv_KhZJyx3FTUYgnDgSZrIAFviUIQ=w256-h340-no?authuser=0"}) ;
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,	question : "What movie", // Jungle
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3d_-iORZryyZyvm20vzb_2wzvMUPgFow4wQT9LEsBoCEifXPh-yRTJQB4jBvg7rnROigPWi5EDHbHXmhVQaNKVOLHSy9k4c1v-IK90and3aIOXfCssUZWSGjtrBcfgNnwTmmqYDuKZZpIQPY99ynInxRA=w256-h340-no?authuser=0",
+	answerimage : "https://lh3.googleusercontent.com/pw/ACtC-3eblNUdf36CAHDlNjD91jQkRTCwDXYR2E4BRNpYQP2-DXUpeYuZEKVTIuW-7tLCxAQfJ44V-wi5AXWgjl9YtBhFmSaSl_qKKVkmhAHMrTvaALIDjCI8Pc1CIrmYkrc_EBGct6ibq-bndFeRTiO3UdM6XQ=w256-h340-no?authuser=0"}) ;
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,	question : "What movie", // Camelot
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3cU0LCF5o1iCr6nP5iBzbal9adVWL03UZc7Jabtf6LVgRoiBI2Ai0E0EPoL61UneEJG8FPjrcevMlx0gjl_6yIEG4BeTQ62vid7khFY_8zubxtZxBgzBVe8Vqx6cyFdyQY8WdBgAiH_sIQ3twg7wLC9OQ=w256-h340-no?authuser=0",
+	answerimage : "https://lh3.googleusercontent.com/pw/ACtC-3fdxC_sZ2HkB9nabvprvoKKKpybImGFbP-zQsQds28zLZaOnyQjn0yGylSlScJopp6gSAxuVI2KyXuGnRqA1f9GDSXZeJgcZITuQCS7ki2CH5yGXRHxBlbPcwi7xZrOm27TGCBWjXt-b0wYBnzfK31bCg=w256-h340-no?authuser=0"}) ;
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,	question : "What movie", // Park
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3dg4c9AwfoJ0jsTwpkKc5Lkn4fKEnFlcezFRnNusser2rg4tZre_ewyQ4nCvrOd4KdDZz0lwnal2khmCd1NfhLRpk9yUzP6NGLKpmoJ_nceikBuxxR3CjRE3AZa8EgBfLjYrM3MIuAFuyscb-K6a00YDQ=w256-h340-no?authuser=0",
+	answerimage : "https://lh3.googleusercontent.com/pw/ACtC-3fOYQUW_zucscEkMOiMmW0GXruyHlzGL44JOH1H8MTMU0WRqrUlxuSCjCqHf9OAk56_bQRIb4VvSPR40_2LribWCFjB6cjy9nfRAI_9ObforwfDlEiIwv8X_MNSkCGKPvdMuN9Xy6Fgqnyu6UgJaubzWA=w256-h340-no?authuser=0"}) ;
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,	question : "What movie", // Millie
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3d5Bi8abN7Y6bpPrr8OAZOqGGdtJvxM5j45LI9CVS1zh3dG2qEW-0-DLzFRzco0NnjzROmozUtIslfoT9eKgtTODn5TKkkDJpLuOdsZZdRza2DE22l8GAvyqWx2BYyw6ftVVeQoEh7ep-0l9m8hRPHiFA=w220-h323-no?authuser=0",
+	answerimage : "https://lh3.googleusercontent.com/pw/ACtC-3fiov85bA37FezNyqd1eZVavj2obQ5BoSeDfV_vA6KmejWhGcCg9Q5aXPTtAynqeOxnRu9N-9JrLcmyCOzbPzXcETdTjPdGP6ZOGZv55gdS84H17JA4miO7IC5nzpThv5bNCQ3gwkyomKLFnq8ZIfd9GQ=w220-h323-no?authuser=0"}) ;
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,	question : "What movie", // Head
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3enQPDrGm5q0gINlDxw7tl_y5NkuLZ62_pVovzY74DmV5e1mfcf2RYBCtzOcnVL1k_ZHAcU6kxT92c7jxibx9Q08MH6Ieyxuy7mnGN3J8RUZMC_iLuaeDIR2GhWIV4N4xRpfm6aMLLK8qWTIiDqhdwfPA=w256-h340-no?authuser=0",
+	answerimage : "https://lh3.googleusercontent.com/pw/ACtC-3e6QTroXbU2W7pjKgFUlNYwFim-uFjj9Mf9iebzrWs53NVd1UiA3JopHGgqqREJai0SemBadEC8V335fG22QmGA-6Cdu0ojNALvDjN6roGIQVGj-QC9_6db1ZXjpWiB41uULrLOgS5z0FoIosmaWfz2sw=w256-h340-no?authuser=0"}) ;
+
   
 quests[++questIndexBuilder] = {//quests[69] = {
 		name : "1967 #1s",
@@ -977,7 +1175,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeSpotify,
 quests[++questIndexBuilder] = {//quests[97] = {
 		name : "1970",
 		hoverover : "What happened",
-		tags : "saturday,21/11/2020,1970,year",
+		tags : "saturday,21/11/2020,1970,year,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 	addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
@@ -1029,10 +1227,68 @@ quests[++questIndexBuilder] = {//quests[97] = {
 		answer : "Richard Branson, with the Virgin Group"
 	});
 	
-quests[++questIndexBuilder] = {//quests[98] = {
+
+
+quests[++questIndexBuilder] = {//quests[99] = {
+		name : "1970 Movies",
+		hoverover : "What did you all watch",
+		tags : "saturday,21/11/2020,1970,movies,InnerWheel,surfers",
+		questInfo: new Array()
+	};
+ 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
+		image : "https://lh3.googleusercontent.com/T7wldmo2ePyVQ_-OH53CgMgh-Z6dKEEiLyIunI5T05_RwvAQB5CbKKxI103RTd-fr9eJe0hkg0dk18MRPlqJz6hIMM-tlkb03tf1feE9R32zNNp0DbXTVT5vSQJbwfet7MHDNhPuk80=w1920-h1080",
+		answerimage : "https://lh3.googleusercontent.com/5QjacHiuL3UjcfIj20OanCfIeG3-dP-UccjBtAYSBpd11yJ-7Gy-RwX3cFSAMekVNUDEZ6tcoZtrhmhO97FKFCVJPdY40lmxXb_JYWcsvd6tTnQApI0DAKZs7MJYaoU4mPCogUzxtTc=w1920-h1080"
+	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
+		image : "https://lh3.googleusercontent.com/DJUVjkzLRvuDC_44bIlbZ7LEL0w1eYqqiJykX5msM5hvWfj6hbYcB6SttZQD74LO6UhpHC7t-KEzVzmohTidpmugGnHkzTUETerN7hwXYMS7Lw9HymTfY3RM6fi9ZNizlapjHfz0ccs=w1920-h1080",
+		answerimage : "https://lh3.googleusercontent.com/KLQ8b0QErgCaS5k8XHrZLIOJNiqpwj4Rs98Tw_2sk1Rm9yHkW2B5EeZAiA_53uBJRBilrhUrjwbRJNYAKc3uj3DVPi_hCzfnjZI4QrZ1dfdKKTkDc6xV74OYsm8J5aQDB5xtPBwwlcQ=w1920-h1080"
+	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
+		image : "https://lh3.googleusercontent.com/dAFWdKzj7Rve0F21c8SEbEr57422OW2OI3oziMtgomb-fCaU06PWQHoGYvXraOvQO2NOmBzfhVEfWtK3b55uebUvfr1-bdwDjuAIzUmUSn6MkgYUk69WTRKbjGH1RI1dvFWNgpoHzI0=w1920-h1080",
+		answerimage : "https://lh3.googleusercontent.com/XygGXMQTj7MeUN3M2ezrXB5TlQ2Dw-yQ4YOKPJ0FLE2vQV4d_L_fNWNHj9clK2Q6cE-oLsgOhOiWrQ3VII4p5kw3wv9Sa9oGrB54Gu5sGr7vPPAZtRgjt2M1aEPiBcTttgCgvKXV9UY=w1920-h1080"
+	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
+		image : "https://lh3.googleusercontent.com/JlJKdUB1tlTy5sB2Lh0dgPLpCMsL56SwmWqjKS3w8BgKO2tFQgcdLFnVLwzIDsqXJH2ukDQ_Ure8B_Rj7P1N-nQgQNwcwZoXl_XD4ekJEqkLYjHWoa_2fd-WRjXPHwtZha5-63Ro2iQ=w1920-h1080",
+		answerimage : "https://lh3.googleusercontent.com/AyAkiyfm7qrBXG-Px4DwH0yZ4C_wT9JdqtkbnXLEcuT6kK2qa2PSGLtm8agisadb_sqRvm3uywV6qYTQ9jmNjt0vcRczrpnJ6kxJI0g5nlmkVPBVZlRzIv6yj74gd9lqAyQQCNY8suY=w1920-h1080"
+	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
+		image : "https://lh3.googleusercontent.com/uIIqDYu98iybAaGDdMvNAa2P-CMGTCw1UzXsPwQtItu7C2r_28k6aB_EENFBoF6L7ijdMUaBticGyrD4jhehULbGB5PDLVkq0SXV2ELgfzmZBnqOrtLAzaKJ2MNjZP4PPN3I8XXXg5o=w1920-h1080",
+		answerimage : "https://lh3.googleusercontent.com/tI_bJvuUwHbJcc-A4HkzmVS5B8qL7jbX517bltuhoQcbXhKl1XM1MRmOXHSwmLoKe8-hRZR5PSQ1uTLJtKUdwhymuJT1jZCWVCNjCvTFv36GX5VPsAAC5VAufweS64gkYnVQfKCqN3M=w1920-h1080"
+	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
+		image : "https://lh3.googleusercontent.com/li6FfbsV6XR8pJA2RZxS8i4Jvamsz5v3-9GCDRGkANBIbf0MKmhWADiA64WVN-JBEnNBMKAHQ3lRxiRBWeGH6EDzBsdtxsk_iZRNu0z7XBH85s5Js-YPiHKCLiOyJmMGbkh7TYY_Oms=w1920-h1080",
+		answerimage : "https://lh3.googleusercontent.com/KsHZ0ymyzybfYX5DJkkGQs94q2W3uajq7rrE5J_Vw7b4T0zDwX97-BjeOoy3gt7lXSpZtBWxyPg2WcztcyvE5NPsTUX90jFHfhaAjfVEuD9RcKVc6lpUirw1wSCw7CGEIdtgqCaniig=w1920-h1080"
+	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
+		image : "https://lh3.googleusercontent.com/wQKiCQ-oTDmjnUAvZMuABgGS1kbxFYPSzqbBeLB3cNbKhA8Rxtlww1Q4be_pqba5WtBhZRLbmV9gaPowiDC7HBR10S2njBeHGcJ4azRBtoXJ90jZJvSFmXADVFPcta9s1Tp-vb6a--o=w1920-h1080",
+		answerimage : "https://lh3.googleusercontent.com/adQrUBvOTRYNhdxlrzqYH2W6yzRJ1IqCODpyhr7Le5Rimxsu5NK75qFJHluhS27iBOZkobTd88T_aAEGG4-qtHCaTng8mhNBM8DGz7at61eyFYqcPtYoK6MGttEzUs19ytWhMosmE5w=w1920-h1080"
+	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
+		image : "https://lh3.googleusercontent.com/WNfWymvmV9CGxxtyBq3cyXGh8tXFDTZHTSvKfR5sCYfO8igmzBLlhuB59P7nzJALtgTOlPergT9eKRfK5Fcw4ZdkzEfHjQD6_oHmUfaMe_Qr4PKX86b62I1XKXZ1niy65eKTnweyli0=w1920-h1080",
+		answerimage : "https://lh3.googleusercontent.com/B35DhhRmg9AXoqx_grC_4xTRCDAEDc1Mr6yUnV0Qq-yZOwBZ1Xgi0oFoE10xD1hT7zELVEyluQX4JqNVZgNQmRHlnIA3eBvcS9mKSRmwYR7TPyKddZIZpa_ykmHErwVi-9cDWoesm2g=w1920-h1080"
+	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
+		image : "https://lh3.googleusercontent.com/iqZFXXaBFEXAbQf8-ySgIv8l4qMURweNFFU5H0C3R_gMZkjGqYq2qkyzfAdTL4Plq5n7CgBcMZZYdqa5Ssd8TduVlOQflmkPNPVBJ9m2uF9QIeBRgRHsfYt2tij-ANIveS7DsSU1aUo=w1920-h1080",
+		answerimage : "https://lh3.googleusercontent.com/RpEmib-SGXIAqVVz3X78LuvsMLNUiS5yGBwItSqBsTNR-VqjF3Ce3kxpNiNl8PC_YQrPhC6HYLJvYolr5U5AAW3aWUfiTCJg66_PIU_PVibPLsz3julYnsUQkFUkn_cDJ-gFXra8glg=w1920-h1080"
+	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
+		image : "https://lh3.googleusercontent.com/hlimIud3FIOCKfqC9zO0QPbOHjnXh81UfnZu24toF3E6Ja-rFzU2DA8qk7vEfbPXR_TJD7i8rsPON2hXBpJOZCo3usGdseoMOtT2LwkfpIWfUMMsHu7ixaRaWLzzSHBxjsk1Mdev3qw=w1920-h1080",
+		answerimage : "https://lh3.googleusercontent.com/RcOS_2hrMs9kyADlWXpxAud8ZhvR25Xt1XAKUNH7DIGvE8fAbOkF3flKv2txxyFzQUJd4UO5rvnuws6xruZmtEDCN7iFOlj0x-j73Zqzkfusv_ihvIpw_X4ZX2KcTqASwl5pBYwhZe0=w1920-h1080"
+	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
+		image : "https://lh3.googleusercontent.com/SQkk_5zjmJpn-Q0ofKcdMJyu6KR6QjZr3QpF6m2tRbkjLx06sTL8MLB22FuOc4tEUNC1RvIPUNZSZyrX_8s6QSkMzpGl8vtcNwJIPea0vtSRyvuIgQ4AYkJdfJauc0somU5cH-M4yWY=w1920-h1080",
+		answerimage : "https://lh3.googleusercontent.com/XtzyYdL9YRpGah5Z5yXJhXsRGKkCzvuEx2JxYLGbFmmsCamNI_jpWk883i9gCP6CcGGJ9A4eHsZAuuKJFmhksUAB01cHUISZYGsWOLLVMDzivLPLFxJyCVcuZ3kX1-XPO7rGxFTDWqI=w1920-h1080"
+	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
+		image : "https://lh3.googleusercontent.com/3LmtyOLwTmDL_m5bli3pcTq-i2tQV0LQZGt98SrebmLLgaDi1sV-otZRTy5Qmniys7RWvqw0V3o5UoC8GRPH-AYSc8QUNK8jHY8L2XBRscPhBlUxaM5N6k3KlljaSvH9mZvzW0zIGvk=w1920-h1080",
+		answerimage : "https://lh3.googleusercontent.com/hZ01fgDoauojFshcaOc_p0-XWQopVVsRsavgrNw6ISUEMYUTwsnn_w0zRXq6HbpQLUhYFmlqiQrIanz8TuGQ2RrPQ0S0L7_K7WKS7edsaXwvGCSfO8aAgNyyuBYx_LvqKXvwEwFsgr8=w1920-h1080"
+	}); 
+  
+  quests[++questIndexBuilder] = {//quests[98] = {
 		name : "1970 Ins and Outs",
 		hoverover : "Who dies, who was born",
-		tags : "saturday,21/11/2020,1970",
+		tags : "saturday,21/11/2020,1970,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -1085,62 +1341,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question :
 		image : "https://lh3.googleusercontent.com/f85hV2zXcxOjALPzXEKaZiyrsw49UJCJt_f_ond3eFIUS6tUay9QXGrcJotiP05k75Pi3Ossko1RL24R-lfnJd9MyLHyElp7jugqBF5vOSXrnXLVyRzwmJvDSAoDsyHUbbqJY-T0MBs=w1920-h1080"   ,
 		answer : "Charles De Gaulle"	}); 
 
-
-quests[++questIndexBuilder] = {//quests[99] = {
-		name : "1970 Movies",
-		hoverover : "What did you all watch",
-		tags : "saturday,21/11/2020,1970,movies",
-		questInfo: new Array()
-	};
- 
-addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
-		image : "https://lh3.googleusercontent.com/T7wldmo2ePyVQ_-OH53CgMgh-Z6dKEEiLyIunI5T05_RwvAQB5CbKKxI103RTd-fr9eJe0hkg0dk18MRPlqJz6hIMM-tlkb03tf1feE9R32zNNp0DbXTVT5vSQJbwfet7MHDNhPuk80=w1920-h1080",
-		answerimage : "https://lh3.googleusercontent.com/5QjacHiuL3UjcfIj20OanCfIeG3-dP-UccjBtAYSBpd11yJ-7Gy-RwX3cFSAMekVNUDEZ6tcoZtrhmhO97FKFCVJPdY40lmxXb_JYWcsvd6tTnQApI0DAKZs7MJYaoU4mPCogUzxtTc=w1920-h1080"
-	}); 
-addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
-		image : "https://lh3.googleusercontent.com/DJUVjkzLRvuDC_44bIlbZ7LEL0w1eYqqiJykX5msM5hvWfj6hbYcB6SttZQD74LO6UhpHC7t-KEzVzmohTidpmugGnHkzTUETerN7hwXYMS7Lw9HymTfY3RM6fi9ZNizlapjHfz0ccs=w1920-h1080",
-		answerimage : "https://lh3.googleusercontent.com/KLQ8b0QErgCaS5k8XHrZLIOJNiqpwj4Rs98Tw_2sk1Rm9yHkW2B5EeZAiA_53uBJRBilrhUrjwbRJNYAKc3uj3DVPi_hCzfnjZI4QrZ1dfdKKTkDc6xV74OYsm8J5aQDB5xtPBwwlcQ=w1920-h1080"
-	}); 
-addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
-		image : "https://lh3.googleusercontent.com/dAFWdKzj7Rve0F21c8SEbEr57422OW2OI3oziMtgomb-fCaU06PWQHoGYvXraOvQO2NOmBzfhVEfWtK3b55uebUvfr1-bdwDjuAIzUmUSn6MkgYUk69WTRKbjGH1RI1dvFWNgpoHzI0=w1920-h1080",
-		answerimage : "https://lh3.googleusercontent.com/XygGXMQTj7MeUN3M2ezrXB5TlQ2Dw-yQ4YOKPJ0FLE2vQV4d_L_fNWNHj9clK2Q6cE-oLsgOhOiWrQ3VII4p5kw3wv9Sa9oGrB54Gu5sGr7vPPAZtRgjt2M1aEPiBcTttgCgvKXV9UY=w1920-h1080"
-	}); 
-addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
-		image : "https://lh3.googleusercontent.com/JlJKdUB1tlTy5sB2Lh0dgPLpCMsL56SwmWqjKS3w8BgKO2tFQgcdLFnVLwzIDsqXJH2ukDQ_Ure8B_Rj7P1N-nQgQNwcwZoXl_XD4ekJEqkLYjHWoa_2fd-WRjXPHwtZha5-63Ro2iQ=w1920-h1080",
-		answerimage : "https://lh3.googleusercontent.com/AyAkiyfm7qrBXG-Px4DwH0yZ4C_wT9JdqtkbnXLEcuT6kK2qa2PSGLtm8agisadb_sqRvm3uywV6qYTQ9jmNjt0vcRczrpnJ6kxJI0g5nlmkVPBVZlRzIv6yj74gd9lqAyQQCNY8suY=w1920-h1080"
-	}); 
-addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
-		image : "https://lh3.googleusercontent.com/uIIqDYu98iybAaGDdMvNAa2P-CMGTCw1UzXsPwQtItu7C2r_28k6aB_EENFBoF6L7ijdMUaBticGyrD4jhehULbGB5PDLVkq0SXV2ELgfzmZBnqOrtLAzaKJ2MNjZP4PPN3I8XXXg5o=w1920-h1080",
-		answerimage : "https://lh3.googleusercontent.com/tI_bJvuUwHbJcc-A4HkzmVS5B8qL7jbX517bltuhoQcbXhKl1XM1MRmOXHSwmLoKe8-hRZR5PSQ1uTLJtKUdwhymuJT1jZCWVCNjCvTFv36GX5VPsAAC5VAufweS64gkYnVQfKCqN3M=w1920-h1080"
-	}); 
-addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
-		image : "https://lh3.googleusercontent.com/li6FfbsV6XR8pJA2RZxS8i4Jvamsz5v3-9GCDRGkANBIbf0MKmhWADiA64WVN-JBEnNBMKAHQ3lRxiRBWeGH6EDzBsdtxsk_iZRNu0z7XBH85s5Js-YPiHKCLiOyJmMGbkh7TYY_Oms=w1920-h1080",
-		answerimage : "https://lh3.googleusercontent.com/KsHZ0ymyzybfYX5DJkkGQs94q2W3uajq7rrE5J_Vw7b4T0zDwX97-BjeOoy3gt7lXSpZtBWxyPg2WcztcyvE5NPsTUX90jFHfhaAjfVEuD9RcKVc6lpUirw1wSCw7CGEIdtgqCaniig=w1920-h1080"
-	}); 
-addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
-		image : "https://lh3.googleusercontent.com/wQKiCQ-oTDmjnUAvZMuABgGS1kbxFYPSzqbBeLB3cNbKhA8Rxtlww1Q4be_pqba5WtBhZRLbmV9gaPowiDC7HBR10S2njBeHGcJ4azRBtoXJ90jZJvSFmXADVFPcta9s1Tp-vb6a--o=w1920-h1080",
-		answerimage : "https://lh3.googleusercontent.com/adQrUBvOTRYNhdxlrzqYH2W6yzRJ1IqCODpyhr7Le5Rimxsu5NK75qFJHluhS27iBOZkobTd88T_aAEGG4-qtHCaTng8mhNBM8DGz7at61eyFYqcPtYoK6MGttEzUs19ytWhMosmE5w=w1920-h1080"
-	}); 
-addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
-		image : "https://lh3.googleusercontent.com/WNfWymvmV9CGxxtyBq3cyXGh8tXFDTZHTSvKfR5sCYfO8igmzBLlhuB59P7nzJALtgTOlPergT9eKRfK5Fcw4ZdkzEfHjQD6_oHmUfaMe_Qr4PKX86b62I1XKXZ1niy65eKTnweyli0=w1920-h1080",
-		answerimage : "https://lh3.googleusercontent.com/B35DhhRmg9AXoqx_grC_4xTRCDAEDc1Mr6yUnV0Qq-yZOwBZ1Xgi0oFoE10xD1hT7zELVEyluQX4JqNVZgNQmRHlnIA3eBvcS9mKSRmwYR7TPyKddZIZpa_ykmHErwVi-9cDWoesm2g=w1920-h1080"
-	}); 
-addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
-		image : "https://lh3.googleusercontent.com/iqZFXXaBFEXAbQf8-ySgIv8l4qMURweNFFU5H0C3R_gMZkjGqYq2qkyzfAdTL4Plq5n7CgBcMZZYdqa5Ssd8TduVlOQflmkPNPVBJ9m2uF9QIeBRgRHsfYt2tij-ANIveS7DsSU1aUo=w1920-h1080",
-		answerimage : "https://lh3.googleusercontent.com/RpEmib-SGXIAqVVz3X78LuvsMLNUiS5yGBwItSqBsTNR-VqjF3Ce3kxpNiNl8PC_YQrPhC6HYLJvYolr5U5AAW3aWUfiTCJg66_PIU_PVibPLsz3julYnsUQkFUkn_cDJ-gFXra8glg=w1920-h1080"
-	}); 
-addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
-		image : "https://lh3.googleusercontent.com/hlimIud3FIOCKfqC9zO0QPbOHjnXh81UfnZu24toF3E6Ja-rFzU2DA8qk7vEfbPXR_TJD7i8rsPON2hXBpJOZCo3usGdseoMOtT2LwkfpIWfUMMsHu7ixaRaWLzzSHBxjsk1Mdev3qw=w1920-h1080",
-		answerimage : "https://lh3.googleusercontent.com/RcOS_2hrMs9kyADlWXpxAud8ZhvR25Xt1XAKUNH7DIGvE8fAbOkF3flKv2txxyFzQUJd4UO5rvnuws6xruZmtEDCN7iFOlj0x-j73Zqzkfusv_ihvIpw_X4ZX2KcTqASwl5pBYwhZe0=w1920-h1080"
-	}); 
-addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
-		image : "https://lh3.googleusercontent.com/SQkk_5zjmJpn-Q0ofKcdMJyu6KR6QjZr3QpF6m2tRbkjLx06sTL8MLB22FuOc4tEUNC1RvIPUNZSZyrX_8s6QSkMzpGl8vtcNwJIPea0vtSRyvuIgQ4AYkJdfJauc0somU5cH-M4yWY=w1920-h1080",
-		answerimage : "https://lh3.googleusercontent.com/XtzyYdL9YRpGah5Z5yXJhXsRGKkCzvuEx2JxYLGbFmmsCamNI_jpWk883i9gCP6CcGGJ9A4eHsZAuuKJFmhksUAB01cHUISZYGsWOLLVMDzivLPLFxJyCVcuZ3kX1-XPO7rGxFTDWqI=w1920-h1080"
-	}); 
-addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
-		image : "https://lh3.googleusercontent.com/3LmtyOLwTmDL_m5bli3pcTq-i2tQV0LQZGt98SrebmLLgaDi1sV-otZRTy5Qmniys7RWvqw0V3o5UoC8GRPH-AYSc8QUNK8jHY8L2XBRscPhBlUxaM5N6k3KlljaSvH9mZvzW0zIGvk=w1920-h1080",
-		answerimage : "https://lh3.googleusercontent.com/hZ01fgDoauojFshcaOc_p0-XWQopVVsRsavgrNw6ISUEMYUTwsnn_w0zRXq6HbpQLUhYFmlqiQrIanz8TuGQ2RrPQ0S0L7_K7WKS7edsaXwvGCSfO8aAgNyyuBYx_LvqKXvwEwFsgr8=w1920-h1080"
-	}); 
+  
 quests[++questIndexBuilder] = {//quests[100] = {
 		name : "1970 #1s",
 		hoverover : "What did you all listen to",
@@ -1156,7 +1357,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeSpotify,
 quests[++questIndexBuilder] = {//quests[74] = {
 		name : "1974",
 		hoverover : "What happened the year Pam was born",
-		tags : "saturday,24/10/2020,1974,year",
+		tags : "saturday,24/10/2020,1974,year,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -1213,7 +1414,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 quests[++questIndexBuilder] = {//quests[75] = {
 		name : "1974 Ins",
 		hoverover : "Who else was born the year Pam was born",
-		tags : "saturday,24/10/2020,1974",
+		tags : "saturday,24/10/2020,1974,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -1293,7 +1494,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeSpotify,
 quests[++questIndexBuilder] = {//quests[114] = {
 		name : "1976",
 		hoverover : "What happenend?",
-		tags : "12/12/2020,saturday,year,1976",
+		tags : "12/12/2020,saturday,year,1976,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -1338,7 +1539,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 quests[++questIndexBuilder] = {//quests[115] = {
 		name : "1976 Movies",
 		hoverover : "What did you watch?",
-		tags : "12/12/2020,saturday,1976,movies",
+		tags : "12/12/2020,saturday,1976,movies,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -1376,7 +1577,7 @@ addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question
 quests[++questIndexBuilder] = {//quests[116] = {
 		name : "1976 Ins and Outs",
 		hoverover : "Who was born and who died?",
-		tags : "12/12/2020,saturday,1976",
+		tags : "12/12/2020,saturday,1976,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -1438,7 +1639,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeSpotify,
 quests[++questIndexBuilder] = {//quests[90] = {
 		name : "1980",
 		hoverover : "What happened",
-		tags : "saturday,14/11/2020,year,1980",
+		tags : "saturday,14/11/2020,year,1980,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -1490,10 +1691,59 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 	question : "who is murdered outside his New York City apartment building, the Dakota?",
 		answer : "John Lennon"
 	});
-quests[++questIndexBuilder] = {//quests[91] = {
-		name : "1980 - Ins and Outs",
+
+quests[++questIndexBuilder] = {//quests[92] = {
+		name : "1980 Movies",
+		hoverover : "What did you watch",
+		tags : "saturday,14/11/2020,1980,movies,InnerWheel,surfers",
+		questInfo: new Array()
+	};
+
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
+		image : "https://lh3.googleusercontent.com/KX55CoCiuyioq7Isfz8iMemisPSBSBINkn-fCISSTti4h3Yd68_h3Q-_kk34M7fZt_4cTHSubNi3NwQD1LBY7b5BnZbkuTemaZBuJkOIFC3FU4KWagcFQTJKPrIlAmwJ7GYChEDUXHQ=w1920-h1080",
+		answerimage : "https://lh3.googleusercontent.com/S21TOYIIoGjuejC5LaAG-T51C__xS2KsU5g1L2pK-0tuAN2Rn8ozeMNm6rx6l_WOWcfCdMt7a8kkF7VAoXpWAH5W6iIhW76y31HqQcjvO5sHzRKCWv9SYq56gA4x1DMuZJ1uLpBLal8=w1920-h1080"
+	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",//Elephant
+		image : "https://lh3.googleusercontent.com/ISOX0_CR8DKVwBPR8iXzeQkEdclL4jt5rcaj6pTJeDSQAj5JqSkqS3WsabxH8RkWAsA0Nen_aGMRLSG04VoeBwLL9KUGMBhN2TCyPVE_rhVP4pzUC053UZKM3AMajk5QcuKJe5sn368=w1920-h1080",
+		answerimage : "https://lh3.googleusercontent.com/jh24961vzymQTt1_XimVQWbop_6tSNAEprWl9QHqk-8zQf8ZU1sg7jWCDv03AyhtlhrI4MSA1xRTZbKzI74YwCb5QKvPHHhmW9Y2hWr9FSDbKXfWGKV7k4q73mCyEVKRXukxRzeLtuA=w1920-h1080"
+	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie", //Fame
+		image : "https://lh3.googleusercontent.com/d96l9k5iBelg2maJXGEMA3Yf-MEo7snokMaKpRpqVRI9qiK2yh0N__VdV8nEzJqJSu5WkUXaT5mtx1XFOf-gbp8sGG6HpXylY-sb-zuYU7uipbzhAw_UHqB9wzM1_tCa_IX40-uIBMA=w1920-h1080",
+		answerimage : "https://lh3.googleusercontent.com/O1i5s5NvUQuE7dlVuics2rIhS1-3Af6exlRiDi3BqrIpgGqRSUkCOgpMOmQaGAHjxHkZpu0yFuaZxQdY4GMc-_-yVQqCqs-O4QOwkGCgLWhJTHfl3kp8Bf8UXkMPvgOInMtCKTAYCfo=w1920-h1080"
+	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie", //Blue
+		image : "https://lh3.googleusercontent.com/m1Eqt947RiOrY_P_h7jEzfSMJ7lTnOaNhFaYZ7LXLdEsfr43jo3zA789Aies-_pAJkSniyvlAdeiXTshgFmBZyarmcAzZzkl06tNbBczbmJTjH7s1vTHc5VcUC2MYO7r61h-sWWTqq8=w1920-h1080",
+		answerimage : "https://lh3.googleusercontent.com/cMFb61gV5XGkXXjEKZTy44lIwict9xynNJ_81riv8sVpUkRH3y5IuwC1cVgeYY-ji6Hmrl3iPfKMHg4ep8OmgA2qj8Yih5skcwxyvWH76XUTsp-7i3im00W52NziDK1SOmM2bmkfxCM=w1920-h1080"
+	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
+		image : "https://lh3.googleusercontent.com/D_TGtk7Z0ggxhbppfUPrDktElH1_f4m2VBagXR3U6SFRY28wOXdAsZPrJS8O_ztdnGj9iLVfZ9TEJ0xPwlaJjOwFFAd6HItMqDgRz4qqnfImcgs-qkaVJT1ROglyJZ-TekEJ62AFDeA=w1920-h1080",
+		answerimage : "https://lh3.googleusercontent.com/JWy_2cXvqUN1hTZ_7nyKPJSeB0tE4KBG1DaOkGNASz6EiXPS3DePTrKCojx7VgDxDVNZM0iJ3rxNniKXHj4iO-dyTkFTfEY4ELEoxuVS2IbXughDJjy1MDQIe9Jhz7PRdIJ5ectqeCo=w1920-h1080"
+	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
+		image : "https://lh3.googleusercontent.com/k2WnYFiOalHl1e22uxRgshtVQvZgE-9Yzx2vaaJxfA2y8PnuF0LDP-zVVzT01eAbxkGoxllgdHXPgCSwVzqxudVP9t8RAybWlzQTNDb5TaGNYxVogIQbNSilICf4A9AUhsKpp2PDtuk=w1920-h1080",
+		answerimage : "https://lh3.googleusercontent.com/xAllWQjWMfU04aHjAC5a5eFK0yGMExxOHNIabIKhALKz5nmYdB8SncX3U2jArTT4ONetwPozWleq3QVduSOK-l2ZirJgbNuNX_PiQPIrzxcJCwxKVfBHbjYHuQvOgYgjY6UK8DRrzIU=w1920-h1080"
+	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
+		image : "https://lh3.googleusercontent.com/UDmen2rFEsi2H-UqdheLFSDDIhoQewEaH1kqYBYdEoRT9txYfp7K6oR3PeI6qvA0lJqeW8O57QHnhbvi_dPunJsAVvpXD5V31pKYp5Kuaa6BNBX3BHBsFH4tUbejUDLStKVPze-J6ZI=w1920-h1080",
+		answerimage : "https://lh3.googleusercontent.com/PwMg5pBNOcdh3Jb3W9wTBYjIbLzX1TszABi0rc4JrEgrrr6TciRwdqI5Mgw4TQ1j_06LO_oa7osb430-9vci_vYYkSkG_JzNdTzBdJvv4I-ws6ZzX6O3T1dY7cVWQiCMt0VWTSWyqak=w1920-h1080"
+	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
+		image : "https://lh3.googleusercontent.com/o76-WF3DXtJMlaF70TZcwfcAFicdO7KPEpGGkCcZmcEw-evhHoBBxQPFS9nB70UiwfXmNREhPBjwGvYCFmF-k7sE6NzSA2yKxVcSufpSA3uvQZzYsXbp65bZyQJuORLwSHAstgwOKbM=w1920-h1080",
+		answerimage : "https://lh3.googleusercontent.com/xoX2tufH4iY64PGfALjN7gWcn7r198VEbYzUBQwPEYfkEbACQdQnhxKqJPsMxV1MJGvUR6Y8dsVCeWrnL9_0jRwc0F7jbXr_0uBZtesnF9lkgJaNlJGVj-IqliHLOMRPCjVSW9Wm_Ng=w1920-h1080"
+	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
+		image : "https://lh3.googleusercontent.com/x2thibzjD6OSGZRCR0-TOTYk2E39TbfyPAaYwZF25XaKjYpketx5eaH0tI937yFr5Y9gLgZ2ubElIqbkfBylKFySomhCDEql5u5RGYtmNLTNG0Swt48N2OMZCFEdXtlu8UVoEBsCzQg=w1920-h1080",
+		answerimage : "https://lh3.googleusercontent.com/aUzA_-DWMdDkQ3s3PlxVXGaFWEEqE9zEuniOIRQngUQQIuZQl8u3HJ3SFZcF7ETjMI4oh2dZnNw2-r7NhDSR0PFGcvyr9w_iVkTKU3dm97ODSr9fjc61iCw8F2aVPFqDmywSwaJCe6E=w1920-h1080"
+	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
+		image : "https://lh3.googleusercontent.com/enKgiVPixyskIMi3oavP6_l8jDj42cdx2HgR0dR0W0pspEC4I5qZzXa6i9MUOxYVCBC_1KHSkOf5GE_ReODWTw3PKC1WMvhoDVEak6y-is5ocQFBfbAptx2uczsGfrIPXnQ862ssSNY=w1920-h1080",
+		answerimage : "https://lh3.googleusercontent.com/USz7M0xLpeblKdejoisrwuorvibDgql7cm1q_5yLvgUKDQo594k27p-JPezcwX6XTEDNCCpI3DexkPBMTyr9ehcRDillLynp6jbG7Kju2OIQVvckEMhXo2po_eXTJpAPPGrJ83AZhpg=w1920-h1080"
+	}); 
+
+  quests[++questIndexBuilder] = {//quests[91] = {
+		name : "1980 Ins and Outs",
 		hoverover : "Who was born & who died",
-		tags : "saturday,14/11/2020,1980",
+		tags : "saturday,14/11/2020,1980,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -1557,54 +1807,6 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question :
 		image : "https://lh3.googleusercontent.com/OJ8ebI4-sOVYycCD054PF7bNLeiVYBPprbid9qdT2JO5iDWsYQlYa5p3AFkIXKGHcgSnRxxd4vL_o1OjW7rHDbFnJHYrnMRNimanvhgJEwOHes4QonU7g84GWilzPqIwtaXrWJGi6jk=w1920-h1080",
 		answer : "Colonel Sanders"
 	}); 
-quests[++questIndexBuilder] = {//quests[92] = {
-		name : "1980 Movies",
-		hoverover : "What did you watch",
-		tags : "saturday,14/11/2020,1980,movies",
-		questInfo: new Array()
-	};
-
-addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
-		image : "https://lh3.googleusercontent.com/KX55CoCiuyioq7Isfz8iMemisPSBSBINkn-fCISSTti4h3Yd68_h3Q-_kk34M7fZt_4cTHSubNi3NwQD1LBY7b5BnZbkuTemaZBuJkOIFC3FU4KWagcFQTJKPrIlAmwJ7GYChEDUXHQ=w1920-h1080",
-		answerimage : "https://lh3.googleusercontent.com/S21TOYIIoGjuejC5LaAG-T51C__xS2KsU5g1L2pK-0tuAN2Rn8ozeMNm6rx6l_WOWcfCdMt7a8kkF7VAoXpWAH5W6iIhW76y31HqQcjvO5sHzRKCWv9SYq56gA4x1DMuZJ1uLpBLal8=w1920-h1080"
-	}); 
-addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",//Elephant
-		image : "https://lh3.googleusercontent.com/ISOX0_CR8DKVwBPR8iXzeQkEdclL4jt5rcaj6pTJeDSQAj5JqSkqS3WsabxH8RkWAsA0Nen_aGMRLSG04VoeBwLL9KUGMBhN2TCyPVE_rhVP4pzUC053UZKM3AMajk5QcuKJe5sn368=w1920-h1080",
-		answerimage : "https://lh3.googleusercontent.com/jh24961vzymQTt1_XimVQWbop_6tSNAEprWl9QHqk-8zQf8ZU1sg7jWCDv03AyhtlhrI4MSA1xRTZbKzI74YwCb5QKvPHHhmW9Y2hWr9FSDbKXfWGKV7k4q73mCyEVKRXukxRzeLtuA=w1920-h1080"
-	}); 
-addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie", //Fame
-		image : "https://lh3.googleusercontent.com/d96l9k5iBelg2maJXGEMA3Yf-MEo7snokMaKpRpqVRI9qiK2yh0N__VdV8nEzJqJSu5WkUXaT5mtx1XFOf-gbp8sGG6HpXylY-sb-zuYU7uipbzhAw_UHqB9wzM1_tCa_IX40-uIBMA=w1920-h1080",
-		answerimage : "https://lh3.googleusercontent.com/O1i5s5NvUQuE7dlVuics2rIhS1-3Af6exlRiDi3BqrIpgGqRSUkCOgpMOmQaGAHjxHkZpu0yFuaZxQdY4GMc-_-yVQqCqs-O4QOwkGCgLWhJTHfl3kp8Bf8UXkMPvgOInMtCKTAYCfo=w1920-h1080"
-	}); 
-addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie", //Blue
-		image : "https://lh3.googleusercontent.com/m1Eqt947RiOrY_P_h7jEzfSMJ7lTnOaNhFaYZ7LXLdEsfr43jo3zA789Aies-_pAJkSniyvlAdeiXTshgFmBZyarmcAzZzkl06tNbBczbmJTjH7s1vTHc5VcUC2MYO7r61h-sWWTqq8=w1920-h1080",
-		answerimage : "https://lh3.googleusercontent.com/cMFb61gV5XGkXXjEKZTy44lIwict9xynNJ_81riv8sVpUkRH3y5IuwC1cVgeYY-ji6Hmrl3iPfKMHg4ep8OmgA2qj8Yih5skcwxyvWH76XUTsp-7i3im00W52NziDK1SOmM2bmkfxCM=w1920-h1080"
-	}); 
-addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
-		image : "https://lh3.googleusercontent.com/D_TGtk7Z0ggxhbppfUPrDktElH1_f4m2VBagXR3U6SFRY28wOXdAsZPrJS8O_ztdnGj9iLVfZ9TEJ0xPwlaJjOwFFAd6HItMqDgRz4qqnfImcgs-qkaVJT1ROglyJZ-TekEJ62AFDeA=w1920-h1080",
-		answerimage : "https://lh3.googleusercontent.com/JWy_2cXvqUN1hTZ_7nyKPJSeB0tE4KBG1DaOkGNASz6EiXPS3DePTrKCojx7VgDxDVNZM0iJ3rxNniKXHj4iO-dyTkFTfEY4ELEoxuVS2IbXughDJjy1MDQIe9Jhz7PRdIJ5ectqeCo=w1920-h1080"
-	}); 
-addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
-		image : "https://lh3.googleusercontent.com/k2WnYFiOalHl1e22uxRgshtVQvZgE-9Yzx2vaaJxfA2y8PnuF0LDP-zVVzT01eAbxkGoxllgdHXPgCSwVzqxudVP9t8RAybWlzQTNDb5TaGNYxVogIQbNSilICf4A9AUhsKpp2PDtuk=w1920-h1080",
-		answerimage : "https://lh3.googleusercontent.com/xAllWQjWMfU04aHjAC5a5eFK0yGMExxOHNIabIKhALKz5nmYdB8SncX3U2jArTT4ONetwPozWleq3QVduSOK-l2ZirJgbNuNX_PiQPIrzxcJCwxKVfBHbjYHuQvOgYgjY6UK8DRrzIU=w1920-h1080"
-	}); 
-addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
-		image : "https://lh3.googleusercontent.com/UDmen2rFEsi2H-UqdheLFSDDIhoQewEaH1kqYBYdEoRT9txYfp7K6oR3PeI6qvA0lJqeW8O57QHnhbvi_dPunJsAVvpXD5V31pKYp5Kuaa6BNBX3BHBsFH4tUbejUDLStKVPze-J6ZI=w1920-h1080",
-		answerimage : "https://lh3.googleusercontent.com/PwMg5pBNOcdh3Jb3W9wTBYjIbLzX1TszABi0rc4JrEgrrr6TciRwdqI5Mgw4TQ1j_06LO_oa7osb430-9vci_vYYkSkG_JzNdTzBdJvv4I-ws6ZzX6O3T1dY7cVWQiCMt0VWTSWyqak=w1920-h1080"
-	}); 
-addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
-		image : "https://lh3.googleusercontent.com/o76-WF3DXtJMlaF70TZcwfcAFicdO7KPEpGGkCcZmcEw-evhHoBBxQPFS9nB70UiwfXmNREhPBjwGvYCFmF-k7sE6NzSA2yKxVcSufpSA3uvQZzYsXbp65bZyQJuORLwSHAstgwOKbM=w1920-h1080",
-		answerimage : "https://lh3.googleusercontent.com/xoX2tufH4iY64PGfALjN7gWcn7r198VEbYzUBQwPEYfkEbACQdQnhxKqJPsMxV1MJGvUR6Y8dsVCeWrnL9_0jRwc0F7jbXr_0uBZtesnF9lkgJaNlJGVj-IqliHLOMRPCjVSW9Wm_Ng=w1920-h1080"
-	}); 
-addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
-		image : "https://lh3.googleusercontent.com/x2thibzjD6OSGZRCR0-TOTYk2E39TbfyPAaYwZF25XaKjYpketx5eaH0tI937yFr5Y9gLgZ2ubElIqbkfBylKFySomhCDEql5u5RGYtmNLTNG0Swt48N2OMZCFEdXtlu8UVoEBsCzQg=w1920-h1080",
-		answerimage : "https://lh3.googleusercontent.com/aUzA_-DWMdDkQ3s3PlxVXGaFWEEqE9zEuniOIRQngUQQIuZQl8u3HJ3SFZcF7ETjMI4oh2dZnNw2-r7NhDSR0PFGcvyr9w_iVkTKU3dm97ODSr9fjc61iCw8F2aVPFqDmywSwaJCe6E=w1920-h1080"
-	}); 
-addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What movie",
-		image : "https://lh3.googleusercontent.com/enKgiVPixyskIMi3oavP6_l8jDj42cdx2HgR0dR0W0pspEC4I5qZzXa6i9MUOxYVCBC_1KHSkOf5GE_ReODWTw3PKC1WMvhoDVEak6y-is5ocQFBfbAptx2uczsGfrIPXnQ862ssSNY=w1920-h1080",
-		answerimage : "https://lh3.googleusercontent.com/USz7M0xLpeblKdejoisrwuorvibDgql7cm1q_5yLvgUKDQo594k27p-JPezcwX6XTEDNCCpI3DexkPBMTyr9ehcRDillLynp6jbG7Kju2OIQVvckEMhXo2po_eXTJpAPPGrJ83AZhpg=w1920-h1080"
-	}); 
-
 quests[++questIndexBuilder] = {//quests[93] = {
 		name : "1980 #1s",
 		hoverover : "What did you listen to",
@@ -1620,7 +1822,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeSpotify,
 quests[++questIndexBuilder] = {//quests[78] = {
 		name : "1984",
 		hoverover : "What happened this year",
-		tags : "saturday,31/10/2020,year,1984",
+		tags : "saturday,31/10/2020,year,1984,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -1676,7 +1878,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 quests[++questIndexBuilder] = {//quests[79] = {
 		name : "1984 Ins and Outs",
 		hoverover : "Who was born and who died",
-		tags : "saturday,31/10/2020,1984",
+		tags : "saturday,31/10/2020,1984,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -1739,12 +1941,12 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeSpotify,
 		spotify : '<iframe src="https://open.spotify.com/embed/playlist/2lPZ2VRu358yvn6n6p7rza" width="500" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>',
 		answer : "No answer"
 	});
-
+  
 
 quests[++questIndexBuilder] = {
 		name : "1986 Ins and Outs",
 		hoverover : "Who was born and who died",
-		tags : "saturday,30/1/2021,1986",
+		tags : "saturday,30/1/2021,1986,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -1788,28 +1990,116 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question :
 	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Harold_Macmillan.jpg/100px-Harold_Macmillan.jpg",
 	answer : "Harold Macmillan"	}); 
 addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this coming or going?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Rachel_Riley_2011.JPG/220px-Rachel_Riley_2011.JPG",
+	answer : "Rachel Riley"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this coming or going (in the middle of the photo)?",
+	image : "https://lh3.googleusercontent.com/HEtB6uy43DyOjEr2plrG5LuzU-1KTU3ebmPMzOM521vIBpGJdZan4ostbvccdBx9YyEG-pLh1EKxMDjHEYD80E-oK_0DSrigYXnIqTyImMSL9AkXZLpsc2bqyYYE47llAWL1Qi8eIPo=w1920-h1080",
+	answer : "Charlotte Church"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this coming or going?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Alex_Turner_%28musician%29_2011.jpg/220px-Alex_Turner_%28musician%29_2011.jpg",
+	answer : "Alex Turner"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this coming or going?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Jenna_Coleman_facing_front.jpg/220px-Jenna_Coleman_facing_front.jpg",
+	answer : "Jenna Coleman"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this coming or going?",
+	image : "https://upload.wikimedia.org/wikipedia/en/thumb/e/e2/Actress_Pat_Phoenix.jpg/220px-Actress_Pat_Phoenix.jpg",
+	answer : "Pat Phoenix"	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this coming or going (on the left)?",
+	image : "https://www.britishclassiccomedy.co.uk/wp-content/uploads/2015/07/4d12aa49088c2f5d68fa074dd5b7c957-750x400.jpg",
+	answer : "Dustin Gee"	});   
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this Queen of the North coming or going (extra point if you know who her black and white Grandfather was)?",
 	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Oona_Chaplin_2016.jpg/100px-Oona_Chaplin_2016.jpg",
 	answer : "Oona Chaplin"	}); 
-addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this coming or going?",
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this King of the North coming or going?",
 	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Richard_Madden_by_Gage_Skidmore_2.jpg/100px-Richard_Madden_by_Gage_Skidmore_2.jpg",
 	answer : "Richard Madden"	}); 
-addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this coming or going?",
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this coming or going (for a while he had to sit down to go)?",
 	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Alfie_Allen_by_Gage_Skidmore_2.jpg/100px-Alfie_Allen_by_Gage_Skidmore_2.jpg",
 	answer : "Alfie Allen"	}); 
-addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this coming or going?",
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this Queen of Dragons coming or going?",
 	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Emilia_Clarke_by_Gage_Skidmore_2_%28cropped%29.jpg/100px-Emilia_Clarke_by_Gage_Skidmore_2_%28cropped%29.jpg",
 	answer : "Emilia Clarke"	}); 
-addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this coming or going?",
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this guy that knows nothing?",
 	image : "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Kit_harrington_by_sachyn_mital_%28cropped_2%29.jpg/100px-Kit_harrington_by_sachyn_mital_%28cropped_2%29.jpg",
 	answer : "Kit Harrington"	}); 
 
 
 
+quests[++questIndexBuilder] = {
+		name : "1986 Movies",
+		hoverover : "How much do you know about 1986 movies?",
+		tags : "30/1/2021,saturday,1986,InnerWheel,surfers",
+		questInfo: new Array()
+	};
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,	question : "What movie", // stand by me
+	image : "https://lh3.googleusercontent.com/cO26wKZUgdWF7WcABockhs6KLBjG8rtbIiyS-mZ17nQD5DgcUdGNYF5f028RSerP2VLqLBn9x8wq0BWFAyPsO8ywnMDIr82aSfYiogi8oGkBDdGHWZROZupW4DIGtcNhli8srlpCWco=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/Y9nzo0u5qYkKwfU4WHABx4ZeEdjFYeHPkJYDrgnXaYt8LLQltdWShEDri6isw4tyNXWpENF7kI1FfRtPygV2n-B1fcH0Xxq1WnCHMOUTDjjrM5rBJQnNO02YwchvObRGutKIWtfmUeU=w1920-h1080"	}) ;
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,	question : "What movie", // pink
+	image : "https://lh3.googleusercontent.com/gpjqGplCX4klfKrcIkj-9D3ZdhOgax7FmihKLZw0mIBpxl7wFCuRBLR6wP9MRVfZLKhpf8WP9h-7Drksc6bgg7jrg8yBYxQGg5jw4Txa6AG1WMm0s2bi7mmu7x1dBDZ31TNU9zVJ7aA=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/RBbe4n_TU_R-qHqJu6ddxODtfqh9vEwE9WhOS8Gf_FqzabFkHaKB7FDt1fGR6rKP-Ao8c4KebHtLaBbAM6bme-J6leqZ1AmwM275gNNLofIYQyyQdLm_t-HvDOuCOUGyDmrTJfbjWfQ=w1920-h1080"	}) ;
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,	question : "What movie", // money
+	image : "https://lh3.googleusercontent.com/86P7gfr-TvuaE1KE6p-AB_mIjreKcoXf8YC0xEaI_fi1FHHiYu2_tiqXIKQjmHmcz-NIsYTOh3EQb_nI91vdZmWVOWZPwLUXBweQ7GiOBZryQusUm0g4SdwyUkyZ7BoRiDywD3BIU5w=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/_nRNQGN6ktQtjE6g4MUlBvvmg6tc1Q945a93j3bRw7-oRRkmlMk47HiLhsRiqKAGAfnnCf9I9WPGrwZiODZvJRcptnuBu62QwCwHWPRWUR8V1xNMfM48JWgYZuifcrRF1Rcerrg5oqA=w1920-h1080"	}) ;
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,	question : "What movie", // amigos
+	image : "https://lh3.googleusercontent.com/cqd6AT4m_iTqp1lhouI59NygiF357SfAobP3ZlmBF0Aosip-i8IhcaPdgDPlGMa19B3ZVO_cDwDps7pPM_paoZMaBi8VWnsQ_l04UqhAWRTTO_8vyEWyG5hhYSilY7znxramRzOZdWc=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/8fjrxuDAABUXI1GIZ5kEVxYpDPqA2beSreYFXMKiDqyXjRjYr4kV-m2kqj-tKhFtpBn4SnROSYnfSdoeCQed88S5WRn_ryVzV1YO0O6YYBPKoXViad-noyThsOVGK1EAAkTqG6ayP-M=w1920-h1080"	}) ;
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,	question : "What movie", // little shop
+	image : "https://lh3.googleusercontent.com/FdFg0iBDYVjELU-5rwLhLeJ3kCtQOP5HnsJIQgZj08786svCvxsAFWD-WgWuUDXoPatUvKwLj7HxgWQRR8VaO_zp5IBECPLKtMnv4WEkdnVqFVwuVMU8fo89Y4sfNXsKQV5Omvdk-3s=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/bO6TsJ0s5iK9nr4DmQaoVv8YNP5pvFv-vimRciHYmPzQbvIm9fNAa8vwOod729A8wt9j8b_0qEGxf_7y0_60kMeqORVSYG0dlDIMEJZTHjYEkJxi5klzwxwX9y9IOGp0TOfnyO0dBNg=w1920-h1080"	}) ;
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,	question : "What movie", // top gun
+	image : "https://lh3.googleusercontent.com/u0QmfEq3_Js8GqVVUq9tRx-7VhWLK59DvwsjO-oY8nF3oGwBfZ1vUkDEICp_49DKPO0agqEXoJ93953aVaWdA5iC97Nq4W15wEFS4bvhRU9D8X2mlH-0wube4ZZWTKcy7eHk2cOnNSs=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/WqjOOP1SUI5Il9ActavGaggMDNlKUyDM0nZcRDOVPY9l12zjQULqkrQGoS_DKLaYARLQV32u74Q7tnMxUXgS7upjifSXkUlGTL_cHob6H51D81i_WgwbsZQW16bD91SyD59Qas3S8Tg=w1920-h1080"	}) ;
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,	question : "What movie", // ALiens
+	image : "https://lh3.googleusercontent.com/jxWGx3JRqJqhUYLmKUjpUXirrIpZClyjcl3ktargQbiGPd0WW8qhPYwlYLZWsOp-ohHCXJdVCAvJVhehOPyEr_A_R2cjjLrt2pM5Ls-sD_lsbBwDeS2KLsUdTOptGIrMWaBl3Rf78Zc=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/nv9-14fXRqUAia4O9X-MDh7QqYcXsML3SQrbVgGr8SemEZ8Q6RyjKmQy066RiwYIvuVJvR4iU50Dcgfem9ye8K2pHeLqk-zrkm1HEG1_AQr7VhVSkBm6DnMPf4dPNfRQeoLJnYmWjhU=w1920-h1080"	}) ;
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,	question : "What movie", // ferris
+	image : "https://lh3.googleusercontent.com/Fo9o-PRL-XYroCqaH_IWn9fUXsgkRdVfcXraOeEtQBpufZehMC35dQxgoUSiw9jPHdq5C_UpvWUCKS4EI9WSqPaZlohzGKOj090p6KQwd1Tv7n_XrpxIpPkFZ-qFiATVUrx-KkVv45A=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/7HXPDmNFy-tQ5nowhjk2nBt6p6nAXhCgsN_FV1g3cSD2eQa-SJiTKSfVEl6nU14OcHtXoXWx5U7bsaOyue_EDSXkf0NWfK0RahlrVjC7DeS_6OM6r9SAKRbTvBLuSQe2XtIUZgoMu_g=w1920-h1080"	}) ;
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,	question : "What movie", //  karate
+	image : "https://lh3.googleusercontent.com/ho60fjmjlKEByILCFpYlVwHxvC7_HHKTc3ZAzH1UhHRrPFjxMX5D1W6NwRgorN-6HGWhVMNaG6M2NEwn5ZNiT_d0gQ4nWrvtA0Z2aBqjP6fu1e5h-QfVFxOO9T50irDdykgxdEGLgTw=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/2-Q_hycGt1uZQCzBPEpVdR16-b2vL1Lxec1CDrvltCqcFTM-OQ2PQIgSVmpvX6FA0LWFpezHBhJGtQ5xSdkVYNWr5oSrfmD-Lktq3q-saD1abWfWebXWE43suTAvTopzYNbaBXquL9s=w1920-h1080"	}) ;
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,	question : "What movie", // fly
+	image : "https://lh3.googleusercontent.com/o3peess6vU3e1T2majcz69-3VjAGeoakrW0mfn0KWySbi-aVkjxI34a-gU-C62BpOSy6F993iZEvvtTLxTsTidLijV1QXNAXzODIeazJcp7nflZ2DTFUrkwZiNmcj1F3v720jG00Gvg=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/Y1gG0uYjyfE6CUwepNcRagul2cl37KXVBhIBkYeaALVkpiotVbI85nHEsGMGLrWosov9MhzlWpbhEFzavnuT9ye7KWTthf1qgNILY3MPWg2bZkAl5XotkLg246cjTc5tAHt6k_uMwc8=w1920-h1080"	}) ;
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,	question : "What movie", // jumpin
+	image : "https://lh3.googleusercontent.com/BWfXwARbzpxlZRvccrLNWrEE7z2v2GvfMmjVwtDwruRKLQmRbYTCU-TuZHbwGHf0wOiz-mNhddsQPo9GEqtqN3fRJDJTucBe4dpSqgiZngD-1laiQOVQ2v3nqwLilEk56wFcJ-ljsws=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/Dzvv66CstpMh-Q7stYafi0_ATRDYyRPBiZRptzHjAc490C3hsVzuEvEzyCp7IKQRUPBhoS8tgzBqhi_Tb6q6ebZTLWrbwxC_gGlYRXZ7rP1IpxIfppiwZppkpCTvqkFd88rNtb44x-Y=w1920-h1080"	}) ;
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,	question : "What movie", // mona
+	image : "https://lh3.googleusercontent.com/0SG7pM77UBqR8mykWeOS4pTI1S7X4vZKc9A_WOZCQZ61hnDQw0RJO9JBqT2k7uwXSBHFEF50IRHeQyH4_F94-4P1c5MVUoMc_sHKJHYcoipdxa3q7jjA5PB0_6T5Z0m1cxZbKdN_IRo=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/e_sZ1QliJNJtCgb9UWipLGkQkv5ar5D-OUhFNc3vIT0XYRuey8MKCOYR1MOR1uBlVxLbjAVnJ4a9xkNIyDWr2BM-YTRc_v6IwX2it6NCMZ7-cfXrAA0Dz9iV3QnPdcnv6wGHe5nIV4I=w1920-h1080"	}) ;
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,	question : "What movie", // duck
+	image : "https://lh3.googleusercontent.com/1IQOiyowjO9yMVRjjWBGVMXu4w4igmwkuzrBINt30CJ2XED-rjQe5iXUhYR5LCUeMiZUf2KoBPF9wYRlsQvdDLG9gybyLKZG-RnD14-A0WGHwGpF-LbydwVFsXAxbYJF5SYE2c-L7N4=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/kD63DRP-aq4eYqrC08Ew4GeYnYvHzSkQFUMPiHMur_mrjFfJdGzrF3eIqy7ZAy76GcJnFx0eJiCuhx9PEglGWlvTOw868pFD8GJmAfb7oZF7zVRGNabXfU3OyQUlVHuTaTGSMHNO7kI=w1920-h1080"	}) ;
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,	question : "What movie", //wind
+	image : "https://lh3.googleusercontent.com/ssijTkLBoAl8erbHvcMN0C0Ozxa7OVmew1GSt9vi8AcAtXO8NEoZCQeu4Yb8jLRaAb37e5nrZROMMBVKcvt3wpVqGfu1pnMDlBN_Njp08emwWGyACTvoyvWJzBbsrkWmLzl83ZRuIQ4=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/gW7IDqOTq5srZHp2lzENGyzgW9Xi9wjrxTxkHOYm7xSSBpm2VHxcVAKFaxI3XLzeReV0mNcTJ5kPe6a_GHzdv8t1ZjQygQSlIDxH7OcahpNZX8sZ_qZMkVOGLPJVRfawGfRauzyDlgk=w1920-h1080"	}) ;
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,	question : "What movie", //dundee
+	image : "https://lh3.googleusercontent.com/PDDCpy_SvLyXx8xaBx9tQKtpxR7qym_lwU2vLntQLyi4yWMtonTW1gVpKao4XDnLaZ8Q8ectp5oSWu9iX7mi1YUX0pdJM9Evyd0KGYfyyVg7yGq2t_Yvu3JjCk4TmCNk5AvAFvZsE6M=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/3CWYCREyFTITU31Mk8rdWLVQcYkoiFUaOWCTNdPgl7dQv8TNVzpGgPNjIhR5KC_mzShJusaSOWPddNW3wvcnkOKrclxrPNZTAV1pvfFNlyjg_G01XfvLlp9PahNOqVdwrDSooCec1hY=w1920-h1080"	}) ;
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,	question : "What movie", // clockwise
+	image : "https://lh3.googleusercontent.com/yIDHmshMLWjpSJ0t7ic7yreSY372pH6XitwsE8tUac7FGpBxVITef6z5PQQNwZ7Fy2KFIl_cO6BwutIpgexaNXBiQtxlKLLN_qj2Wr5eOv0Pge7hBQHhJ3uX_JSoRTh0gIjBws7pLRw=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/IcPLgEmPt-P1qF74m-o4NhdDe9yvZAZIjBYchRnksMstcdXZ8i86nkegWoIebHSm6M6OyPLXjAu9x3QYhQ_SYbk0cayNo1gddaORqoJdBzJEU0j8gLBJn_pVLYeZWT9vGQEGg99Q4CI=w1920-h1080"	}) ;
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,	question : "What movie", //last night
+	image : "https://lh3.googleusercontent.com/QBo4qIpO_H0klZA954KFvjOXvhxhRMgUyrw8IfYTF1W45cJrc05rPvyw6ptOqQflwziMXn57N6GC8ZgkLN5mIFQ94-A54PjoonCmaQZB133yLrU0xGM6FrN1vcTRQoyojDPoER8iJ7s=w1920-h1080",
+	answerimage : "https://lh3.googleusercontent.com/83WPxgxcj2G-xGCpCTYTeub7z_8F5vf7iuQz3LUV_I34P9YC4KpDpwRsb4oa8RRDVKCe4aTXge784fwHbJVo-Npe-NqqnSE5C0ReRkPU2rnNRor0jBq68oBUpzsVvBb21NHZINKCabA=w1920-h1080"	}) ;
+  
+
+quests[++questIndexBuilder] = {
+		name : "1986 #1s",
+		hoverover : "What was number 1 over the year",
+		tags : "30/1/2021,saturday,1986,music",
+		questInfo: new Array()
+	};
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeSpotify,
+		question : 'Name the song & artist',
+		spotify : '<iframe src="https://open.spotify.com/embed/playlist/2jHZs1uuB5NaDE3JQhwXEt" width="500" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>',
+		answer : "No answer"
+	});
 
 quests[++questIndexBuilder] = {
 		name : "1992",
 		hoverover : "How much do you know about 1992?",
-		tags : "23/1/2021,saturday,1992,year",
+		tags : "23/1/2021,saturday,1992,year,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -1861,7 +2151,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 quests[++questIndexBuilder] = {
 		name : "1992 Ins and Outs",
 		hoverover : "Who died and who was born in 1992",
-		tags : "23/1/2021,saturday,1992",
+		tags : "23/1/2021,saturday,1992,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -1909,7 +2199,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	question :
 quests[++questIndexBuilder] = {//quests[115] = {
 		name : "1992 Movies",
 		hoverover : "What did you watch?",
-		tags : "23/1/2021,saturday,1992,movies",
+		tags : "23/1/2021,saturday,1992,movies,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -1978,10 +2268,12 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeSpotify,
 		answer : "No answer"
 	});
 
+  
+  
 quests[++questIndexBuilder] = {//quests[96] = {
 		name : "1995 Ins and Outs",
 		hoverover : "Ins and Out",
-		tags : "saturday,20/11/2020,1995",
+		tags : "saturday,20/11/2020,1995,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -2036,7 +2328,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question :
 quests[++questIndexBuilder] = {//quests[104] = {
 		name : "2018",
 		hoverover : "How much do you know about 2018?",
-		tags : "28/11/2020,saturday,2018,year",
+		tags : "28/11/2020,saturday,2018,year,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -2093,7 +2385,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 quests[++questIndexBuilder] = {//quests[105] = {
 		name : "2018 Outs",
 		hoverover : "How much do you know about who died in 2018?",
-		tags : "28/11/2020,saturday,2018",
+		tags : "28/11/2020,saturday,2018,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -2149,7 +2441,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question :
 quests[++questIndexBuilder] = {//quests[106] = {
 		name : "2018 TV",
 		hoverover : "How much do you know about TV in 2018?",
-		tags : "28/11/2020,saturday,2018",
+		tags : "28/11/2020,saturday,2018,InnerWheel,surfers",
 		questInfo: new Array()
 	};
  
@@ -2229,7 +2521,7 @@ addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question
 quests[++questIndexBuilder] = {//quests[124] = {
 		name : "2020",
 		hoverover : "How much do you remember",
-		tags : "26/12/2020,saturday,2020",
+		tags : "26/12/2020,saturday,2020,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -2282,7 +2574,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 quests[++questIndexBuilder] = {//quests[126] = {
 		name : "2020 TV",
 		hoverover : "How much do you remember about TV",
-		tags : "26/12/2020,saturday,2020",
+		tags : "26/12/2020,saturday,2020,InnerWheel,surfers",
 		questInfo: new Array()
 	};
  
@@ -2305,7 +2597,7 @@ addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question
 quests[++questIndexBuilder] = {
 		name : "2020 - who said it",
 		hoverover : "Quotes of the year",
-		tags : "saturday,2/1/2021,2020",
+		tags : "saturday,2/1/2021,2020,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
@@ -2352,7 +2644,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 quests[++questIndexBuilder] = {
 		name : "2020 - Outs",
 		hoverover : "Who did we say goodbye to in 2020",
-		tags : "saturday,2/1/2021,2020",
+		tags : "saturday,2/1/2021,2020,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
@@ -2453,7 +2745,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeSpotify,
 quests[++questIndexBuilder] = {//quests[81] = {
 		name : "Halloween",
 		hoverover : "Vaguelly horror related",
-		tags : "saturday,gin,31/10/2020,2/11/2020,specialDay,horror",
+		tags : "saturday,gin,31/10/2020,2/11/2020,specialDay,horror,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -2515,7 +2807,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeSpotify,
 quests[++questIndexBuilder] = {//quests[119] = {
 		name : "XMas Lyrics",
 		hoverover : "What song is this?",
-		tags : "19/12/2020,saturday,specialDay",
+		tags : "19/12/2020,saturday,specialDay,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -2565,7 +2857,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 quests[++questIndexBuilder] = {//quests[120] = {
 		name : "XMas questions",
 		hoverover : "General santa knowledge?",
-		tags : "19/12/2020,saturday,specialDay",
+		tags : "19/12/2020,saturday,specialDay,InnerWheel",
 		questInfo: new Array()
 	};
 
@@ -2609,7 +2901,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 quests[++questIndexBuilder] = {//quests[121] = {
 		name : "XMas Ins and Outs",
 		hoverover : "Who was born & died on XMas day?",
-		tags : "19/12/2020,saturday,specialDay",
+		tags : "19/12/2020,saturday,specialDay,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -2651,7 +2943,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	question :
 quests[++questIndexBuilder] = {//quests[122] = {
 		name : "XMas Movies",
 		hoverover : "Name the film?",
-		tags : "19/12/2020,saturday,specialDay,movies",
+		tags : "19/12/2020,saturday,specialDay,movies,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -2695,7 +2987,7 @@ addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question
 quests[++questIndexBuilder] = {//quests[123] = {
 		name : "XMas Songs",
 		hoverover : "Name the song",
-		tags : "19/12/2020,saturday,specialDay",
+		tags : "19/12/2020,saturday,specialDay,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -2758,7 +3050,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	question :
 quests[++questIndexBuilder] = {//quests[125] = {
 		name : "Boxing day ins and outs",
 		hoverover : "Who died & was born on a boxing day",
-		tags : "26/12/2020,saturday,specialDay",
+		tags : "26/12/2020,saturday,specialDay,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -2781,7 +3073,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	question :
 quests[++questIndexBuilder] = {//quests[127] = {
 		name : "Boxing Day",
 		hoverover : "Do you recognise these boxers",
-		tags : "26/12/2020,saturday,specialDay",
+		tags : "26/12/2020,saturday,specialDay,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -2836,7 +3128,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeSpotify,
 quests[++questIndexBuilder] = {//quests[8] = {
 		name : "No knowledge required",
 		hoverover : "Logic quiz",
-		tags : "logic,saturday,Weever",
+		tags : "logic,saturday,Weever,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -2883,7 +3175,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 quests[++questIndexBuilder] = {//quests[23] = {
 		name : "No Knowledge Required #2",
 		hoverover : "Logic quiz",
-		tags : "logic,saturday,Weever",
+		tags : "logic,saturday,Weever,InnerWheel",
 		questInfo: new Array()
 	};
 
@@ -2975,7 +3267,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 quests[++questIndexBuilder] = {//quests[15] = {
 		name : "Basic ignorance required",
 		hoverover : "Basic general knowledge",
-		tags : "logic,saturday,Weever",
+		tags : "logic,saturday,Weever,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -3063,7 +3355,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 quests[++questIndexBuilder] = { //quests[88] = {
 		name : "Speech",
 		hoverover : "Famous speeches",
-		tags : "gin,14/11/2020,16/11/2020,Weever",
+		tags : "gin,14/11/2020,16/11/2020,Weever,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
@@ -3111,7 +3403,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 quests[++questIndexBuilder] = {  //quests[2] = {
 		name : "Boring Films",
 		hoverover : "Guess the movie from the Tweet",
-		tags : "saturday,categoryLess",
+		tags : "saturday,categoryLess,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -3184,7 +3476,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	question :
 quests[++questIndexBuilder] = {  //quests[35] = {
 		name : "Get stoned & get yer rocks off",
 		hoverover : "Questions based on stones and rocks",
-		tags : "saturday,gin,19/10/2020,categoryLess",
+		tags : "saturday,gin,19/10/2020,categoryLess,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -3234,7 +3526,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	question :
 quests[++questIndexBuilder] = {  //quests[29] = {
 		name : "Conspicuous Consumption",
 		hoverover : "Logo quiz",
-		tags : "logo,saturday,categoryLess",
+		tags : "logo,saturday,categoryLess,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -3281,7 +3573,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	question :
 quests[++questIndexBuilder] = {  //	quests[52] = {
 			name : "Sold",
 			hoverover : "Guess the brand from their slogan",
-			tags : "logo,saturday,26/9/2020,surfers,categoryLess",
+			tags : "logo,saturday,26/9/2020,surfers,categoryLess,InnerWheel",
 			questInfo: new Array()
 		};
 
@@ -3337,7 +3629,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 quests[++questIndexBuilder] = {  //	quests[53] = {
 			name : "Dingbats",
 			hoverover : "Guess the phrase",
-			tags : "saturday,26/9/2020,categoryLess",
+			tags : "saturday,26/9/2020,categoryLess,InnerWheel,surfers",
 			questInfo: new Array()
 		};
 
@@ -3349,7 +3641,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	question :
 quests[++questIndexBuilder] = {  //	quests[54] = {
 			name : "Tru Dat",
 			hoverover : "True or False",
-			tags : "saturday,26/9/2020,categoryLess",
+			tags : "saturday,26/9/2020,categoryLess,InnerWheel,surfers",
 			questInfo: new Array()
 		};
 addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
@@ -3395,8 +3687,8 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 
 quests[++questIndexBuilder] = {  //	quests[56] = {
 			name : "Saintly",
-			hoverover : "Patron Saint of cheese might be St. Ilton",
-			tags : "saturday,3/10/2020,surfers,categoryLess",
+			hoverover : "Patron Saint of cheese might be St. Ilton - for clarity - THESE ANSWERS ARE ALL PUNS",
+			tags : "saturday,3/10/2020,surfers,categoryLess,InnerWheel",
 			questInfo: new Array()
 		};	
 
@@ -3466,7 +3758,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 quests[++questIndexBuilder] = {  //	quests[56] = {
 		name : "15 Q in this Q",
 		hoverover : "15 Questions in this Quiz",
-		tags : "saturday,3/10/2020,surfers,categoryLess,Weever",
+		tags : "saturday,3/10/2020,surfers,categoryLess,Weever,InnerWheel",
 		questInfo: new Array()
 	};	
 addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
@@ -3534,7 +3826,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 quests[++questIndexBuilder] = {  //quests[0] = {
 		name : "Give me a P please Bob",
 		hoverover : "Names beginning P* P*",
-		tags : "saturday,letters",
+		tags : "saturday,letters,InnerWheel",
 		questInfo: new Array()
 	};
 
@@ -3582,7 +3874,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 quests[++questIndexBuilder] = {  //quests[3] = {
 		name : "Q-Q-Q-Q-Questions",
 		hoverover : "Words or Names beginning with Q",
-		tags : "saturday,letters",
+		tags : "saturday,letters,InnerWheel",
 		questInfo: new Array()
 	};
 
@@ -3655,7 +3947,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 quests[++questIndexBuilder] = {  //quests[7] = {
 		name : "A very R-r-r-r-d quiz",
 		hoverover : "Words or Names beginning with R",
-		tags : "saturday,letters",
+		tags : "saturday,letters,InnerWheel",
 		questInfo: new Array()
 	};
 
@@ -3707,7 +3999,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 quests[++questIndexBuilder] = {  //quests[17] = {
 		name : "Saucy Scamps",
 		hoverover : "Words or names starting with S",
-		tags : "saturday,letters",
+		tags : "saturday,letters,InnerWheel",
 		questInfo: new Array()
 	};
 
@@ -3755,7 +4047,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 quests[++questIndexBuilder] = {  //quests[20] = {
 		name : "Unbelievably Hard",
 		hoverover : "Words or names beginning with U",
-		tags : "saturday,letters",
+		tags : "saturday,letters,InnerWheel",
 		questInfo: new Array()
 	};
 addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
@@ -3801,7 +4093,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 quests[++questIndexBuilder] = {  //	quests[30] = {
 		name : "Famous Vans",
 		hoverover : "Exactly what the title says",
-		tags : "saturday,surfers,letters",
+		tags : "saturday,surfers,letters,InnerWheel",
 		questInfo: new Array()
 	};
 
@@ -3848,7 +4140,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 quests[++questIndexBuilder] = {  //quests[31] = {
 		name : "Whatever do We have here",
 		hoverover : "Words and names starting with W",
-		tags : "saturday,letters",
+		tags : "saturday,letters,InnerWheel",
 		questInfo: new Array()
 	};
 
@@ -3904,7 +4196,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 quests[++questIndexBuilder] = {  //quests[36] = {
 		name : "eXtremely hard",
 		hoverover : "Words or names starting with X",
-		tags : "saturday,letters",
+		tags : "saturday,letters,InnerWheel",
 		questInfo: new Array()
 	};
 addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
@@ -3963,7 +4255,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 quests[++questIndexBuilder] = {  //quests[37] = {
 		name : "Yolo",
 		hoverover : "Words or names starting with Y",
-		tags : "saturday,letters",
+		tags : "saturday,letters,InnerWheel",
 		questInfo: new Array()
 	};
 addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
@@ -4091,7 +4383,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 quests[++questIndexBuilder] = {  //quests[51] = {
 		name : "Zee end",
 		hoverover : "Answers all start with Z",
-		tags : "saturday,letters",
+		tags : "saturday,letters,InnerWheel",
 		questInfo: new Array()
 	};
 addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
@@ -4142,7 +4434,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 quests[++questIndexBuilder] = { //quests[10] = {
 		name : "Name the band",
 		hoverover : "Name the bands from the gif",
-		tags : "gin,saturday",
+		tags : "gin,saturday,surfers",
 		questInfo: new Array()
 	};
 addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeSpotify,
@@ -4155,7 +4447,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeSpotify,
 quests[++questIndexBuilder] = { //quests[11] = {
 		name : "Name the Ian's",
 		hoverover : "Everyone loves Ians.  How many can you recognise",
-		tags : "gin,saturday",
+		tags : "gin,saturday,surfers",
 		questInfo: new Array()
 	};
 addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeSpotify,
@@ -4166,7 +4458,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeSpotify,
 quests[++questIndexBuilder] = { //quests[12] = {
 		name : "Masking my true intentions",
 		hoverover : "Questions based around masks",
-		tags : "saturday",
+		tags : "saturday,surfers",
 		questInfo: new Array()
 	};
 addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeSpotify,
@@ -4177,7 +4469,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeSpotify,
 quests[++questIndexBuilder] = { //quests[16] = {
 		name : "Movie Posters",
 		hoverover : "Guess the movie from the altered poster",
-		tags : "saturday,movies",
+		tags : "saturday,movies,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -4225,7 +4517,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	question :
 quests[++questIndexBuilder] = { //quests[47] = {
 		name : "Collectively we are stong",
 		hoverover : "Collective nouns",
-		tags : "saturday",
+		tags : "saturday,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -4273,7 +4565,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 quests[++questIndexBuilder] = { //quests[38] = {
 		name : "ID Parade",
 		hoverover : "Name the actor/actress",
-		tags : "saturday,surfers",
+		tags : "saturday,surfers,InnerWheel",
 		questInfo: new Array()
 	};
 addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	question : "Who is this?",
@@ -4321,7 +4613,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	question :
 quests[++questIndexBuilder] = { //quests[39] = {
 		name : "Say What?",
 		hoverover : "Catchphrases",
-		tags : "saturday,surfers",
+		tags : "saturday,surfers,InnerWheel",
 		questInfo: new Array()
 	};
 
@@ -4518,7 +4810,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText, 	question : "W
 quests[++questIndexBuilder] = {
 		name : "Ted",
 		hoverover : "All about 80s films",
-		tags : "16/1/2021,saturday,specialDay",
+		tags : "16/1/2021,saturday,specialDay,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -4556,7 +4848,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	question :
 quests[++questIndexBuilder] = {
 		name : "Ted",
 		hoverover : "All about 2002",
-		tags : "16/1/2021,saturday,specialDay",
+		tags : "16/1/2021,saturday,specialDay,2002,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -4564,7 +4856,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
 	question : "What washboard hero is this, who died in 2002?",
 	image : "https://static.wikia.nocookie.net/peel/images/b/b6/Lonnie_Donegan.jpg",
 	answer : "Lonnie Donegan"}) ;
-addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	question : "In January 2020, what happened to the French Franc? " + Table4ColumnStart + "It lost 50% of it's value</td><td>It stopped smelling of cheese</td><td>It went out of existence</td><td>It was voted #1 for rolling up and snorting cocaine with"+ Table4ColumnEnd,
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	question : "In January 2002, what happened to the French Franc? " + Table4ColumnStart + "It lost 50% of it's value</td><td>It stopped smelling of cheese</td><td>It went out of existence</td><td>It was voted #1 for rolling up and snorting cocaine with"+ Table4ColumnEnd,
 		image : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/50_ve_100_fransiz_frangi.PNG/126px-50_ve_100_fransiz_frangi.PNG"   ,
 		answer : "It went out of existence as the Euro took over"	});
 addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	question : "Julian Dennison was born in December 2002.  Name 2 films he's been in.",
@@ -4622,7 +4914,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeSpotify,
 quests[++questIndexBuilder] = { //quests[102] = {
 		name : "Colour",
 		hoverover : "Paint or Aint.  Which of these are real Farrow and Ball colours?",
-		tags : "saturday,gin,23/11/2020,23/11/2020",
+		tags : "saturday,gin,23/11/2020,23/11/2020,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 
@@ -4670,8 +4962,584 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePictureAnswer,
 		question : "Is this a Farrow and Ball paint colour? <BR/><BR/>STIFFKEY BLUE",
 		answer : "Yes",
 		answerimage : "https://lh3.googleusercontent.com/hysV61HJHdCW3758sZ_WNrf0BAKr3fs2tl5nWUmxzyEFT69-60f7YwjcbaY4ke_LQPiIVvxOiBBtUb6Zu5biluOK8TPWfXqb4UK-nXIMpMqDaybUxj71Iiqt3Owaz_SHW64X60l0DYQ=w1920-h1080" 
-	});
+	});  
+  
+quests[++questIndexBuilder] = { //
+		name : "Pictionary 01",
+		hoverover : "Pictionary ",
+		tags : "30/1/2021,pictionary",
+		questInfo: new Array()
+	};
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ted drew? ",
+	image : "https://lh3.googleusercontent.com/SSxOdmmoFhlDgc_bgZ2pfb5R1cBpFuBrOJwTeRpysUYN_2bV-ALek4_UnD5ERNlamnTz34QcUe-L6SWPUF382wAMu5clU4TQt6ibooQBSNyxLHpZlv2hDk1UTX0W_CWF6RiGaU9dLL0=w1920-h1080",
+	answer : "Top Hat"
+}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ian drew? ",
+	image : "https://lh3.googleusercontent.com/yNuPfs2nmj5De6VUoJufQnlO6ocV9QTsgR1XAUhhrvXULxrq1BtjGMgLWAhw6sn0m2lsd6_dS-VAgP0qamsBP0wSI9aypBrCs9xxDFaPHn190kvWUHIYxEBd-G59Pew_AY4tsbvpzHM=w1920-h1080",
+	answer : "Camera"
+}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ted drew? ",
+	image : "https://lh3.googleusercontent.com/8_D-ZJ_e6-JT-fhp-HYgtWl22xmvHBUxA0O_EEBltJFMqTPUfwkUaqitKf6znR_fpWoREKbzV4UBZyQ7lkoeUV2iMW569uewyJlm5gtf7sAA2QTQf-lptfNQrykyN1oJ5JFDIFoZVPo=w1920-h1080",
+	answer : "Sock"
+}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ian drew? ",
+	image : "https://lh3.googleusercontent.com/kFPKT5r17w-MezPebv5G-ei57LsCaFqEuSK31SyveK2rkE26BUjLzYk30uFceCqoukEr0wFsKIUyUsr00RBQWiXhKov50jfDtaV2P9L8FV2_U3pgTH6i7pHbWJmsex5Z-NcRNEoEdcI=w1920-h1080",
+	answer : "Banana"
+}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ted drew? ",
+	image : "https://lh3.googleusercontent.com/HGBuIQnTiMCgXcsMwwLZWG-lbiQbMcEemeGJcTgWntgd6ErtmIY57cMkdGvv0jbouv8zUUs9BJ8RErKL-gUsJ5S0Ab8duqUlwwSUX8-qd2p4gyHGtZEXmBz2HJtEP2WbH4E4sSf2hAc=w1920-h1080",
+	answer : "Buster"
+}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ian drew? ",
+	image : "https://lh3.googleusercontent.com/9bs6B4s9JeBHCks0r1xEBVajJyYtl26ySkcWQzGCir-FIC3FkUjOVEmsflwGNjmUK658AFocet4PbuJptFglDAWKovXMsJ9VddlHXi695R_sy5hDCLNooV0fQR170AOEb9IBXtR701g=w1920-h1080",
+	answer : "Julie"
+}) ;  
+  
 
+quests[++questIndexBuilder] = { //
+		name : "Pictionary 02",
+		hoverover : "Pictionary - Bonus Point - guess the theme ",
+		tags : "6/2/2021,pictionary",
+		questInfo: new Array()
+	};
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ted drew? ",
+	image : "https://lh3.googleusercontent.com/mNrFsye3EyXvx9sz1Dat2XkDO5YWHILzTalmFjTBpH0eSqrpCsqCOEXg1qPPL1UAcj7nBPr-FZweqvqhvOfCpLiOzXP0catnizlCuArs4P3mdZc95ktVKMXejO6MSJp1WE1qFp9kpYk=w1920-h1080",
+	answer : "Burger"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ian drew? ",
+	image : "https://lh3.googleusercontent.com/RzNd_iBn9Nf-YLKt10G1RQ8M_p2BrUVl-xQFM7Vmsvm_3FnEWVYejsrwzpZYUb_NyYYY-znEfKX_NtQ1uZwLW5Y_aqogLJjbQ2k4EQBnhUSPiD-YatHcO-q_WkRBS2OwJAv9ABdAen0=w1920-h1080",
+	answer : "Fish & Chips"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ted drew? ",
+	image : "https://lh3.googleusercontent.com/vnH_tb2libVAZKJLaHeTbN5FE7Dn5ClbYMMYNVTSvTS8pM0uXFto5-df2cTOlruyPT4_XnzHlVLJHm9qZxxrJbEcYoibS0NWZJmwhSBCxo-4qUzqv1qerx1ZUiQTSxUiuCD07vl1zUM=w1920-h1080",
+	answer : "Statue of Liberty"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ian drew? ",
+	image : "https://lh3.googleusercontent.com/FlhzjLTsiNlZJq2ca4nuCj8QLnkzcGUo-pX8OvhwFWGppUuPB-VlXLPs4r0h9jAEW0ewP02ccXKDio6uDSbHVuyqxG9W6ciRKojnuEhU4-WLqalCA1ZUuho0Yjh0IYULnzla2EtQVJc=w1920-h1080",
+	answer : "Big Ben (The Elizabeth Tower"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ted drew? ",
+	image : "https://lh3.googleusercontent.com/RqVIeHi8T9Xet8QZbDY4XxMKP1pqFVosZn2RSU1Fx3gZU7Z0fdy5YX6OzRf0DtGmKWGbdy_qJudYRKpXxTlLc85dGDMUrOFDHiic_1b3RvXmBoSeu2h32NlK27dR0in4_UdY8fKOHc0=w1920-h1080",
+	answer : "Donald Trump"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ian drew? ",
+	image : "https://lh3.googleusercontent.com/FdrRPv8iZ6NQl34i8Okk-osMJ12aOu-3BhEShK-8Jfr9w-zS0-A4d78VK4mK9FBSAXcxSzN6VTkpzL6Mdln4peZXyolbRvST8Gqesx6qLEl09LSU_xTPjg7-_k2jyorSZQYvj_siqz4=w1920-h1080",
+	answer : "Boris Johnson"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ted drew? ",
+	image : "https://lh3.googleusercontent.com/906zS4jv0NHJTrvWH0QJRG4o-5HXwZOYehA4CHgnZe84o4CZcZ9DaNTZzlRkFhtVlnGChA2Al4QKMC9CuRrAtl6iKydlrrLBV9aIPyxCvMlrYUQTyYNFrEZ-JsIa-gYGc3CIuVixb-A=w1920-h1080",
+	answer : "US Country Map"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ian drew? ",
+	image : "https://lh3.googleusercontent.com/6hEVfveihgVyejOfFllSlu5evl_hGzJnXAlfv1Bjs-Q2X8W3s2YzmN2tEOPVGEnKe7ozJIYbkj3nxIbdTdfCeZoyyq2hFt2Jp6CuYd5ZP4hD36bemD8hu12Wzl4uTcS-dYGxli8Jc1I=w1920-h1080",
+	answer : "UK Country Map"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ted drew? ",
+	image : "https://lh3.googleusercontent.com/YUe71TPQfpO6jW89rcKRVxu5wCdAjjQw8RxrGCGPfa6Ah8F9W5JFhqUvLKxoZ0wBmvLaIWXJN68JuDLu4mI39JoUqY6WLn3zg2SPe7H88A2rHwU6yNybOJ2Fdx6uvyXfaAhwW6stxFI=w1920-h1080",
+	answer : "US Flag (Stars & Stripes)"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ian drew? ",
+	image : "https://lh3.googleusercontent.com/YcGcI4p7kZv6HDo5o_FtN1T76srEjVfuWm3U9GjqaP_CLoy6maGcGYRx3KkAFLp4taO9Ih3v_x9bbqawoYEHCK4cC1g2jbD9PHveuG-_1LNL5gcSTU3XcBLP7f-px-tZ_oM1_pgyzAQ=w1920-h1080",
+	answer : "UK Flag (Union Flag)"}) ;
+
+
+quests[++questIndexBuilder] = { //
+		name : "Pictionary 03",
+		hoverover : "Pictionary",
+		tags : "13/2/2021,pictionary",
+		questInfo: new Array()
+	};
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ted drew? ",
+	image : "https://lh3.googleusercontent.com/bqpu_ViWvBboAqUycwhTZu4Oau8QZeKVqsqySd4JGrc0TVS0wIazeMxGvfPz8JaGPH5OXikSxYq5m_q5GcJRMJXR87xN5sT3F4haG7dIHwSNaLaMsQ7zCEWkje9m8gTSHYpr9lwx9hU=w2400",
+	answer : "Cupid"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ian drew? ",
+	image : "https://lh3.googleusercontent.com/dvmyV8vOWVNNrpe_gBGNDZ6Fs9_KhWdeaG3c5kfIpDM3FNa5C8nx0PYf6x7Qh1dwivRLo7WKbMSLzNDE_TtdFGYOK54ZQQ1zS7MzGnRucZdPH0UowEthJn7sYt98U280153VeseIe_s=w2400",
+	answer : "Red Roses"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ted drew? ",
+	image : "https://lh3.googleusercontent.com/tPNcIit3V2DWjywks-L_5T3Cijc0GQF-8cHT0cMDVwLWVC8iazwBBSmrW22K97FwelpLy5_j2IaHAeTQvAxL8G0z89U1B4iqSN9fbLaeiZxC8VVJSQI9noln9_bO93aOlyjSWe6gNuo=w2400",
+	answer : "Box of Chocolates/Box of poop"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ian drew? ",
+	image : "https://lh3.googleusercontent.com/hOXY46Ny97zGLva9Y5mDQcHK36T15jeZsbaN5unOxgbqWPPP1aKjh2WvVvs8bLaDElKfBE1GwxeSy-kz2ty-u-WuYiN0utlzaCTOyUfnDLU-tHbOsGJd60rBqPwlXf9CXPqzCYcsndA=w2400",
+	answer : "Heart"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ted drew? ",
+	image : "https://lh3.googleusercontent.com/gaSwOekLX2MdVeM41O7l22m99YsjExGFI-EoiRi_XQ3yJ4Vcihykc52rMr2IQeYC-yAcxC7OLEjhMvzOFjAqix6t7EOgX6mG_kQJQb4do05LsYSfA6Gxwuh7xQ7WEQ4BH-b0-t-3miw=w2400",
+	answer : "Ewok"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ian drew? ",
+	image : "https://lh3.googleusercontent.com/GvI4-45-Nn9Nfh1Ma9vvNqOj0KMG_a8EIoXQCJy5AXetEsqo2ecYLXqb_ZPnzKrG-z1pOxqNRVmee50g0T13OUpfQO-NbO7_Qv0L4PeuZUtgL2gBsnn7fMXPLZfNPtmJroo0Gm72N94=w2400",
+	answer : "Kiss"}) ;
+  
+
+quests[++questIndexBuilder] = {//quests[122] = {
+		name : "Valentines Movies",
+		hoverover : "Name the film starring this Hunka Hunka Love?",
+		tags : "13/2/2021,saturday,specialDay,movies,InnerWheel,surfers",
+		questInfo: new Array()
+	};
+
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What Elvis Movie is this?",  //Blue Hawaii
+		image : "https://lh3.googleusercontent.com/_pe5OOqe5j0-2NdEnxsdvFx0csO3DzZu6mpuT8VATFAmIY7JrHZyWBsf_C-YqX9sHYYL-FNdk5ZoS1rz1rem5U8gLCaP7tVcNWoEr0I7Tg1nV6w4pfxRT216PM7Kozy4Ndz8DsRdpBM=w2400",
+		answerimage : "https://lh3.googleusercontent.com/iJMef7p6zf2mBr3uJgGG1n9QwHZsptyWHbn6K0peTZmcDoLfY3AeFUz4C8sFIWJvUzN5rc638B2oZSbtCD61R51epsUvrbyC1bbmsnzi1cAW17NAyoSHSKlszv1RoWfncseoKCo_4XM=w2400"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What Elvis Movie is this?",  //Viva
+	image : "https://lh3.googleusercontent.com/fqDNtfWCDd7sTH0DMoIyOcRu_VuRDMaw6EZGyMEQ1P1GoS1CEXZBbxV73l7ojG7VRa_wP3GXJjZpUibAka-57Cuw4273irXoF8Y7mBzjMJMxA1qy_MPLK-f-IKRRwtQjq_BIWLPTACM=w2400",
+	answerimage : "https://lh3.googleusercontent.com/BQErZTXGI_SgMpmwesnAEOf1tpWSwLVoVu8euFsh952kptEm8Kn06cp3g9kU-r5X3zegvyRB82GLCS03bYxP15UzAGeuj_C31BSGeonHiuMKlM4SeRQH55rVJWxdcm0G_SzW4dckSDo=w2400"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What Elvis Movie is this?",  //KIng Creole
+	image : "https://lh3.googleusercontent.com/0t0AdNUSu5iV9YMrpDcA_yj_G2RcK86THpLnqrZHtNM_whrKv0ps8ccrRQsBZViLcTOx69UQTYWAycXLM4kF0c2H_rcrMMAvPbWka3pIbB_8U0mRWYCn5R5Vm-64OCx3qBWy5RTpE9s=w2400",
+	answerimage : "https://lh3.googleusercontent.com/ABl9VlMgXhUw7CBvlGZLaxGIey-BcTX2enCja2rLWq8sghtcQp2SWQchnBEOHySU25aff9CCNqadveSDJfOCvfnZykFuxjb-mud2vGVhmZHkMELsJWutcFab3rZCeQermYd5g9xFESU=w2400"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What Elvis Movie is this?",  //Love me tender
+	image : "https://lh3.googleusercontent.com/q2Y_vQ4U2nRu52lKQyxaqpflqc6L5Rf_JtKYAh73rA6rNV9V6mzTvYHv70M2jL3Nml73GUvUXtRI0kFBw_Tt0tJY1-Y_GO8hX1xO4c1ERvo1WgIKBjSZ3c7IF3pN4fvEe_L-fNuCW8c=w2400",
+	answerimage : "https://lh3.googleusercontent.com/X-BtgbsLLBpJETKuRJs-JWDL-OHR_CeCUgF5SaW7X4OQ6V-AjfvBoY-dHwGx5cRnmDsqdFFw1yqopEpSLeusMRcLy1R1lfam1I_67gV1MwwgXXeiZnjMpNBi8c6FwBrL5ln0qYN43U0=w2400"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What Elvis Movie is this?",  //GI Blues
+	image : "https://lh3.googleusercontent.com/xe1_xP1YrJqqKsFA5nlbGC18I4Wrb2jj4bn5oQf8w_V0mH1RqXAhe61em8dfrOAKipUyobfyyiqhRE5sB2cq1XlcPrm-VfbcCoWbz7QwEO_WJEUuPYedax0nyooCq7PCuVHUVQCYbO8=w2400",
+	answerimage : "https://lh3.googleusercontent.com/z45hqyYjadgUpN4G3Uxb79Ua6CMnYTQ5zk1fGSvHF9qVtVxrBAu_n_-UkYLdhyhYs6lMqj9Mnwx1eztM4aVq4SzQgtaODNTlo66ZVM42lgktC3M-HPeCu8Zb3ffHGPY6rVH0CP9UR3s=w2400"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What Elvis Movie is this?",  //Acapulco
+	image : "https://lh3.googleusercontent.com/vjpz689idYdUzn4aARrBKKe-Zo-sghEaL7wsho5BR1mao-rXl5JjOzXR46uZ3BlZUcbj4H9XojgqPXeZjf3RWt_SoUDczP3wFqSVWY3H_0Re4wPpragTCnQ_xKWHHhI8O5KGsGWtkHg=w2400",
+	answerimage : "https://lh3.googleusercontent.com/5E-1SVgI_NrAf6mhwCKzOlVxdtOs4LUsaM8Z16i8lXwvQ_ZY_gmQbgO8oA8ZoPoULaXSqUJbI_xjzQqkvALNqT3v4PFRwu95c_vnvfVKro62I7zqWxXTEL-C3ehNY8jQODHm-1b4rRI=w2400"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What Elvis Movie is this?",  //Roustabout
+	image : "https://lh3.googleusercontent.com/FDqQd0HCuwJQWoJ9qIsjgNj5JtUgbiqtjjQRo35dSBvLh26278I8ZJeuuW3ZTVohVKr0ki3tp0pNJ6Z_KzveisrodABhOVpUa_99igda7O15redsNWwP3Do-6epYr8JIQKzWPWfVuPw=w2400",
+	answerimage : "https://lh3.googleusercontent.com/YeEeMsucCHeVmwgFepeZP72zllNqUPnIgg2yE_08PRfVQ25fHbULszCVA05QzkRoTZs1UsTInQ1seM7czYdl92UztrhFhQAbcteLcSXKVM8nb7rnASTAr0NIrwobxQCkkxCyvEgCu6k=w2400"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What Elvis Movie is this?",  //girls girls girls
+	image : "https://lh3.googleusercontent.com/7F-LnF08x7RZNmIBgGhbASj9o0WHzQpeZopY4I5P69muy2Ge24W3jMYXC52obUY4z2oGM0Mvv87W9hGWsf1T2YM77xyAq7Agm9T5lFNjV978WqdqwbxtHlbx8GCQqpc_EWxwQgj4kBU=w2400",
+	answerimage : "https://lh3.googleusercontent.com/Af2ZufQUCsbIrDS53_DUbSt10FO5J6dmdRNngvTRauT5Rl1n8blAme4RXlyi3hQW26ZO_0VCa1neyOHpO1-vH-hSKILpMcKOtNTcAoM7AeunT8a31tvccETvkI3isOeALYdhPlDkI4Q=w2400"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What Elvis Movie is this?",  //Double trouble
+	image : "https://lh3.googleusercontent.com/04vOZnY1wIDOBuIFf86CxsmESkQ3Kz5SJnvafNF7sOndnmIEfXJfuOVhHUueqoZJDDs8ratMkMIv-e6R73OJWhioBBSVDjVSHRr_o5xr9W48zxRnc4CbdrNzEtNFNwRZ79yPwr1sWQ4=w2400",
+	answerimage : "https://lh3.googleusercontent.com/E5BWBeDQe-vVelueTRJvsvYjQh-78IlS2LsquR9dD-mJM-SP8DZhHYuaD-8KLsI1H5KJruU1WBQzjVubrhfDUWvTY05keDs78BAS-SRLeL9ZOYM-14U7Y81crWs7ZU1S0SjYnJAgZRU=w2400"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What Elvis Movie is this?",  //Live a little, love a little
+	image : "https://lh3.googleusercontent.com/fTmLXVrZMcik19o_qiI3V_-G-KAotcGkhDcRr0soXjQ1ZSFjrvs3WAUnug3YIoyfTWjt0am-Eh-VxMvKf7OmB5OtB-5qIsSWV4GpwMh7mS2-uoieMXeoB4a5m4E1lzjUXKmSBQ5mTpw=w2400",
+	answerimage : "https://lh3.googleusercontent.com/LdcOUtmPo4rjMszLHg1Y-7TJ7KaGzCkQ-fl7rxbexho3HXeFCbzZkZZWNcf70yZ-tQ2k1k_yX99hdsSk8BtHOCZiiEnYLbIhdr9GnlfRvNf1vB--v33um-SpG07XuYcbUzMTry932jQ=w2400"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What Elvis Movie is this?",  //Wild in the country
+	image : "https://lh3.googleusercontent.com/5w4fYrK6rGPXoCidLH5AI8VdLW8ESUtTOCrgYV5U4VLHE8LATHGYl9bG0eHhaDpWW_DixIVk4RpDs0wUk2C6CJBDZ2ZRn59oTjluDblVW9bMq_paG13ZkljVYF6sbxxhjeSWTbBH8O0=w2400",
+	answerimage : "https://lh3.googleusercontent.com/k3AR4UIS1Qmz2RPg0JqxPT_gKPQ4FhK51CWGZ5QRdPwAv7oXCKWEGqPWZwpEMKeH9ZQLVWSk85OdZvd6bMdQKkBhLbNQ5EYreWz_77utPSiBhSEokK1dIIc0erX5j5tDfiiST7pv8ts=w2400"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What Elvis Movie is this?",  //Easy come, easy go
+	image : "https://lh3.googleusercontent.com/QAgmDm0s7c721gk0LmrE7ccgnyArYhcxz5ihbfxZHww8CJvPxExYK_dfOjRbb-jILUVGesVraLXqBquBfTdSPmmVozhAaaQpef9zVKhxdvcLrZQ3qO7S-ui02i_xZVbrcKyvkMi7pls=w2400",
+	answerimage : "https://lh3.googleusercontent.com/sBHYihHwX-RJIjR4pnf6G_pZ5wDi4l0Z_bLNFqpsRbPo9veyOkXFaLLPtU0xVArVhSQ-Qu28S-ztaaUUHky-FFyU7AtIHw1_yF-EgC_ALQAOCovcBZ59ntnJt2FNEUlkK63V1OIDU50=w2400"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What Elvis Movie is this?",  //Harum Scarum
+	image : "https://lh3.googleusercontent.com/pTc1QvjTh-0ySC6Zz-jr1X-DjgOY4asaazH_xnMn_aTPsjmssxo6TbOnLd3u0RtKrSj_WTG45McdnIxYvH9w38eAnbTehJY2_0qxpqtjholM9EXWJHnC8ynm55rPOM3vGr20pj2O9Gc=w2400",
+	answerimage : "https://lh3.googleusercontent.com/XFiC2R0Lu1qQuApPAEXH7BLz5lUPjw1wgpSx5lHN44sExgZVEkecqNElQOBYpWA61hITvZjIpAytF3u9cAaYGurKgwRcOmZvgCZ6efPDOua3YcJOQ1nJdo-PBhcO2jpenneqvmNPafk=w2400"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What Elvis Movie is this?",  //Trouble with girld
+	image : "https://lh3.googleusercontent.com/ghNHRbkl0yd5wSM7BnzXHh-49tHUq9HRuq2IDXe2BmH0bnQt3DQcYOiK24I3DIIY6_z5rZYpccoQ9nJO84ENTQ2O-L0qYsLg8NWQiwiMuYj8PjJ3J4DWXQN_6GkfCwrcJsV48Gt2cZg=w2400",
+	answerimage : "https://lh3.googleusercontent.com/C-Tuoq6Y2IhLIhQbyUu52-xBNAyeEB_aw2SjhaO72S7Io_w_KYBuI7i3GJGK1tBlGxB0-SGzCDdSKQ0k82fwvw_cIkJTD-BIy0DA6jqpgP2p0NiErjWmFBXv3icq2QvnyKGHuChhXK0=w2400"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What Elvis Movie is this?",  //World fayre
+	image : "https://lh3.googleusercontent.com/71PKUQBhgmSQ53hNUGAwQq6RTXwTpujfQOxbslLTUkiYQoLx492A76Cl5VLrrKGvZNQMKPZpT39-XdIxKjM4GVQSujRJl0tGZHMgMDP0-B-ZcQ7N5T58qd_QN_ZWLB8Os40Pq5Yn6Sw=w2400",
+	answerimage : "https://lh3.googleusercontent.com/DSdxaczAsplG8D3eboEMWh8osOgDIEIfxNR6VBkxfMKq3Xn_W089Ck6XTvUTGDBfDPCRl7aUgbNhSeYYA7WzNm9ZYwAwLKugyYU2wDUF1MKaN9SzFfdo9vb8oDnYLdaDJa6gJoE2YLo=w2400"	}); 
+
+quests[++questIndexBuilder] = { //
+		name : "Love songs",
+		hoverover : "Valentines day",
+		tags : "13/2/2021,saturday,specialDay",
+		questInfo: new Array()
+	};
+
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeSpotify,
+	question : '',
+	spotify : '<iframe src="https://open.spotify.com/embed/playlist/1bV1fDQNYsnBfe3lkTYgmR"   width="500" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media">></iframe>',
+	answer : ""
+} );
+
+quests[++questIndexBuilder] = {
+		name : "Valentines Ins and Outs",
+		hoverover : "Ins and Out (oo-er missus)",
+		tags : "saturday,13/2/2021,InnerWheel,specialDay,surfers",
+		questInfo: new Array()
+	};
+
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this coming or going?",
+		image : "https://editorial.uefa.com/resources/0065-0e93411c2e51-3d243fb638a5-1000/manager_bob_paisley_escorts_the_trophy_back_to_liverpool_from_london.jpeg",
+		answer : "Bob Paisley"   	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this coming or going?",
+	image : "https://www.hellomagazine.com/imagenes/healthandbeauty/health-and-fitness/2019030270390/simon-pegg-reveals-extreme-weight-loss-film-role/0-344-279/simon-pegg-weight-loss-z.jpg",
+	answer : "Simon Pegg"   	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this coming or going?",
+	image : "https://i2-prod.mirror.co.uk/incoming/article23288271.ece/ALTERNATES/s1200/1_Funeral-of-Barbara-Windsor-Golders-Green-Crematorium-London-UK-08-Jan-2021.jpg",
+	answer : "Dean Gaffney"   	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this coming or going?",
+	image : "https://vz.cnwimg.com/thumb-1200x/wp-content/uploads/2016/02/GettyImages-491443018.jpg",
+	answer : "Dean Gaffney"   	}); 
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,		question : "Who is this coming or going (On the left)?",
+	image : "https://upload.wikimedia.org/wikipedia/commons/e/e9/Penn_and_Teller_%281988%29.jpg",
+	answer : "Teller"   	}); 
+
+quests[++questIndexBuilder] = { //
+		name : "70s",
+		hoverover : "General knowledge about the 70s",
+		tags : "20/2/2021,saturday,surfers,InnerWheel",
+		questInfo: new Array()
+	};
+
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText, 	
+	question : "What did 'TISWAS' stand for?  " + Table4ColumnStart + "This Is Saturday, Wake And Shake</td><td>Tarrant Is So Wobbly After Sambucca</td><td>Today is Saturday, Watch And Smile</td><td>Tarrant Insists Sally Wears Armless Shirts" + Table4ColumnEnd,
+	answer : "Today is Saturday, Watch And Smile"	});
+
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText, 	
+	question : "Who was Prime Minister of the UK for the longest during the 1970s?  " + Table4ColumnStart + "Jim Callaghan</td><td>Edward Heath</td><td>Margaret Thatcher</td><td>Richard Nixon" + Table4ColumnEnd,
+	answer : "Edward Heath 1970-1974"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText, 	
+	question : "What was the name of the jester in 'Rentaghost'?  " + Table4ColumnStart + "Nadia Popov</td><td>Adam Painting</td><td>Fred Mumford</td><td>Timothy Claypole" + Table4ColumnEnd,
+	answer : "Timothy Claypole"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText, 	
+	question : "Which year was 'Jaws' released?  " + Table4ColumnStart + "1974</td><td>1975</td><td>1976</td><td>1977" + Table4ColumnEnd,
+	answer : "1975"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText, 	
+	question : "What were the first names of Starsky and Hutch?  " + Table4ColumnStart + "David and Kenneth</td><td>David and Paul</td><td>Michael and David</td><td>David and Bernie" + Table4ColumnEnd,
+	answer : "David Michael Starsky (Paul Michael Glaser) and Kenneth Richard 'Hutch' Hutchinson (David Soul)"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText, 	
+	question : "Which 'Carry On' actor starred in the 70s sitcom 'Bless This House'?  " + Table4ColumnStart + "Kenneth Connor</td><td>Terry Scott</td><td>Sid James</td><td>Bernard Bresslaw" + Table4ColumnEnd,
+	answer : "Sid James"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText, 	
+	question : "What was the best-selling single of the Seventies in the UK?  " + Table4ColumnStart + "Mull of Kintyre</td><td>Rivers of Babylon</td><td>You're The One That I Want</td><td>Mary's Boy Child" + Table4ColumnEnd,
+	answer : "Mull of Kintyre"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText, 	
+	question : "Which three women played the original 'Charlie's Angels'?  " + Table4ColumnStart + "Shelley Hack, Farrah Fawcett and Cheryl Ladd</td><td>Shelley Hack, Farrah Fawcett and Jaclyn Smith</td><td>Kate Jackson, Farrah Fawcett and Cheryl Ladd</td><td>Kate Jackson, Farrah Fawcett and Jaclyn Smith" + Table4ColumnEnd,
+	answer : "Kate Jackson, Farrah Fawcett and Jaclyn Smith"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText, 	
+	question : "Which was the highest grossing film of the 70s?  " + Table4ColumnStart + "Grease</td><td>Star Wars</td><td>The Godfather</td><td>Jaws" + Table4ColumnEnd,
+	answer : "Star Wars"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText, 	
+	question : "Which toy had a man's name and consisted of 4 coloured sections, the aim being to remember in which order the colours flashed?  " + Table4ColumnStart + "Paul</td><td>Simon</td><td>Ringo</td><td>David" + Table4ColumnEnd,
+	answer : "Simon"	});
+
+quests[++questIndexBuilder] = { //
+		name : "Corrie Cameo",
+		hoverover : "Who are these making cameo appearances in Corrie",
+		tags : "20/2/2021,saurday,InnerWheel,surfers",
+		questInfo: new Array()
+	};
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3chmMTrjhBEz7TKyIPzPw5I7B1M7bDn3rj7YJTpbGZbOWslVMiqNhJnU_y1kLtea-KIZYC7ZgPbTqsZrEcKPYQ5QEde2kQGwaf3uz0Md_3r3Njhc2E_YDWoGyWJP6lRKGh68OPTUXkiBIJjsUYZCn_tjg=w735-h410-no?authuser=0",
+	answer : "Brenda Fricker"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3f8V3kD6HytZVDLpuWRpxyUPNSABMjf-KF3FrSSgtY76KV_T3PTUwHdfYFgHfvCkD46bFjXL6kRGF_w8BRhYIbw8ufj_Xsz_YDAqDBZYRKksg3XNCVqF-HC5YHoNwSocwa4-i3SAdH6fl3gcOPMIejvBQ=w733-h416-no?authuser=0",
+	answer : "Arthur Lowe"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3cm98xUPOuiWlAIp5swJ8IXA0Y7z799mmWIuG3SOVGFiBTuEztI0DAPgJUNArJSfqVTKgBrD74MZk0ZQtkZHSTcPfaw_pGlRIwv6EfwQKb39jF2mKseAN2tDyGbZUo9TSzKy48UB4m6eF5k8a650b-7sA=w733-h409-no?authuser=0",
+	answer : "Joanna Lumley"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3dmUmktuBSp6Pc70nWj-6VjfdEQuPmZbQ6QlNXEzGFL2OrK1u3HQvj7nOiZnOfi_7Bw2kE2FNqP3vetG2qzZLRr98ThHQJMA6eBpIam85apBQYoHx5eLedYQl28lQFTHoJVnz7X8O6qg0AZaxRTEnDziw=w736-h415-no?authuser=0",
+	answer : "Sir Patrick Stewart"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3fhYFS28isU0m_JYJVTw82J800dcuPcT6FM3iWP5n-MPcPAXKUmxSEtXnRbwUkOQah2K_rHJTjeuNlkNTO1M78MXSibV6L4st2CtLT0XqVyH4ByIvqTk3rzJxZGzdU0Vsx8TOOuye_cyncY1je4ritZog=w733-h412-no?authuser=0",
+	answer : "Sir Ben Kingsley"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3cuPqbDpuQpE4GzCFZxTm-T0vzhSZ1wQ-BJJHk6Ae6McSWcsEfFRU7gCCQILnXo8B5XtogdNltpLJlMY2NViWUdiuCfw8cKnCFx2xNfFPRbjTPV-3ZkLfLzq5vbvsvvYFEI_MFlCRLB82dH2RHJKhgr7g=w210-h177-no?authuser=0",
+	answer : "Martin Shaw"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3d1ULvhXsaxcb9wWEVNIOOSatat02u_80wdaaXq82nI0DEVnqdVhZgnp-JarOqYm89x-dOdey9ixUvFJjqFa1AYSieX1LUrkhoM4GqRBeL9KCguXOc8ogAD6fVh6yd-piCG8WRxnHAO5iup23Q993Puvg=w211-h177-no?authuser=0",
+	answer : "Peter Kay"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3fACIMImUxZpw5psJ5i5rOeyMUO3Ak96fJKC0infoLOeXAKBPm0KqeRJDhvCY8NRg6ct8yMxoXEcv0Yi-0aWf2FJLqog9N-FJeX7MPEVUqMHa6GkQ9lbEpQbmjN-L9SqIw8KtLrEgL-nxT0PdB0bf8L0w=w212-h179-no?authuser=0",
+	answer : "Pete Postlethwaite"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3eaqBqTZufE762o7iDwEcGwMvo32W3CUaVf3IKi4s6zSiA6SpLoG8Ioql2igPUF1HZfxfceOuGMMHDMnMW4w80suO6S_BoQfl0Ro6dwRpRe3GgIPyl7l8V1cyB18bNawGjwqyNMkV0EbbTDT394OXQiSw=w517-h333-no?authuser=0",
+	answer : "Sir Ian McKellan"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3dMKeRC8VC8TZsMoBM4FolqE_Kr3yuL7qlGLkOTAGmsfL2ZRSvTXWupcGcGOLMMxwAvbORl-dqT6jWKpE4RPYge6UhNPspS9UGYOgUKbxPpkIoBAPokeKF30UonL9dm09tbOf-01R9dF51D3LamTZ-PVw=w504-h468-no?authuser=0",
+	answer : "Joan Collins"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3cc6b3sfCs9S8w5P7yq8Kq9d90PfglQA0gY_IQ76Hs1TZI3eMbHDVv0cXRPEgn76HVrn4hxJ6lGNkBq_PQkXDv0GIAl0PaPiPYZGrMF37I7LbU5U-29bfHdZapV8lTbxgP33h2kza3r_EoukI8qJc6olw=w498-h324-no?authuser=0",
+	answer : "Honor Blackman"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3dttNDUR7Y72mkLxqjtGbF83pld3LSt8ENrDEnyWlZl__XWnfFu8akewG2R7hiwLLgHhpyfpE8B02_GBh8BTfr-NZFS9d79QSFiKh6O4EOZu6PPUnIqVY6AmQ8PDYfhtKylDZW-MXLNiPJ20ad-B_moNw=w585-h333-no?authuser=0",
+	answer : "Melanie Brown (Scary Spice)"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who are these 2? ",
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3c7nxu6GLqMzuOlVv01lsYMB4jvAdcvAzuBSlfyctEc8VWLEEtabzjila58yIh4BS2LNyxGgv-F6mA7VPgRGGhr7b_wgomDvSiEgxDXZjHlTYcy3Y4hjQBMVg-P7vAZWlbT9HQoWbsjH2CT0hEOIYmQig=w673-h447-no?authuser=0",
+	answer : "Holly and Phil"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3fGpB3koNtRJCZW2mDqCSir2wlyHfln-ZVrvfpfwcnB5eAX4bbq5ByXqqiCgGRDwUA8b8mdhg-0kdtFtM1Ft14n23u7phAiL8AjJppH4QlaGgoB9dTpgG7PuImmWwtwO7Xec4J62F7nzTpT84DCpSWVFA=w683-h377-no?authuser=0",
+	answer : "Cheryl"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this hitting Les Battersby (No points for his group name)? ",
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3dQN4EW8zlKGHkOvQJ9bK3J3aA1B-mqt5cxHAwsvv_6MYVx1I8y2y0Seh0F3r0rK4NM7y6XFQBn-iDyzEJmuLz_RVwTOatPAdJsnCsUpvHPHp1ggsu1FsrS3RTfNLA4x87xa1RHF6t2bzeHJA129iHihA=w790-h439-no?authuser=0",
+	answer : "Francis Rossi"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this hitting Les Battersby (No points for his group name)? ",
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3edkidxCFK3D5H8LWkLOgdJYJeCxSJnH-GB64igzDKdclJ5d19hc1el-q59r5EtbHb7jaAVnTPF5mHL0cWhebNyD9PZdew-GFCpp_4qymoIONGkOLpXnlAiWxPA4zngKHZo-PjD5Ex_wbLvpBnTCRRLAA=w912-h463-no?authuser=0",
+	answer : "Rick Parfitt"}) ;
+
+
+quests[++questIndexBuilder] = { //
+		name : "Soapy",
+		hoverover : "Soapish themes",
+		tags : "20/2/2021,saturday,music",
+		questInfo: new Array()
+	};
+
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeSpotify,
+	question : '',
+	spotify : '<iframe src="https://open.spotify.com/embed/playlist/2gK1Za03B8q7tUvuz4y43W"   width="500" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media">></iframe>',
+	answer : ""
+} );
+
+quests[++questIndexBuilder] = { //
+		name : "Pictionary 04",
+		hoverover : "Pictionary",
+		tags : "20/2/2021,pictionary",
+		questInfo: new Array()
+	};
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ted drew? ",
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3cfupUZLxZFSovTGdG29U2KgiFvgAuYmLpfKFvJ3Le8EG_xoBPAvSPd1oaSHMYUDlJgbcyipuAVUWijnWcPe6SI_RtrJC3zjmKSJWVSzBVUYgKYkGGgFt6FtZvm8JUaVwL94u6CY0cx6CFDuvQJEETZEA=w1005-h639-no?authuser=0",
+	answer : "Basketball"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ian drew? ",
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3fa59-v9HtwQmQ2iM3KK3pQU-B1S0BhWcndej_MeQheF7r8TBIHbI04409da6doFDgUG-nrGC-RpPVFLQym0C0SG7_Zn7X0xXR4rhyq4uD-cjmAR9FzrM_JRRDVzjKw1HBponCw0nQ50EEnUbex7Rw4eA=w1062-h537-no?authuser=0",
+	answer : "English Football"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ted drew? ",
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3eErVGHnwRl73_PFmVMFgIMcs0U3_oy2Y6YhzYaf2Ow7fyWNf4fzK2-Izm_x2a_UfpGVXaIQ2XnrzTMpAUZcCvQqG3V3FGFAspUXQ1RhToEJRd9YoFSg4-Y-tHdUrN_BergpdjZWxCI8Xy2r1xxQydrdA=w1181-h615-no?authuser=0",
+	answer : "American Football"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ian drew? ",
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3dLhZUNw19A2rpD-wuA9l7gL4zt1YCRge6YMdgPkv3S1YbWf5jzpzHYTcqye6TayoIHmxOYoYTFvJub8I_HWeyoWYENvU0hV__wqkOoBZrAypSXYAivPHxlcGTnhazWVicoH-09IBkUDsZba_O3JgGXMw=w843-h721-no?authuser=0",
+	answer : "Cricket"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ted drew? ",
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3dL0GhmVVF-2Myr5r9Z5_eXNIGZhR4QQ__hdCpPfY_RTKCt8UMODkq6HlFDNcP3sbN_O7x4rg-CZvpdQs8yqorTA_4tTXGRDH8AhZS2G6iTfSm6Wd6xBW_8PerYCH8RH1PNFCY-iy_W8PZSuwakBzjQsA=w998-h688-no?authuser=0",
+	answer : "Baseball"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ian drew? ",
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3fgrt67r3cWQf5suJx9Pnm_JmYwP15VP2Cee56F7e3qwTpJXK51byyoxjJ1HzvA9HivQJaZxhRTO8bEpUME2cSFsvcZIKJvRs3F-H8tbtlrG1_DKYY8fv91AZCQi99PCcjz-MmaU9IYKNkJRVTa89GiaQ=w1010-h526-no?authuser=0",
+	answer : "Tennis"}) ;
+
+
+quests[++questIndexBuilder] = { //
+		name : "Olympic",
+		hoverover : "Each event happenned on an Olympic year - 1980 - 2016.  No duplicates",
+		tags : "2021-2-27,saturday,specialDay,surfers,InnerWheel",
+		questInfo: new Array()
+	};
+
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	
+	question : "Fox hunting was outlawed in the UK (1980-2016)",
+	image : "https://images.immediate.co.uk/production/volatile/sites/22/2018/09/GettyImages-74733094-3aefa24.jpg?webp=true&quality=90&resize=620%2C413", answer : "2004"} );
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	
+	question : "The Revenant won Best Motion Picture at the Golden Globes (1980-2016)",	
+	image : "https://cdn.nybooks.com/wp-content/uploads/2016/01/revenant-leo-dicaprio.jpg", answer : "2016"} );
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	
+	question : "The Dunblane mass-shooting in Scotland (1980-2016)",	
+	image : "https://www.thenational.scot/resources/images/7264086.jpg?display=1&htype=0&type=responsive-gallery", answer : "1996"} );
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	
+	question : "SAS storm the Libyan embassy, interrupting the snooker (1980-2016)",	
+	image : "https://www.nam.ac.uk/sites/default/files/2020-05/csm2_full.jpg", answer : "1984"} );
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	
+	question : "Prince Charles escapes an avalanche in Switzerland (1980-2016)",	
+	image : "https://i.dailymail.co.uk/i/pix/2011/05/04/article-1383576-0BE8188700000578-852_634x769.jpg", answer : "1988"} );
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	
+	question : "Paul Newman died (1980-2016)",	
+	image : "https://images.findagrave.com/photos250/photos/2018/25/30103583_1516961247.jpg", answer : "2008"} );
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	
+	question : "J.R Ewing was shot on Dallas (1980-2016)",	
+	image : "https://clickamericana.com/wp-content/uploads/Linda-Gray-and-Larry-Hagman-Dallas-TV-show-750x752.jpg", answer : "1980"} );
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	
+	question : "Euro Disney opens in France (1980-2016)",	
+	image : "https://lh3.googleusercontent.com/aAas6m2WRtn6RxEDo-HLcAwbtq8DZlRz3gi9Pegz2rqgw75x2upB4_TK_tFwwy8sb-PGzcvkJmdAUQrbuR4zQzqa6X7ToQhzuAtqR9fd_z2klrVwWlurgULofJ3pNlPMufezKyuSGlYOCio6cRaRTW6TvNLxhyTFVyhg8bSyb4iNx9JhYRlHhUl9pu7SiGYV9Lrinkbkv3hH__KE3mwa0IniUWqZqL7NtGw_Ogw3IiJvhiZexbac4GPEpJsa5HlJ60NEtyx-4UQnWe5bz9MhlQsMPTkl7muAvmeFmEcshkPBikASfNCrsTqzWD-CJs8DqDh5P0cQ-JCYiZyKKWujuP1LlCeI9o0RquiaDkY1F_ft43ASrK1-38rqCVEJhiuWc7_SJOmAeg0_qZ4MHqd5BKX-mLkJeu_fE5Bz0rPsLkNbUKXsSJ3UpseGZrZ1opwYHQQrJggtc23xdO1S1hfVids7TI6KLZEa868CKRTdN62wgCVEJdvBIcSy6A2kMbW-4fSQse5DCbjxitBkptXvjFKcu2GkzEm7fQCWey7cOp3LGi3jmrK-ClavPBB7MyVdg9H1FKV8LYcqyDHnFrNl37xUNGW_ohrAIdWs-UwQL4vsJokyeV9MAbePGsra5mckAx4075y2AZSgKH6c6aY1HVBjZqanxxtmRhE2ZqEN1io1X2FO3A4Oh5JZps1VFDE=w654-h872-no?authuser=0", answer : "1992"} );
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	
+	question : "The Shard was opened in London (1980-2016)",	
+	image : "https://images.adsttc.com/media/images/55f7/11c7/ab63/c2f8/a100/0021/slideshow/1341493719-20563shard-528x351.jpg?1442255298", answer : "2012"} );
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	
+	question : "The first UK series of Big Brother was aired on Channel 4 (1980-2016)",	
+	image : "https://i2-prod.mirror.co.uk/incoming/article3747442.ece/ALTERNATES/s810/Big-Brother-1-Housemates.jpg", answer : "2000"} );
+
+quests[++questIndexBuilder] = { //
+		name : "Play your cards height",
+		hoverover : "Easy game, higher or lower",
+		tags : "2021-2-27,saturday,surfers,InnerWheel",
+		questInfo: new Array()
+	};
+
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	
+	question : "Richard Osman - Starting Card", answer : "6 feet 7 inches",  
+	image : "https://www.thesun.co.uk/wp-content/uploads/2019/02/NINTCHDBPICT000471458322.jpg?w=620"} );
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	
+	question : "Vince Vaughn - Higher or Lower?", answer : "6 feet 5 inches - LOWER",  
+	image : "https://i.dailymail.co.uk/i/newpix/2018/09/03/21/4FAC653700000578-0-image-a-48_1536007430850.jpg"} );
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	
+	question : "Taylor Swift - Higher or Lower?", answer : "5 feet 10 inches - LOWER",  
+	image : "https://www.j-14.com/wp-content/uploads/2017/02/taylor-swift-and-bruno-mars.jpg?fit=200%2C1"} );
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	
+	question : "Michelle Obama - Higher or Lower?", answer : "5 feet 11 inches - HIGHER",  
+	image : "https://static01.nyt.com/images/2012/02/12/fashion/12MICHELLE4_SPAN/12MICHELLE4-jumbo.jpg?quality=90&auto=webp"} );
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	
+	question : "Martin Freeman - Higher or Lower?", answer : "5 feet 6 inches - LOWER",  
+	image : "https://zoomboola.com/images/content/2018/9/uzn_15360151151.jpg"} );
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	
+	question : "Daniel Radcliffe - Higher or Lower?", answer : "5 feet 5 inches - LOWER",  
+	image : "https://i.dailymail.co.uk/i/pix/2013/04/22/article-2312871-196D1668000005DC-481_634x985.jpg"} );
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	
+	question : "Lady Gaga - Higher or Lower?", answer : "5 feet 1 inch - LOWER",  
+	image : "https://i.dailymail.co.uk/i/pix/2014/01/20/article-0-1AD3B32400000578-694_634x992.jpg"} );
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	
+	question : "Bruno Mars - Higher or Lower?", answer : "5 feet 5 inches - HIGHER",  
+	image : "https://www.etonline.com/sites/default/files/styles/970xh/public/images/2015-02/425_bruno_mars_anthony_kiedis_getty.jpg?itok=kiQ2fipv"} );
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	
+	question : "Zendaya - Higher or Lower?", answer : "5 feet 10 inches - HIGHER",  
+	image : "https://www.j-14.com/wp-content/uploads/2017/12/tom-holland-zendaya.jpg?fit=800%2C1200"} );
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	
+	question : "Zac Efron - Higher or Lower?", answer : "5 feet 8 inches - LOWER",  
+	image : "https://akns-images.eonline.com/eol_images/Entire_Site/2016325/rs_634x951-160425120028-634.Zac-Efron-Dwayne-Johnson-Baywatch-Fall-JR-042516.jpg?fit=inside|900:auto&output-quality=90"} );
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	
+	question : "Tom Cruise - Higher or Lower?", answer : "5 feet 7 inches - LOWER (This photo might have been altered...)",  
+	image : "https://sickmagazine.weebly.com/uploads/4/8/2/0/48207375/7241155.jpg?250"} );
+
+quests[++questIndexBuilder] = { //
+		name : "60's best",
+		hoverover : "Apparently the 12 greatest songs of the 60s",
+		tags : "2021-2-27,saturday,music",
+		questInfo: new Array()
+	};
+
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeSpotify,
+	question : '',
+	spotify : '<iframe src="https://open.spotify.com/embed/playlist/0xK00t8EoIKALp2I51Qw7Z"   width="500" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media">></iframe>',
+	answer : ""
+} );
+
+quests[++questIndexBuilder] = { //
+		name : "Pictionary 05",
+		hoverover : "Pictionary",
+		tags : "2021-2-27,pictionary",
+		questInfo: new Array()
+	};
+
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ian drew? ",
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3du35Yt4XgRHaoEeLk1DYxa2CEpHmWq800pHZueut1W1Dir8uxbdxlmWjBXrKv5AkZCjAePz1cY9u4Q9PIhX9hH3ragxZOFnYNj8lV2gjXA8bznuH2ASlNKK8aHbd-IufAgPlKc2atVA9sgQXgo_PQ4rw=w623-h676-no?authuser=0",
+	answer : "Batman"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ted drew? ",
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3dF6IqSdGxh3nlQ_k01FgK5G0iaA5Nh_2qg83xUa36X6LF-lgm5bDbWqh-0cBb5NL4C4aeDeiXZEX5n-GluSZyBSWiJ5Qa93-FqjY32q6skfwRUS9gse_7GrhAdRQox2Goj7WNWs-FWmaUy81_M9dl-WQ=w639-h592-no?authuser=0",
+	answer : "Superman"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ian drew? ",
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3fRyqwJPJR1EpfO3qrKVGC0daXH5Ksa7oLqAbAO5SDl-5pYYLFbsWl464m62dEjA8hMXeOiarCXbi6bqdNHCnZCvu-RKbOWwAZGSMfN1umPDHCwEZoV8vMjq5kwn3rEYCFth34fK1LrK6mM2aq_XIZQ_g=w393-h583-no?authuser=0",
+	answer : "Abraham Lincoln"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ted drew? ",
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3fQZLMFNcCbe6Hsqgh74UaWvLdyMqcUG_mVwwnYa4dGRSfa_pMscwtBWJHqzrbBfELAfTcRX2zEr8zrd8rKrGt-d3z7Cv2Io3tIx1aciHnScL07vGh6vjX7BlnH84BbkLNntD4bGWD7PxDwVhjjFaVSQA=w472-h658-no?authuser=0",
+	answer : "Marge Simpson"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ian drew? ",
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3c8P2LvrrwO4fLJ964bEc80g3Obi9kkPib3XZsyXfpCN3ir5C3WhFfmqlMOW6W-XgSUDnVv801x-qwpCMgJQl_JxccfChi5jNHLfQt1OCcox_vfAlrS2wSWaoFtKsonmQeCcjY1QOxzasu-QuMH7swn-w=w503-h494-no?authuser=0",
+	answer : "Mickey Mouse"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ted drew? ",
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3d7_o3NuG280B4OVCBhm71KUW13qjzl75Q5ACO-QzAHXSRIx6tWAq9WkPpz9NyijNltuEUt9MJtLDd3hhiwpAwh9gGxZQBU212944-GGObqj1plk12im6XX4yhLb_PMnTHjmO8vF9QD8rj25n2d5m2VQg=w830-h475-no?authuser=0",
+	answer : "Scooby Doo"}) ;
+
+quests[++questIndexBuilder] = { //
+		name : "Artistic Impression",
+		hoverover : "Who are these caricatures of",
+		tags : "2021-3-6,surfers,saturday,InnerWheel",
+		questInfo: new Array()
+	};
+
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://mymodernmet.com/wp/wp-content/uploads/archive/eojmS44qjyA35jeD53Fn_1082025370.jpeg",
+	answer : "Johnny Depp"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://mymodernmet.com/wp/wp-content/uploads/archive/bDdd-e3VCTmmJ5Ep93qM_1082025376.jpeg",
+	answer : "Tom Hanks"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://mymodernmet.com/wp/wp-content/uploads/archive/EyIzAjmLrJX7Q648zdRo_1082025395.jpeg",
+	answer : "Will Smith"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://speckyboy.com/wp-content/uploads/2011/10/caricatureart41.jpg",
+	answer : "Angelina Jolie"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://mymodernmet.com/wp/wp-content/uploads/archive/hXFd8352mqW4XLDhkIjA_1082025418.bin",
+	answer : "Brad Pitt"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://mymodernmet.com/wp/wp-content/uploads/archive/VWm1vKyspXOAqqnX4QHB_1082025422.jpeg",
+	answer : "Bruce Willis"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://mymodernmet.com/wp/wp-content/uploads/archive/chRlM9VlpTPx5wt8tXux_1082025432.jpeg",
+	answer : "Matt Damon"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://mymodernmet.com/wp/wp-content/uploads/archive/wLE5MadFDVDmcEuOmDs8_1082025438.jpeg",
+	answer : "Nicolas Cage"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://mymodernmet.com/wp/wp-content/uploads/archive/UPORpth4-WuXKVXnfnCK_1082025441.jpeg",
+	answer : "Tom Cruise"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://mymodernmet.com/wp/wp-content/uploads/archive/ZqrdjI949PcIbFCNNFBn_1082025443.jpeg",
+	answer : "Christopher Walken"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this (character name is OK)? ",
+	image : "https://speckyboy.com/wp-content/uploads/2011/10/caricatureart11.jpg",
+	answer : "Dwight Schrute"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://speckyboy.com/wp-content/uploads/2011/10/caricatureart26.jpg",
+	answer : "Robert De Niro"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://speckyboy.com/wp-content/uploads/2011/10/caricatureart12.jpg",
+	answer : "Leslie Nielsen"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://speckyboy.com/wp-content/uploads/2011/10/caricatureart29.jpg",
+	answer : "Samuel L Jackson"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://naldzgraphics.net/wp-content/uploads/2011/01/4-Manny-Pacquiao-Caricature.jpg",
+	answer : "Helena Bonham Carter"}) ; 
+
+quests[++questIndexBuilder] = { //
+		name : "Oopsie",
+		hoverover : "Who are these mugshots of",
+		tags : "2021-3-6,surfers,saturday,InnerWheel",
+		questInfo: new Array()
+	};
+
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://images.squarespace-cdn.com/content/v1/55d66363e4b0b9bb40814594/1560310739481-OK0GQ251BXN1Y6MYG4EZ/ke17ZwdGBToddI8pDm48kPEkw4_MRD28fmibFWdql7p7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QHyNOqBUUEtDDsRWrJLTmW6PTEIPSiHkoxzSCmjHS78parLPKbgAoWQBikLQbRjFRBgJN8yYKubhcYwaU4dkO/Bill-Gates-Mugshot-Celebrity-Mugshots.jpg?format=500w",
+	answer : "Bill Gates 1977"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://images.squarespace-cdn.com/content/v1/55d66363e4b0b9bb40814594/1560311163133-8Z5NYEUIEUUDN35XV47P/ke17ZwdGBToddI8pDm48kPJXHKy2-mnvrsdpGQjlhod7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QHyNOqBUUEtDDsRWrJLTmihaE5rlzFBImxTetd_yW5btdZx37rH5fuWDtePBPDaHF5LxdCVHkNEqSYPsUQCdT/Famous-Mugshots-Frank-Sinatra-Mugshot.jpg?format=500w",
+	answer : "Frank Sinatra, 1938"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://images.squarespace-cdn.com/content/v1/55d66363e4b0b9bb40814594/1560310809985-I6O70HR73TR3RUJ01CXH/ke17ZwdGBToddI8pDm48kNgFyjlEyNHlSWEjE-QCU1p7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UdLKTLgsLX9_T7LnpaostY9WYLb0IFNaX6bgMhY2dUNBWIB-7cQgYKo_bDpR6cEVkg/Jay-Z-Celebrity-Mugshots.jpg?format=500w",
+	answer : "Jay-Z, 1999"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://images.squarespace-cdn.com/content/v1/55d66363e4b0b9bb40814594/1564334476591-F7RYRN7Y5XOA31CF79RT/ke17ZwdGBToddI8pDm48kJUlZr2Ql5GtSKWrQpjur5t7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UfNdxJhjhuaNor070w_QAc94zjGLGXCa1tSmDVMXf8RUVhMJRmnnhuU1v2M8fLFyJw/Nick-Nolte-Mugshot-2002-Famous-Celebrity-Mugshots.jpg?format=500w",
+	answer : "Nick Nolte, 2002"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://images.squarespace-cdn.com/content/v1/55d66363e4b0b9bb40814594/1560310825724-3SH00VVELDT7H9RWGPGW/ke17ZwdGBToddI8pDm48kJUlZr2Ql5GtSKWrQpjur5t7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UfNdxJhjhuaNor070w_QAc94zjGLGXCa1tSmDVMXf8RUVhMJRmnnhuU1v2M8fLFyJw/David-Bowie-Mugshot-Famous-Mugshots.jpg?format=500w",
+	answer : "David Bowie, 1976"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://images.squarespace-cdn.com/content/v1/55d66363e4b0b9bb40814594/1560310967737-38V21E0FKK1H9MW8V1Q6/ke17ZwdGBToddI8pDm48kPJXHKy2-mnvrsdpGQjlhod7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QHyNOqBUUEtDDsRWrJLTmihaE5rlzFBImxTetd_yW5btdZx37rH5fuWDtePBPDaHF5LxdCVHkNEqSYPsUQCdT/Keanu-Reeves-Mugshot-Celebrity-Mugshots.jpg?format=500w",
+	answer : "Keanu Reeves, 1993"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://images.squarespace-cdn.com/content/v1/55d66363e4b0b9bb40814594/1564597103540-8F7BH1KOQ85FV4KU95P7/ke17ZwdGBToddI8pDm48kPJXHKy2-mnvrsdpGQjlhod7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QHyNOqBUUEtDDsRWrJLTmihaE5rlzFBImxTetd_yW5btdZx37rH5fuWDtePBPDaHF5LxdCVHkNEqSYPsUQCdT/James-Brown-Look-Who-Got-Busted-Mugshots-Famous.jpg?format=500w",
+	answer : "James Brown, 2004"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://images.squarespace-cdn.com/content/v1/55d66363e4b0b9bb40814594/1560310863158-00ND46GFOZWZJMEWD8E9/ke17ZwdGBToddI8pDm48kN9iI5_8Be3EiqebT_FB4Rh7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UQ3g3psjefGfo7QbKm44JhF689WWI78ybLilc9chVrEIGE2OjjtUNgt85XVDYdK02g/Robert-Downey-Jr-Funny-Mugshots.jpg?format=500w",
+	answer : "Robert Downey Jr, 1999"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://images.squarespace-cdn.com/content/v1/55d66363e4b0b9bb40814594/1560310846713-YMOXECZM4VTVUMO9XAJ1/ke17ZwdGBToddI8pDm48kPJXHKy2-mnvrsdpGQjlhod7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QHyNOqBUUEtDDsRWrJLTmihaE5rlzFBImxTetd_yW5btdZx37rH5fuWDtePBPDaHF5LxdCVHkNEqSYPsUQCdT/Celebrity-Mugshots-Al-Pacino-Mugshot.jpg?format=500w",
+	answer : "Al Pacino, 1961"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://images.squarespace-cdn.com/content/v1/55d66363e4b0b9bb40814594/1560310951541-QR4UUC5A9U2DT0R71ISZ/ke17ZwdGBToddI8pDm48kPJXHKy2-mnvrsdpGQjlhod7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QHyNOqBUUEtDDsRWrJLTmihaE5rlzFBImxTetd_yW5btdZx37rH5fuWDtePBPDaHF5LxdCVHkNEqSYPsUQCdT/Justin-Bieber-Mugshot-Funniest-Mugshots.jpg?format=500w",
+	answer : "Justin Bieber, 2014"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://images.squarespace-cdn.com/content/v1/55d66363e4b0b9bb40814594/1560311007186-9932ZI9EX71CDOMWCJEX/ke17ZwdGBToddI8pDm48kNgFyjlEyNHlSWEjE-QCU1p7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UdLKTLgsLX9_T7LnpaostY9WYLb0IFNaX6bgMhY2dUNBWIB-7cQgYKo_bDpR6cEVkg/Funny-Mugshots-Elvis-Presley-Mugshot.jpg?format=500w",
+	answer : "Elvis Presley, 1970"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://images.squarespace-cdn.com/content/v1/55d66363e4b0b9bb40814594/1560310879178-5OIKHEQ6P947WYTEQOW9/ke17ZwdGBToddI8pDm48kNgFyjlEyNHlSWEjE-QCU1p7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UdLKTLgsLX9_T7LnpaostY9WYLb0IFNaX6bgMhY2dUNBWIB-7cQgYKo_bDpR6cEVkg/Bruno-Mars-Mugshot-Funny-Mugshots.jpg?format=500w",
+	answer : "Bruno Mars, 2010"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://images.squarespace-cdn.com/content/v1/55d66363e4b0b9bb40814594/1590644869295-20NVMTOII7EBYV5WUPO6/ke17ZwdGBToddI8pDm48kNgFyjlEyNHlSWEjE-QCU1p7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UdLKTLgsLX9_T7LnpaostY9WYLb0IFNaX6bgMhY2dUNBWIB-7cQgYKo_bDpR6cEVkg/Famous-Mugshots-Mickey-Rourke-Mugshot.jpg?format=500w",
+	answer : "Mickey Rourke, 1994"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
+	image : "https://images.squarespace-cdn.com/content/v1/55d66363e4b0b9bb40814594/1560313428517-3CWA8CVIJS0JDFNY1J8R/ke17ZwdGBToddI8pDm48kNgFyjlEyNHlSWEjE-QCU1p7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UdLKTLgsLX9_T7LnpaostY9WYLb0IFNaX6bgMhY2dUNBWIB-7cQgYKo_bDpR6cEVkg/Celebrity-Mugshots-Cher.jpg?format=500w",
+	answer : "Cher, 1959"}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
+	question : "Finally, 1 of those was fake - which one?",
+	answer : "Elvis - it was a joke picture for his honorary Police Badge" });
 
 
 /*
@@ -4702,19 +5570,18 @@ quests[++questIndexBuilder] = {  //
 		tags : "test,year,saturday",
 		questInfo: new Array()
 	};
+	
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText, 	
+	question : "?  " + Table4ColumnStart + "?</td><td>?</td><td>?</td><td>?" + Table4ColumnEnd,
+	answer : "?"	});
 
 addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
-	question : question : "?<BR/><BR/> <BR/> <BR/> <BR/> ",
-	answer : "Priscilla Presley"
-} );
-
-addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
-	question : question : "?" + Table4ColumnStart + "One</td><td>Two</td><td>Three</td><td>Four " + Table4ColumnEnd,
+	question : "What P was married to Elvis",
 	answer : "Priscilla Presley"
 } );
 
 addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
-	question : question : "?<BR/><BR/> <BR/> <BR/> <BR/> ",
+	question : "What movie is being described",
 	image : "https://lh3.googleusercontent.com/Ftq4kmwf2ZMgm2Au1KHEirPcTYyA2MfoTe5ti0A2v6cPUAyexLjvfFtcovCeJDtF8oX8j6EXHIV9HMrZj41byAmnurxMK4mfRcSw695znXl608VK__rflaCyjX_fcVMXtxvgNfEU0NU=w1920-h1080",
 	answer : "Groundhog Day"
 }) ;
@@ -4738,8 +5605,8 @@ addQuest(quests[questIndexBuilder],{		type : quizQuestionTypeText,
 
 addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,
 		question : "What movie", //Brigadoon
-		image : "https://lh3.googleusercontent.com/xnOmzayfP3WllISoi9JAme1rLPAj2URFYRC-fcJ3HPJQnLyfiSFzgVnHWyk1YQmmhCN2bTh-eLl4nHR33_nk7racyojCX3SWXzjMcSOmgUHiSGed0JsG4gSUTZSglL5g2FBlC4DiudQ=w1920-h1080",
-		answerimage : "https://lh3.googleusercontent.com/6dIaU3FmXYQbxaJRA3GLMw-G56A_2fag2W8u67fZcd5tzwdfghu7uFW07M98YaoLS69v7pyJETxyWFMEkX1bBUwWlBx94kQw3H2iLKXXk1jiUaUyr-TFW9ax8dyZGnGqwFgabboP_rY=w1920-h1080"
+		image : "",
+		answerimage : ""
 }) ;
 
 addQuest(quests[questIndexBuilder],{		type : quizQuestionTypePictureAnswer,
@@ -4762,24 +5629,28 @@ addQuest(quests[questIndexBuilder],{		type : quizQuestionTypeText,
 questIndexBuilder++;
 */
  
- 
-function SQInit() {
-	
+function tagsFromURI() {
 	tagStringFromURI = SQGetURIString();
 	if (!tagStringFromURI) {
 		tagStringFromURI = defaultTag;
 	}
-	tagStringFromURI;
-	tags = tagStringFromURI.split(",");
+	//tagStringFromURI;
+	return tagStringFromURI.split(",");
+}
+function SQInit() {
+	
 
+	tags = tagsFromURI();
+	showTags = SQShouldShowTags();
+	
 	document
-			.write("<div id='SQQuiz'; marginTop = '1px'; marginBottom='1px' ; width:80vw ><span id='SQworkarea' class='grad'><table border='0'><table border='1'>"
-					+ "<tr><td><span id='SQmenu'></span></td>"
-					+ "<td><span id='SQButtons'></span></td></tr></table>"
-					+ "<tr><td><span id='SQAnswer'></span></td></tr>"
-					+ "<tr><td><span id='SQquestData'></span></td></tr>"
-					+ "<tr><td><span id='SQImage'></span></td></tr>"
-					+ "</table></span></div>");
+	.write("<div id='SQQuiz' class='SQQuizMain' ><span id='SQworkarea' class='grad'><table border='0' width=80%><table border='1'>"
+			+ "<tr><td><span id='SQmenu'></span></td>"
+			+ "<td><span id='SQButtons'></span></td></tr></table>"
+			+ "<tr><td><span id='SQAnswer'></span></td></tr>"
+			+ "<tr><td><span id='SQquestData'></span></td></tr>"
+			+ "<tr><td><span id='SQImage'></span></td></tr>"
+			+ "</table></span></div>");
 
 	document.getElementById("SQquestData").style.margin = "0px 0px 0px 0px";
 	document.getElementById("SQAnswer").style.margin = "0px 0px 0px 0px";
@@ -4797,6 +5668,19 @@ function SQGetURIString() {
 	};
 	return ;
 }
+
+function SQShouldShowTags() {
+	const queryString = window.location.search;
+	const urlParams = new URLSearchParams(queryString);
+	if (urlParams.has('showTags')) {
+		if ( urlParams.get('showTags') == 1) {
+			return true;
+		}
+	};
+	return false;
+}
+
+
 function SQLimitMenuDuringQuest(textToDisplay) {
 	document.getElementById("SQmenu").innerHTML = textToDisplay;
 }
@@ -4809,7 +5693,11 @@ function SQResetAndStore() {
 function SQInitMenu() {
 	var menuArea = document.getElementById("SQmenu");
 
-	menuArea.innerHTML = 'Rounds<BR/><BR/>' + SQInitQuestButtons(quests)  + '<BR/><BR/>Restrict rounds list by interest<BR/><BR/>'+ SQInitTagButtons();
+	if (showTags) {
+		menuArea.innerHTML = 'Rounds<BR/><BR/>' + SQInitQuestButtons(quests)  + '<BR/><BR/>Restrict rounds list by interest<BR/><BR/>'+ SQInitTagButtons();
+	} else {
+		menuArea.innerHTML = 'Rounds<BR/><BR/>' + SQInitQuestButtons(quests)  ;
+	}
 }
 
 function SQInitMenuWithTags() {
@@ -4824,6 +5712,16 @@ function SQInitQuestData() {
 
 function SQStartQuizFromButton(quizIndex) {
 	naturalizedQuizIndex = quizIndex + 1;
+	
+	if (SQIsQuizTodays(quizIndex)) {
+		if (!passwordEntered) {
+			if (!passwordPasses()) {
+				return;
+			}
+			passwordEntered=true;
+			
+		}
+	}
 	document.getElementById("SQmenu").innerHTML = '(' + naturalizedQuizIndex + ') ' + quests[quizIndex].name
 			+ " - " + quests[quizIndex].hoverover;
 	currQuestStageIndex = 0;
@@ -4833,6 +5731,14 @@ function SQStartQuizFromButton(quizIndex) {
 
 }
 
+function passwordPasses() {
+	passwordAttempt = '';
+	passwordAttempt=prompt('This quiz is for this evening, so you need to enter a password to play it.','');
+	if (!(passwordAttempt == password)) {
+		return false;
+	}
+	return true;
+}
 function runNextQuestStage() {
 	questStageData = quests[currQuestIndex].questInfo;
 	if (currQuestStageIndex == questStageData.length
@@ -5001,9 +5907,15 @@ function SQWriteAnswer() {
 
 function SQreloadPage(tag){
 	newURL = window.location.pathname + '?quizType=' + tag;
+	if (showTags) {
+		newURL = newURL + '&' + showTagsURI
+	}
 	window.location.assign(newURL);
 }
 function SQInitTagButtons() {
+	if (! showTags) {
+		return '';
+	}
 	tagsCount = tags.length;
 	buttons = '';
 	
@@ -5042,24 +5954,50 @@ function SQInitQuestButtons(options) {
 function SQIncludeQuiz(optionTagsString) {
 	optionTags = optionTagsString.split(",");
 	optionTagsCount = optionTags.length;
-	URITagsCount = tags.length;
+	URITagsCount = tagsFromURI().length;
+	URITags  =tagsFromURI();
 	for (var i = 0; i < optionTagsCount; i++) { //Store all tags
-		if (!optionTags[i].includes('/')) {
+		if (!optionTags[i].includes('/') && !optionTags[i].includes('-')) {
 			tempTags.push(optionTags[i]);
 		}
 	}
 	for (var i = 0; i < optionTagsCount; i++) {
-		for (var j = 0; j < optionTagsCount; j++) {
-			if (tags[j] == showAll) {
+		if (optionTags[i] == todayString ) {
+			return true;
+		}
+		for (var j = 0; j < URITagsCount; j++) {
+			if (URITags[j] == showAll) {
 				return true;
 			}
-			if (optionTags[i] == todayString ) {
-				return true;
-			}
-			if (optionTags[i] == tags[j]) {
+			if (optionTags[i] == URITags[j]) {
 				return true;
 			}
 		}
+	}
+	return false;
+}
+
+function SQIsQuizTodays(quizIndex) { 
+	
+	optionTagsString = quests[quizIndex].tags;
+	
+	optionTags = optionTagsString.split(",");
+	optionTagsCount = optionTags.length;
+	console.log("Today String = " + todayString);
+	for (var i = 0; i < optionTagsCount; i++) {
+		console.log("optons String = " + optionTags[i]);
+		if (optionTags[i] == todayString ) {
+			return true;
+		}
+		if (optionTags[i].includes('-')) {
+			optionDate = new Date(optionTags[i]);
+			todayDate = new Date(todayString);
+			//console.log(optionDate + "   " + todayDate);
+			if (todayDate.getTime() < optionDate.getTime()) {
+				return true;
+			}
+		}
+
 	}
 	return false;
 }
@@ -5093,3 +6031,4 @@ function SQGetQuestArea() {
 function SQGetQuestInfo() {
 	return document.getElementById("questNames").value;
 };
+
