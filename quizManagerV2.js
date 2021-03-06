@@ -11,6 +11,7 @@ document.getElementsByTagName('head')[0].appendChild(meta);
 // Big quiz resource https://readymadepubquiz.com/pub-quizzes-main-menu/
 //Ditloids https://www.quizmasters.biz/DB/Que/Static/Brainteasers/Ditloids_01.html
 //Horror  https://metro.co.uk/2016/03/24/quiz-can-you-guess-these-terrifying-horror-movies-5769102/
+// SMash Answers https://twitter.com/smashinganswers?lang=en
 
 //https://www.edinburghnews.scotsman.com/whats-on/arts-and-entertainment/25-funny-pub-quiz-questions-2020-hilarious-and-quirky-trivia-ask-your-online-quiz-plus-answers-2540427
 //  https://www.mylondon.news/whats-on/family-kids-news/take-really-random-questions-quiz-18168558
@@ -5621,6 +5622,46 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
 	question : "What is this that Ted drew? ",
 	image : "",
 	answer : ""}) ;
+
+
+quests[++questIndexBuilder] = { //
+		name : "AnswerSmash",
+		hoverover : "Inspired by House of Games",
+		tags : "2021-3-6,surfers,saturday,InnerWheel",
+		splash : {splashType : splashTypePictureAndText , splashText : "Two questions, smash the answers together - for example, the answer for these 2 is 'CountDownTown'" , splashImage : "https://pbs.twimg.com/media/D9SJLSYWkAAwr0o?format=jpg&name=small"},
+		questInfo: new Array()
+	};
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Smash these together ",
+	image : "https://pbs.twimg.com/media/D8o5sZ6XUAE7BsB?format=jpg&name=small",
+	answer : "Barry Norman Bates"}) ;	
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Smash these together ",
+	image : "https://pbs.twimg.com/media/D8o4wGfXsAAKCCy?format=jpg&name=small",
+	answer : "HeArt Garfunkel"}) ;	
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Smash these together ",
+	image : "https://pbs.twimg.com/media/D8o4cf1XUAEkUMN?format=jpg&name=small",
+	answer : "A Question of SPort Talbot"}) ;	
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Smash these together ",
+	image : "https://pbs.twimg.com/media/D8HjuaRX4AELti2?format=jpg&name=small",
+	answer : "Barry ManiLowestoft"}) ;	
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Smash these together ",
+	image : "https://pbs.twimg.com/media/D8Hjj2DXsAAOeCb?format=jpg&name=small",
+	answer : "ElephAnt and Dec"}) ;	
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Smash these together ",
+	image : "https://pbs.twimg.com/media/D9SBvyDXUAAYFm5?format=jpg&name=small",
+	answer : "Wet Wet WEtch-a-Sketch"}) ;	
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Smash these together ",
+	image : "https://pbs.twimg.com/media/D8HizlfXUAEbvBZ?format=jpg&name=small",
+	answer : "MaDonna Summer"}) ;	
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Smash these together ",
+	image : "https://pbs.twimg.com/media/D9SImIzWwAIaKkt?format=jpg&name=small",
+	answer : "Father TEddie the Eagle"}) ;	
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Smash these together ",
+	image : "https://pbs.twimg.com/media/D9SIwPnWwAA0qRK?format=jpg&name=small",
+	answer : "Clint EastWoody Harrelson"}) ;	
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Smash these together ",
+	image : "https://pbs.twimg.com/media/D9SJBSxXUAMN0Sh?format=jpg&name=small",
+	answer : "GReece Shearsmith"}) ;	
+
 
 
 
