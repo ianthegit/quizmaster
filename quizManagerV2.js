@@ -40,12 +40,16 @@ todayString = "" + today.getDate() + "/" + month + "/" + today.getFullYear();
 todayString = "" + today.getFullYear() + "-" + month + "-" + today.getDate();
 passwordEntered=false;
 password='letmein';
-showTagsURI='showTags=1'
+showTagsURI='showTags=1';
+splashTypeText='text';
+splashTypePictureAndText = 'pictureAndText';
 
 questionStyle = 'style="font-family:verdana;color:Black;font-size:30px;topMargin=10px;bottomMargin=10px"';
 answerStyle = 'style="font-family:Courier New;color:Black;font-size:30px;topMargin=0px;bottomMargin=0px;"';
 previousButton = "<input type='button' class='userBtnStop' value='Previous' title='Previous' id='Previous' onclick='runPreviousQuestStage()' />";
 nextButton = "<input type='button' class='userBtnNext' value='Next' title='Next' id='Next' onclick='runNextQuestStage()' />";
+closeSplashButtonStart = "<input type='button' class='userBtnNext' value='Start Quiz' title='Start Quiz' id='Start Quiz' onclick='SQStartQuiz(";
+closeSplashButtonEnd=")' />";
 answerButton = "<input type='button' class='userBtnNext' value='Answers' title='Answers' id='Next' onclick='runNextQuestStage()' />";
 tagsButton = "<input type='button' class='userBtnStop' value='Categories' title='Categories' id='Categories' onclick='showCategories()' />";
 Table4ColumnStart="<table style='font-family:verdana;color:Black;font-size:30px;topMargin=10px;bottomMargin=10px' width='95%' border='1'><tr><th>1</th><th>2</th><th>3</th><th>4</th></tr><tr><td>";
@@ -5391,7 +5395,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
 	image : "https://sickmagazine.weebly.com/uploads/4/8/2/0/48207375/7241155.jpg?250"} );
 
 quests[++questIndexBuilder] = { //
-		name : "60's best",
+		name : "60s best",
 		hoverover : "Apparently the 12 greatest songs of the 60s",
 		tags : "2021-2-27,saturday,music",
 		questInfo: new Array()
@@ -5439,6 +5443,7 @@ quests[++questIndexBuilder] = { //
 		name : "Artistic Impression",
 		hoverover : "Who are these caricatures of",
 		tags : "2021-3-6,surfers,saturday,InnerWheel",
+		splash : {splashType : splashTypeText , splashText : "Name the celebrity caricature" },
 		questInfo: new Array()
 	};
 
@@ -5492,6 +5497,8 @@ quests[++questIndexBuilder] = { //
 		name : "Oopsie",
 		hoverover : "Who are these mugshots of",
 		tags : "2021-3-6,surfers,saturday,InnerWheel",
+		splash : {splashType : splashTypePictureAndText , splashText : "We all remember this photo, but can you name these other celebrities having their mugshot taken afer a misdemeanor?", 
+			splashImage : "http://www.thesmokinggun.com/sites/default/files/imagecache/670xX/photos/grantmug1.jpg" },
 		questInfo: new Array()
 	};
 
@@ -5542,6 +5549,81 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 	answer : "Elvis - it was a joke picture for his honorary Police Badge" });
 
 
+quests[++questIndexBuilder] = { //
+		name : "Confucious",
+		hoverover : "Real or Fake saying",
+		tags : "2021-3-6,surfers,saturday,InnerWheel",
+		splash : {splashType : splashTypePictureAndText , splashText : "True or False - We all know who Confucious was, but did he really say these..." , splashImage : "https://static.parade.com/wp-content/uploads/2021/02/Confucius-quotes-5.jpg"},
+		questInfo: new Array()
+	};
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
+	question : "The way you cut your meat reflects the way you live.",
+	answer : "True" });
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
+	question : "Man who have clear conscience usually have bad memory, too",
+	answer : "False" });
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
+	question : "Behind every successful man is good woman — and very surprised mother-in-law",
+	answer : "False" });
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
+	question : "Real knowledge is to know the extent of one’s ignorance",
+	answer : "True" });
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
+	question : "He who laughs last did not get the joke",
+	answer : "False" });
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
+	question : "When man bring wife flowers for no reason, there usually reason",
+	answer : "False" });
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
+	question : "He who fish in other man’s well often catches crabs",
+	answer : "False" });
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
+	question : "War not determine who is right, war determine who is left",
+	answer : "False" });
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
+	question : "If you make a mistake and do not correct it, this is called a mistake",
+	answer : "True" });
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
+	question : "He who is stupid today is still stupid tomorrow",
+	answer : "False" });
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
+	question : "It does not matter how slowly you go as long as you do not stop",
+	answer : "True" });
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
+	question : "Steal a man’s wallet and he’ll be poor for a week. Teach him about Mountain Biking and he'll be poor forever",
+	answer : "False" });
+
+quests[++questIndexBuilder] = { //
+		name : "50s best",
+		hoverover : "Apparently the 12 greatest songs of the 50s",
+		tags : "2021-3-6,saturday,music",
+		questInfo: new Array()
+	};
+
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeSpotify,
+	question : '',
+	spotify : '<iframe src="https://open.spotify.com/embed/playlist/3yyhQ1hHIPo5Io4OkOWI2x"   width="500" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media">></iframe>',
+	answer : ""
+} );
+
+quests[++questIndexBuilder] = { //
+		name : "Pictionary 06",
+		hoverover : "Pictionary",
+		tags : "2021-3-6,pictionary",
+		questInfo: new Array()
+	};
+
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ian drew? ",
+	image : "",
+	answer : ""}) ;
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What is this that Ted drew? ",
+	image : "",
+	answer : ""}) ;
+
+
+
 /*
   addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 	question : "",
@@ -5561,6 +5643,7 @@ quests[++questIndexBuilder] = { //
 		name : "Test new quiz builder",
 		hoverover : "Try out the quicker builder",
 		tags : "test",
+		splash : {splashType : splashTypeText / splashTypePictureAndText , splashText : "Test Text" }
 		questInfo: new Array()
 	};
 
@@ -5645,7 +5728,7 @@ function SQInit() {
 	
 	document
 	.write("<div id='SQQuiz' class='SQQuizMain' ><span id='SQworkarea' class='grad'><table border='0' width=80%><table border='1'>"
-			+ "<tr><td><span id='SQmenu'></span></td>"
+			+ "<tr><td><span id='SQmenu' STYLE='color: black'></span></td>"
 			+ "<td><span id='SQButtons'></span></td></tr></table>"
 			+ "<tr><td><span id='SQAnswer'></span></td></tr>"
 			+ "<tr><td><span id='SQquestData'></span></td></tr>"
@@ -5711,7 +5794,6 @@ function SQInitQuestData() {
 }
 
 function SQStartQuizFromButton(quizIndex) {
-	naturalizedQuizIndex = quizIndex + 1;
 	
 	if (SQIsQuizTodays(quizIndex)) {
 		if (!passwordEntered) {
@@ -5722,8 +5804,28 @@ function SQStartQuizFromButton(quizIndex) {
 			
 		}
 	}
-	document.getElementById("SQmenu").innerHTML = '(' + naturalizedQuizIndex + ') ' + quests[quizIndex].name
-			+ " - " + quests[quizIndex].hoverover;
+	naturalizedQuizIndex = quizIndex + 1;
+	document.getElementById("SQmenu").innerHTML = '(' + naturalizedQuizIndex + ') ' + quests[quizIndex].name + " - " + quests[quizIndex].hoverover;
+	
+	if (quests[quizIndex].hasOwnProperty('splash')) {
+		if (splashTypeText == quests[quizIndex].splash.splashType ) {
+			SQGetQuestArea().innerHTML = "<p " + questionStyle + ">"+ quests[quizIndex].splash.splashText + "   " + closeSplashButtonStart + quizIndex + closeSplashButtonEnd +  "</p>";
+		} 
+		if (splashTypePictureAndText == quests[quizIndex].splash.splashType ) {
+			SQGetQuestArea().innerHTML = "<p " + questionStyle + ">"+ quests[quizIndex].splash.splashText + "   " + closeSplashButtonStart + quizIndex + closeSplashButtonEnd +  "</p>";
+			console.log("<p " + questionStyle + ">"	+ quests[quizIndex].splash.splashText + "   " + closeSplashButtonStart + quizIndex + closeSplashButtonEnd +  "</p>");
+			sqInitPicture(quests[quizIndex].splash.splashImage);
+		}
+		return;
+	}
+	
+	SQStartQuiz(quizIndex);
+}
+
+function SQStartQuiz(quizIndex) {
+	naturalizedQuizIndex = quizIndex + 1;
+	
+
 	currQuestStageIndex = 0;
 	quizStage = quizStageQuestions;
 	currQuestIndex = quizIndex;
@@ -5983,9 +6085,9 @@ function SQIsQuizTodays(quizIndex) {
 	
 	optionTags = optionTagsString.split(",");
 	optionTagsCount = optionTags.length;
-	console.log("Today String = " + todayString);
+	//console.log("Today String = " + todayString);
 	for (var i = 0; i < optionTagsCount; i++) {
-		console.log("optons String = " + optionTags[i]);
+		//console.log("optons String = " + optionTags[i]);
 		if (optionTags[i] == todayString ) {
 			return true;
 		}
@@ -6031,4 +6133,6 @@ function SQGetQuestArea() {
 function SQGetQuestInfo() {
 	return document.getElementById("questNames").value;
 };
+
+
 
