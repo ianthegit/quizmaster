@@ -6126,6 +6126,14 @@ function SQIsQuizTodays(quizIndex) {
 	
 	optionTags = optionTagsString.split(",");
 	optionTagsCount = optionTags.length;
+	URITags  =tagsFromURI();
+	URITagsCount = URITags.length;
+	
+	for (var j = 0; j < URITagsCount; j++) {
+		if (URITags[j] == todayString) {
+			return false;
+		}
+	}
 	//console.log("Today String = " + todayString);
 	for (var i = 0; i < optionTagsCount; i++) {
 		//console.log("optons String = " + optionTags[i]);
