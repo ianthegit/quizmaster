@@ -1,5 +1,6 @@
 
 
+
 var meta = document.createElement('meta');
 meta.httpEquiv = "X-Clacks-Overhead";
 meta.content = "GNU Terry Pratchett";
@@ -5701,7 +5702,8 @@ addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question
 addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "Who is this person's famous Mother/Daughter?", answer : "Billie Lourd / Carrie Fisher / Debbie Reynolds",  // 
 	image : "https://www.usmagazine.com/wp-content/uploads/carrie-fisher-outfit-706c4ddb-7fa8-45ea-b020-aa987fdb9917.jpg?w=900&quality=86&strip=all",
 	answerimage : "https://www.usmagazine.com/wp-content/uploads/2019/12/Billie-Lourd-Posts-Emotional-Christmas-Tribute-to-Late-Mom-Carrie-Fisher-and-Grandma-Debbie-Reynolds.jpg?quality=86&strip=all"	}); 
-addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "Who is this person's famous Mother/Daughter?", answer : "Dakota Johnson / Melanie Griffith / Tippi Hedren",  // 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "Who is this person's famous Mother/Daughter?  Extra points for knowing who's mother the grey haired lady sat in the next booth to Sally and who says 'I'll have what she's having' is.", 
+	answer : "Dakota Johnson / Melanie Griffith / Tippi Hedren - and the grey-haired lady - Estelle Reiner, producer Rob Reiner's Mum.",  // 
 	image : "https://thereelbits.com/wp-content/uploads/2012/06/whms001.jpg",
 	answerimage : "https://media.npr.org/assets/img/2017/11/16/01-tippi-melanie-fc880235a9fe24e0648894250f28c1205580e868.jpg"	}); 
 addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "Who is this person's famous Mother/Daughter?", answer : "Eva Amurri / Susan Sarandon",  // 
@@ -5738,6 +5740,615 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 	question : "In which Beatle's song does '...Mother Mary come to me'?",
 	answer : "Let It Be"    } );
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText, 	
+	question : "Which of these comedians was a preferred choice to play Frank Spencer in 'Some Mothers Do Have 'Em', before the role went to Michael Crawford?  " + Table4ColumnStart + "Ronnie Corbett</td><td>Ronnie Barker</td><td>Ronnie Wood</td><td>Dick Emery" + Table4ColumnEnd,
+	answer : "Ronnie Barker"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText, 	
+	question : "In the Doctor Hook hit Sylvia's Mother, what is mother's surname?" + Table4ColumnStart + "Mrs Allen</td><td>Mrs Abraham</td><td>Mrs Alexander</td><td>Mrs Plath" + Table4ColumnEnd,
+	answer : "Mrs Abraham"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText, 	
+	question : "Who was the mother of Queen Elizabeth I?" + Table4ColumnStart + "Catherine of Aragon</td><td>Jane Seymour</td><td>Anne Boleyn</td><td>Nell Gwyn" + Table4ColumnEnd,
+	answer : "Anne Boleyn"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
+	question : "In the Pantomime, who is Aladdin's mother?",
+	answer : "Widow Twanky"} );
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
+	question : "True or False – Neil Armstrong's mother’s maiden name was Moon?",
+	answer : "False - Buzz Aldrin's was"} );
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
+	question : "Which Blue String Pudding eating family consisted of Major, Mother, Granny, Small And Tiny?",
+	answer : "The Clangers"} );
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
+	question : "Which actress played the part of Elvis Presley's mother in the film Blue Hawaii and later went on to play a TV detective?",
+	answer : "Angela Landsbury"} );
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "Who's Mother-In-Law is this?",
+	image : "https://vhistory.files.wordpress.com/2019/03/hippo.jpg",
+	answer : "Reggie Perrin"}) ;
+
+quests[++questIndexBuilder] = { //
+		name : "Movie Mums",
+		hoverover : "Questions about movie mothers",
+		tags : "2021-3-13,surfers,saturday,InnerWheel,movies,specialDay",
+		splash : {splashType : splashTypeText  , splashText : "Name the movie or TV show (the franchise, if appropriate, will do) these Mums are from, and name them if you can (their character's or their real name will do, 1 point for grabs for either)." },
+		questInfo: new Array()
+	};
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 		question : "Who is this and what film were they in?  ",
+	image : "https://www.trend-chaser.com/wp-content/uploads/2019/06/0b192370-599e-4d41-90cd-d5b39de4bf9a-43262.jpg",
+	answer : "Kate McCallister / Catherine O'Hara - Home Alone"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 		question : "Who is this and what film were they in?  ",
+	image : "https://www.trend-chaser.com/wp-content/uploads/2019/06/carrie-mother_BANNERS-20683.jpg",
+	answer : "Margaret White / Piper Laurie - Carrie"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 		question : "Who is this and what film were they in?  ",
+	image : "https://www.trend-chaser.com/wp-content/uploads/2019/06/Capture.jpg-72700.JPG",
+	answer : "Jeanie Stifler (Stifler's Mum) / Jennifer Coolidge - American Pie"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 		question : "Who is this and what film were they in?  ",
+	image : "https://www.trend-chaser.com/wp-content/uploads/2019/06/First_appearance_of_the_other_mother-89517.jpg",
+	answer : "Other Mother / Teri Hatcher - Coraline"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 		question : "Who is this and what film were they in?  ",
+	image : "https://www.trend-chaser.com/wp-content/uploads/2019/06/mommie-dearest-still-800x450-97501.jpg",
+	answer : "Joan Crawford / Faye Dunaway - Mommie Dearest"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 		question : "Who is this and what film were they in?  ",
+	image : "https://www.trend-chaser.com/wp-content/uploads/2019/06/everett-collection-mbdgrad-ec013-1-1532705977-39282.jpg",
+	answer : "Mrs Robinson / Anne Bancroft - The Graduate"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 		question : "Who is this and what film were they in?  ",
+	image : "https://fastly.syfy.com/sites/syfy/files/styles/1200x680/public/2018/11/linda.jpg?offset-x=0&offset-y=0",
+	answer : "Sarah Connor / Linda Hamilton - Terminator"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 		question : "Who is this and what film were they in?  ",
+	image : "https://static.wikia.nocookie.net/the-incredibles/images/4/4a/Mrs_Incredible.jpg/revision/latest/top-crop/width/360/height/450?cb=20130723163357",
+	answer : "Helen Parr / Holly Hunter - The Incredibles"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 		question : "Who is this and what film were they in?  ",
+	image : "https://static.wikia.nocookie.net/psycho/images/a/a4/Psycho_15.jpg/revision/latest/scale-to-width-down/340?cb=20120919203256",
+	answer : "Mrs Bates - Psycho"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 		question : "Who is this and what tv show were they in?  ",
+	image : "https://arc-anglerfish-arc2-prod-pmn.s3.amazonaws.com/public/IPAI6RIZPVBS5APZCZ2XHPFCUI.jpg",
+	answer : "Beverly Goldberg / Wendi McLendon-Covey - The Goldbergs.  Minus 5 points if you try to get points for 'Smother'"	});
+
+
+
+quests[++questIndexBuilder] = { //
+		name : "About Mum",
+		hoverover : "Songs about Mums",
+		tags : "2021-3-13,saturday,music,specialDay",
+		questInfo: new Array()
+	};
+
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeSpotify,
+	question : '',
+	spotify : '<iframe src="https://open.spotify.com/embed/playlist/1wFGsOGwt55ALmrGAT4dzs"   width="500" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media">></iframe>',
+	answer : ""
+} );
+
+
+/*
+  addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
+	question : "",
+	answer : ""} );
+
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "?",
+	image : "",
+	answer : ""}) ;
+ 
+ 
+ 
+ 
+quests[++questIndexBuilder] = { //
+		name : "Test new quiz builder",
+		hoverover : "Try out the quicker builder",
+		tags : "test",
+		splash : {splashType : splashTypeText / splashTypePictureAndText , splashText : "Test Text", splashImage : "" }
+		questInfo: new Array()
+	};
+
+quests[++questIndexBuilder] = {  //
+		name : "Test new month-based quiz builder",
+		hoverover : "Try out the quicker builder",
+		tags : "test,year,saturday",
+		questInfo: new Array()
+	};
+	
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText, 	
+	question : "?  " + Table4ColumnStart + "?</td><td>?</td><td>?</td><td>?" + Table4ColumnEnd,
+	answer : "?"	});
+
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
+	question : "",
+	answer : ""    } );
+
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "What movie is being described",
+	image : "https://lh3.googleusercontent.com/Ftq4kmwf2ZMgm2Au1KHEirPcTYyA2MfoTe5ti0A2v6cPUAyexLjvfFtcovCeJDtF8oX8j6EXHIV9HMrZj41byAmnurxMK4mfRcSw695znXl608VK__rflaCyjX_fcVMXtxvgNfEU0NU=w1920-h1080",
+	answer : "Groundhog Day"
+}) ;
+
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeSpotify,
+	question : 'Name the products these songs were used to advertise',
+	spotify : '<iframe src="https://open.spotify.com/embed/playlist/7BQJ0lhgEX1NCPKBt6TlYm" width="500" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>',
+	answer : "Cadbury, Levi's,Muller Light, Galaxy, Wrigleys, Guinness, Vauxhall, Nike, Levi's, Barclaycard,Quality Street  "
+}) ;
+
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeSpotify,
+	question : '',
+	spotify : '<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRm7q0c3dgVMI_pieDAUPcSHXQ8N3I20dHQytGEjaKsq2Pj-l2xHcRpud-McY2UhU_qrBcLyVRidpOJ/embed?start=false&loop=false&delayms=10000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>',
+	answer : "Click the presentation to move it along"
+} );
+
+addQuest(quests[questIndexBuilder],{		type : quizQuestionTypeText,
+		question : "In August, who said (during a voice check for a radio broadcast) 'My fellow Americans, I'm pleased to tell you today that I've signed legislation that will outlaw Russia forever. We begin bombing in five minutes'?",
+		answer : "POTUS Ronald Reagan  <iframe width='560' height='315' src='https://www.youtube.com/embed/bBow1ToJBFE' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+}) ;
+
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,
+		question : "What movie", //Brigadoon
+		image : "",
+		answerimage : ""
+}) ;
+
+addQuest(quests[questIndexBuilder],{		type : quizQuestionTypePictureAnswer,
+		question : "Which actor has died most times on the big-screen (ie in films)? <BR/> (a) Danny Trejo, <BR/> (II) Vincent Price, <BR/> (3) Christopher Lee, <BR/> (Ivy) Dennis Hopper.",
+		answerimage : "https://lh3.googleusercontent.com/X8Cwofy-XdhCTIt7Ict9vOQ-Du4KGOMC8wwGSXAP_y9RdlJOiP8RTp3Nnmj5rqik9AV-epVXWxb6hDPjwtbBuHqOur_YQKJrM5P1EoCO3U9U8yFzGXGHvX7El6AE_lK5SsiOB2DR-Dg=w1920-h1080"
+	} ); 
+	
+addQuest(quests[questIndexBuilder],{		type : quizQuestionTypePictureAnswer,
+	question : "Which actor has died most times on the big-screen (ie in films)? <BR/> (a) Danny Trejo, <BR/> (II) Vincent Price, <BR/> (3) Christopher Lee, <BR/> (Ivy) Dennis Hopper.",
+	answerimage : "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Danny_Trejo_by_Gage_Skidmore.jpg/220px-Danny_Trejo_by_Gage_Skidmore.jpg"
+} ); 
+
+questIndexBuilder++;
+
+addQuest(quests[questIndexBuilder],{		type : quizQuestionTypeText,
+	question : "who was born?",
+	answer : "Ted"
+} ); 
+
+questIndexBuilder++;
+*/
+ 
+function tagsFromURI() {
+	tagStringFromURI = SQGetURIString();
+	if (!tagStringFromURI) {
+		tagStringFromURI = defaultTag;
+	}
+	//tagStringFromURI;
+	return tagStringFromURI.split(",");
+}
+function SQInit() {
+	
+
+	tags = tagsFromURI();
+	showTags = SQShouldShowTags();
+	
+	document
+	.write("<div id='SQQuiz' class='SQQuizMain' ><span id='SQworkarea' class='grad'><table border='0' width=80%><table border='1'>"
+			+ "<tr><td><span id='SQmenu' STYLE='color: black'></span></td>"
+			+ "<td><span id='SQButtons'></span></td></tr></table>"
+			+ "<tr><td><span id='SQAnswer'></span></td></tr>"
+			+ "<tr><td><span id='SQquestData'></span></td></tr>"
+			+ "<tr><td><span id='SQImage'></span></td></tr>"
+			+ "</table></span></div>");
+
+	document.getElementById("SQquestData").style.margin = "0px 0px 0px 0px";
+	document.getElementById("SQAnswer").style.margin = "0px 0px 0px 0px";
+	SQInitMenu();
+
+	if (currQuestStageIndex > -1) {
+		SQRestartQuest();
+	}
+}
+function SQGetURIString() {
+	const queryString = window.location.search;
+	const urlParams = new URLSearchParams(queryString);
+	if (urlParams.has('quizType')) {
+		return urlParams.get('quizType')
+	};
+	return ;
+}
+
+function SQShouldShowTags() {
+	const queryString = window.location.search;
+	const urlParams = new URLSearchParams(queryString);
+	if (urlParams.has('showTags')) {
+		if ( urlParams.get('showTags') == 1) {
+			return true;
+		}
+	};
+	return false;
+}
+
+
+function SQLimitMenuDuringQuest(textToDisplay) {
+	document.getElementById("SQmenu").innerHTML = textToDisplay;
+}
+function SQResetAndStore() {
+	currQuest = "";
+	currQuestIndex = 0;
+	currQuestStageIndex = -1;
+}
+
+function SQInitMenu() {
+	var menuArea = document.getElementById("SQmenu");
+
+	if (showTags) {
+		menuArea.innerHTML = 'Rounds<BR/><BR/>' + SQInitQuestButtons(quests)  + '<BR/><BR/>Restrict rounds list by interest<BR/><BR/>'+ SQInitTagButtons();
+	} else {
+		menuArea.innerHTML = 'Rounds<BR/><BR/>' + SQInitQuestButtons(quests)  ;
+	}
+}
+
+function SQInitMenuWithTags() {
+	var menuArea = document.getElementById("SQmenu");
+
+	menuArea.innerHTML = SQInitTagButtons();
+}
+
+function SQInitQuestData() {
+	SQGetQuestArea().innerHTML = '';
+}
+
+function SQStartQuizFromButton(quizIndex) {
+	
+	if (SQIsQuizTodays(quizIndex)) {
+		if (!passwordEntered) {
+			if (!passwordPasses()) {
+				return;
+			}
+			passwordEntered=true;
+			
+		}
+	}
+	naturalizedQuizIndex = quizIndex + 1;
+	document.getElementById("SQmenu").innerHTML = '(' + naturalizedQuizIndex + ') ' + quests[quizIndex].name + " - " + quests[quizIndex].hoverover;
+	
+	if (quests[quizIndex].hasOwnProperty('splash')) {
+		if (splashTypeText == quests[quizIndex].splash.splashType ) {
+			SQGetQuestArea().innerHTML = "<p " + questionStyle + ">"+ quests[quizIndex].splash.splashText + "   " + closeSplashButtonStart + quizIndex + closeSplashButtonEnd +  "</p>";
+		} 
+		if (splashTypePictureAndText == quests[quizIndex].splash.splashType ) {
+			SQGetQuestArea().innerHTML = "<p " + questionStyle + ">"+ quests[quizIndex].splash.splashText + "   " + closeSplashButtonStart + quizIndex + closeSplashButtonEnd +  "</p>";
+			console.log("<p " + questionStyle + ">"	+ quests[quizIndex].splash.splashText + "   " + closeSplashButtonStart + quizIndex + closeSplashButtonEnd +  "</p>");
+			sqInitPicture(quests[quizIndex].splash.splashImage);
+		}
+		return;
+	}; 
+	if (SQIsQuizMusic(quizIndex)){
+		SQGetQuestArea().innerHTML = "<p " + questionStyle + "> This quiz is a Music quiz.  Please ensure you are only sharing sound, not screen.  " + closeSplashButtonStart + quizIndex + closeSplashButtonEnd +  "</p>";
+		return;
+	};
+	
+	SQStartQuiz(quizIndex);
+}
+
+function SQStartQuiz(quizIndex) {
+	naturalizedQuizIndex = quizIndex + 1;
+	
+
+	currQuestStageIndex = 0;
+	quizStage = quizStageQuestions;
+	currQuestIndex = quizIndex;
+	runNextQuestStage();
+
+}
+
+function passwordPasses() {
+	passwordAttempt = '';
+	passwordAttempt=prompt('This quiz is for this evening, so you need to enter a password to play it.','');
+	if (!(passwordAttempt == password)) {
+		return false;
+	}
+	return true;
+}
+function runNextQuestStage() {
+	questStageData = quests[currQuestIndex].questInfo;
+	if (currQuestStageIndex == questStageData.length
+			&& quizStage == quizStageQuestions) {
+		currQuestStageIndex = 0;
+		quizStage = quizStageAnswers;
+	}
+	if (currQuestStageIndex < 0 && quizStage == quizStageAnswers) {
+		currQuestStageIndex = questStageData.length - 1;
+		quizStage = quizStageQuestions;
+	}
+	if (currQuestStageIndex < 0 && quizStage == quizStageQuestions) {
+		currQuestStageIndex = 0;
+	}
+
+	if (currQuestStageIndex == questStageData.length
+			&& quizStage == quizStageAnswers) {
+		resultText = resultText;
+		SQInitQuestData();
+		SQInitMenu();
+		SQGetButtonsArea().innerHTML = '';
+		SQGetAnswerArea().innerHTML = '';
+		SQGetImageArea().innerHTML = '';
+		currQuestStageIndex = -1;
+		quizStage = quizStageQuestions;
+		return;
+	}
+	;
+
+	currentquestion = questStageData[currQuestStageIndex].question;
+	currentanswer = questStageData[currQuestStageIndex].answer;
+	if (quizStage == quizStageQuestions) {
+		SQQuestion(questStageData[currQuestStageIndex].type);
+	} else {
+		SQAnswer(questStageData[currQuestStageIndex].type);
+
+	}
+	;
+};
+
+function runPreviousQuestStage() {
+	currQuestStageIndex = currQuestStageIndex - 2;
+	runNextQuestStage();
+};
+
+function setButtons() {
+	btnhtml = nextButton;
+	if (currQuestStageIndex == questStageData.length - 1
+			&& quizStage == quizStageQuestions) {
+		btnhtml = answerButton;
+	}
+	buttonBar = previousButton + btnhtml;
+	SQGetButtonsArea().innerHTML = buttonBar;
+}
+
+function SQQuestion(questionType) {
+	setButtons();
+	SQGetAnswerArea().innerHTML = '';
+	
+
+	if (questionType == quizQuestionTypeText |questionType == quizQuestionTypePictureAnswer) {
+		SQGetQuestArea().innerHTML = "<p " + questionStyle + ">"
+				+ questStageData[currQuestStageIndex].question + "</p>";
+		var imageArea = document.getElementById("SQImage");
+		imageArea.innerHTML = '';
+	} else if (questionType == quizQuestionTypePicture | questionType == quizQuestionType2Picture) {
+		SQGetButtonsArea().innerHTML = buttonBar;
+		SQGetQuestArea().innerHTML = "<p " + questionStyle + ">"
+				+ questStageData[currQuestStageIndex].question + "</p>";
+		sqInitPicture(questStageData[currQuestStageIndex].image)
+	} else if (questionType == quizQuestionTypeSpotify) {
+		sqInitSpotify(questStageData[currQuestStageIndex].spotify,
+				questStageData[currQuestStageIndex].question)
+	}
+
+	currQuestStageIndex++
+}
+
+function sqInitPicture(imageSource) {
+	var imageArea = document.getElementById("SQImage");
+	imageArea.innerHTML = '<div style="width:100%;height:480px;background-color:black;text-align:center;"> '
+			+ ' <a href="'
+			+ imageSource
+			+ '" target="_blank">'
+			+ ' <img style="height:100%;border:0;" src="'
+			+ imageSource
+			+ '" /> ' + ' </a> ' + ' </div>';
+
+}
+
+function sqInitSpotify(spotifyEmbed, spotifyQuestion) {
+
+	SQGetImageArea().innerHTML = spotifyEmbed;
+	SQGetQuestArea().innerHTML = "<p " + questionStyle + ">" + spotifyQuestion + "</p>";
+}
+
+function SQAnswer(questionType) {
+	counter = 0;
+	setButtons();
+	fullAnswer = questStageData[currQuestStageIndex].answer;
+	fullQuestion = questStageData[currQuestStageIndex].question;
+	if (questionType == quizQuestionTypeText) {
+		SQGetImageArea().innerHTML = '';
+		SQGetQuestArea().innerHTML = "<p " + questionStyle + ">" + fullQuestion
+				+ "</p>";
+	} else if (questionType == quizQuestionTypePicture || questionType == quizQuestionType2Picture) {
+		sqInitPicture(questStageData[currQuestStageIndex].image)
+		SQGetQuestArea().innerHTML = "<p " + questionStyle + ">" + fullQuestion
+				+ "</p>";
+	} else if (questionType == quizQuestionTypeSpotify) {
+		sqInitSpotify(questStageData[currQuestStageIndex].spotify,
+				questStageData[currQuestStageIndex].question)
+	} else if (questionType == quizQuestionTypePictureAnswer) {
+		var imageArea = document.getElementById("SQImage");
+		imageArea.innerHTML = '';
+		SQGetQuestArea().innerHTML = "<p " + questionStyle + ">" + fullQuestion
+		+ "</p>";
+	}
+	
+	// SQGetQuestArea().innerHTML = answerPreText;
+	answerText = '';
+	SQGetAnswerArea().innerHTML = '';
+	if (questionType == quizQuestionType2Picture || questionType == quizQuestionTypePictureAnswer)  {
+		answerimage = questStageData[currQuestStageIndex].answerimage;
+		setTimeout(function(){sqInitPicture(answerimage);},3000 )
+	}
+	if (questStageData[currQuestStageIndex].hasOwnProperty('answer')) {
+		setTimeout(SQSpeakAnswer, 3000);
+		setTimeout(SQWriteAnswer, 3000);
+	}
+	currQuestStageIndex++
+}
+
+function SQSpeakAnswer(){
+	if (!'speechSynthesis' in window) {
+		return;
+	}
+	if (!fullAnswer.includes("iframe")) {
+		var msg = new SpeechSynthesisUtterance();
+		msg.text = fullAnswer;
+		window.speechSynthesis.speak(msg);
+	}
+}
+
+function SQWriteAnswer() {
+	if (fullAnswer.includes("iframe")) {
+		SQGetAnswerArea().innerHTML = // answerPreText +
+			"<p " + answerStyle + ">" + fullAnswer + "</p>";
+	}
+	else if (counter < fullAnswer.length) {
+		answerText = answerText += fullAnswer.charAt(counter);
+
+		SQGetAnswerArea().innerHTML = // answerPreText +
+		"<p " + answerStyle + ">" + answerText + "</p>";
+		counter++;
+		setTimeout(SQWriteAnswer, 80);
+	}
+}
+
+function SQreloadPage(tag){
+	newURL = window.location.pathname + '?quizType=' + tag;
+	if (showTags) {
+		newURL = newURL + '&' + showTagsURI
+	}
+	window.location.assign(newURL);
+}
+function SQInitTagButtons() {
+	if (! showTags) {
+		return '';
+	}
+	tagsCount = tags.length;
+	buttons = '';
+	
+	for (var i = 0; i < tagsCount; i++) {
+			buttons = buttons
+					+ "<input type='button' class='userBtnStop' value='"
+					+ tags[i] + "' title='Reload page and only show quizzes with this tag' id='reload' onclick='SQreloadPage(\"" + tags[i]
+					+ "\")' />"
+		
+	};
+	//console.log("uniqueArray: ", tags);
+	return buttons;
+}
+
+function SQInitQuestButtons(options) {
+	optionsCount = options.length;
+	buttons = '';
+	for (var i = 0; i < optionsCount; i++) {
+		quizNumber = i + 1;
+		if (SQIncludeQuiz(options[i].tags)) {
+			buttons = buttons
+					+ "<input type='button' class='userBtnGo' value='"
+					+ options[i].name + "' title='(" + quizNumber + ") "+ options[i].hoverover
+					+ "' id='startQuizBtn' onclick='SQStartQuizFromButton(" + i
+					+ ")' />"
+		}
+	}
+	;
+	tags = Array.from(new Set(tempTags));
+	tags.sort();
+	tags.unshift('ShowAll');
+	//console.log("uniqueArray: ", tags);
+	return buttons;
+}
+
+function SQIncludeQuiz(optionTagsString) {
+	optionTags = optionTagsString.split(",");
+	optionTagsCount = optionTags.length;
+	URITagsCount = tagsFromURI().length;
+	URITags  =tagsFromURI();
+	for (var i = 0; i < optionTagsCount; i++) { //Store all tags
+		if (!optionTags[i].includes('/') && !optionTags[i].includes('-')) {
+			tempTags.push(optionTags[i]);
+		}
+	}
+	for (var i = 0; i < optionTagsCount; i++) {
+		if (optionTags[i] == todayString ) {
+			return true;
+		}
+		for (var j = 0; j < URITagsCount; j++) {
+			if (URITags[j] == showAll) {
+				return true;
+			}
+			if (optionTags[i] == URITags[j]) {
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+function SQIsQuizMusic(quizIndex) { 
+	
+	optionTagsString = quests[quizIndex].tags;
+	
+	optionTags = optionTagsString.split(",");
+	optionTagsCount = optionTags.length;
+	
+	for (var i = 0; i < optionTagsCount; i++) {
+		if (optionTags[i] == 'music' ) {
+			return true;
+		}
+	}
+	return false;
+}
+function SQIsQuizTodays(quizIndex) { 
+	
+	optionTagsString = quests[quizIndex].tags;
+	
+	optionTags = optionTagsString.split(",");
+	optionTagsCount = optionTags.length;
+	URITags  =tagsFromURI();
+	URITagsCount = URITags.length;
+	
+	for (var j = 0; j < URITagsCount; j++) {
+		if (URITags[j] == todayString) {
+			return false;
+		}
+	}
+	//console.log("Today String = " + todayString);
+	for (var i = 0; i < optionTagsCount; i++) {
+		//console.log("optons String = " + optionTags[i]);
+		if (optionTags[i] == todayString ) {
+			return true;
+		}
+		if (optionTags[i].includes('-')) {
+			optionDate = new Date(optionTags[i]);
+			todayDate = new Date(todayString);
+			//console.log(optionDate + "   " + todayDate);
+			if (todayDate.getTime() < optionDate.getTime()) {
+				return true;
+			}
+		}
+
+	}
+	return false;
+}
+
+function SQQuestPicked() {
+	currQuest = SQGetQuestInfo();
+}
+function SQGetCurrentQuestIndex() {
+	optionsCount = quests.length;
+	for (var i = 0; i < optionsCount; i++) {
+		if (currQuest == quests[i]) {
+			questIndex = i;
+		}
+		;
+	}
+	;
+	return questIndex;
+};
+function SQGetButtonsArea() {
+	return document.getElementById("SQButtons");
+};
+function SQGetAnswerArea() {
+	return document.getElementById("SQAnswer");
+};
+function SQGetImageArea() {
+	return document.getElementById("SQImage");
+};
+function SQGetQuestArea() {
+	return document.getElementById("SQquestData");
+};
+function SQGetQuestInfo() {
+	return document.getElementById("questNames").value;
+};
+
+
+
+swer : "Let It Be"    } );
 addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText, 	
 	question : "Which of these comedians was a preferred choice to play Frank Spencer in 'Some Mothers Do Have 'Em', before the role went to Michael Crawford?  " + Table4ColumnStart + "Ronnie Corbett</td><td>Ronnie Barker</td><td>Ronnie Wood</td><td>Dick Emery" + Table4ColumnEnd,
 	answer : "Ronnie Barker"	});
