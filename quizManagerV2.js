@@ -5218,7 +5218,7 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 quests[++questIndexBuilder] = { //
 		name : "Corrie Cameo",
 		hoverover : "Who are these making cameo appearances in Corrie",
-		tags : "20/2/2021,saurday,InnerWheel,surfers",
+		tags : "20/2/2021,saturday,InnerWheel,surfers",
 		questInfo: new Array()
 	};
 addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : "Who is this? ",
@@ -5614,14 +5614,26 @@ quests[++questIndexBuilder] = { //
 		questInfo: new Array()
 	};
 
-addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
-	question : "What is this that Ian drew? ",
-	image : "",
-	answer : ""}) ;
-addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
-	question : "What is this that Ted drew? ",
-	image : "",
-	answer : ""}) ;
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What did Ted draw?",  // Nike
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3dVZ5jmroH1h_7nNoUYrGHWDkbfmbFY2nVZkwLK-MxbLB1_UgP7qBF7AtasMpZvNt-cBk4vl1_3W93JOC2GaiOVHzHtbHVgVH5DlAyUxDGKJxyecZ9qMLGmMQQTGXJfkYmA3k-DkBKLFnfMeB5thkQHLA=w577-h302-no?authuser=0",
+	answerimage : "https://static.highsnobiety.com/thumbor/Dlh0IXpfsroEYkPeg4h9FT0Sjyc=/1600x1067/static.highsnobiety.com/wp-content/uploads/2012/08/06171644/replacement-logos-01.jpg"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What did Ian draw?",  // Firestone
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3eTnGf4R3o2zzcfegltgHLjKllfUaYXbe2FuB3XheNrB0YYnIXQIT3_pCs5pyfIHAKjkJ_M5DF1j-6mLEZK3FQn2LTXYcp20xMdquRcWp5RXVlrPNuvtDZZTMfq0KdIODjpYsYhE-36ROyDrwGXf2pTKA=w600-h581-no?authuser=0",
+	answerimage : "https://cdn.worldvectorlogo.com/logos/firestone-1.svg"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What did Ted draw?",  // Amazon
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3cbrgn6JmDXqU_VlbyIcOif_XWUSuYLEQdcHxzh1qyX2zkaYSnZPIt142mil404e7wZxiDMVGQ5kstJ28IWEoKvspMubbOlvzERPOqkhEbhbfwQkRFzLE-4r8EFJn-sZnr0Eun4uv8mtR_kFLoQ2VO0EA=w402-h353-no?authuser=0",
+	answerimage : "https://i.pinimg.com/originals/08/5f/d8/085fd8f7819dee3b716da73d3b2de61c.jpg"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What did Ian draw?",  // Apple
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3d42EohtvYGmymeiQWCB8enM9U0PgllSsHsVrEwe0QvYFLLR2ZlYRbb0uajuny4kpbA_LbXaqzLYr4yrkWaEkyUtPjJt70zd1RoUdP4bdpo6ipl62ZME-wvhOFR7Ea6QENfoVe0d3i1EIcYWxBVG7oYtQ=w465-h563-no?authuser=0",
+	answerimage : "https://9to5mac.com/wp-content/uploads/sites/6/2018/02/logo.jpg?quality=82&strip=all"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What did Ted draw?",  // Pepsi
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3fNMUR6VqQNIizrZ0K3-5VRWx6RMZ7Gis5A7ndNBp-Bh7ztJOhK31AgDgaK_W45XjrF44XpKcM7KweJZDivKp77r4lTEPwDhUbQRXc0cMbTVqPWzCRz3CFBIowPDCMGXnNqiUU7EsCv-475HDjBeHXgcw=w386-h333-no?authuser=0",
+	answerimage : "https://logos-world.net/wp-content/uploads/2020/09/Pepsi-Logo-700x394.png"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "What did Ian draw?",  //  Shell
+	image : "https://lh3.googleusercontent.com/pw/ACtC-3eIcSAhSDyW9EngzfDj8bkUk5O_SDzT_OjIDgV-H7oDwNeZirBrhBaR0byExbml2Jdtoo7sai66eW764Qh3Tgv-dsFcKicVyjDU2lRii_7DFjiWX2E-_u6Rn1j2lDKnm98SeVAakmry7-QbHHrV_M09Gw=w510-h451-no?authuser=0",
+	answerimage : "https://martinpc2.files.wordpress.com/2015/04/shell_logo2.png"	}); 
+
+
 
 
 quests[++questIndexBuilder] = { //
@@ -5663,19 +5675,161 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,	question : 
 	answer : "GReece Shearsmith"}) ;	
 
 
+quests[++questIndexBuilder] = { //
+		name : "Mothers",
+		hoverover : "Famous Mums",
+		tags : "2021-3-13,surfers,saturday,InnerWheel,specialDay",
+		splash : {splashType : splashTypeText  , splashText : "You're going to see a picture of someone who has a famous mother, daughter, or both.  Please name them all as appropriate.  A point per correct name." },
+		questInfo: new Array()
+	};
+
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "Who is this person's famous Mother/Daughter?",  answer : "Emma Thompson / Phyllida Law", // 
+	image : "https://i2-prod.mirror.co.uk/incoming/article21727505.ece/ALTERNATES/s615b/0_Emma-Thompson.jpg",
+	answerimage : "https://www.heraldscotland.com/resources/images/3812708.jpg?display=1&htype=0&type=responsive-gallery"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "Who is this person's famous Mother/Daughter?", answer : "Emma Stirling / Diana Rigg", // 
+	image : "https://upload.wikimedia.org/wikipedia/commons/e/e1/Rachel_Stirling.jpg",
+	answerimage : "https://i0.wp.com/insidemediatrack.com/wp-content/uploads/2012/07/Doctor_Who___Diana_Rigg_and_Rachael_Stirling_to_star_in_Mark_Gatiss_penned_episode.jpg"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "Who is this person's famous Mother/Daughter?", answer : "Claudia Winkleman / Eve Pollard",  // 
+	image : "https://www.hellomagazine.com/imagenes/celebrities/2019031870983/claudia-winkleman-rare-son-jake-birthday-post/0-346-737/claudia-winkleman-son-birthday-post-t.jpg",
+	answerimage : "https://media.gettyimages.com/photos/eve-pollard-and-claudia-winkleman-attend-the-women-in-film-and-tv-picture-id1186738948?s=612x612"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "Who is this person's famous Mother/Daughter?", answer : "Blythe Danner / Gwyneth Paltrow",  // 
+	image : "https://upload.wikimedia.org/wikipedia/commons/3/30/Blythe_Danner_-_1980.jpg",
+	answerimage : "https://ca.hellomagazine.com/images/stories/0/2020/08/10/000/787/841/featured_5_3.jpg"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "Who is this person's famous Mother/Daughter?", answer : "Kate Hudson / Goldie Hawn",  // 
+	image : "https://www.caa.com/sites/default/files/styles/headshot_500x500/public/speaker-headshots/HudsonK_headshot_web.jpg?itok=8CWtdHEL",
+	answerimage : "https://cdn.cnn.com/cnnnext/dam/assets/200422082339-01-goldie-hawn-kate-hudson-file-super-tease.jpg"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "Who is this person's famous Mother/Daughter?", answer : "Billie Lourd / Carrie Fisher / Debbie Reynolds",  // 
+	image : "https://www.usmagazine.com/wp-content/uploads/carrie-fisher-outfit-706c4ddb-7fa8-45ea-b020-aa987fdb9917.jpg?w=900&quality=86&strip=all",
+	answerimage : "https://www.usmagazine.com/wp-content/uploads/2019/12/Billie-Lourd-Posts-Emotional-Christmas-Tribute-to-Late-Mom-Carrie-Fisher-and-Grandma-Debbie-Reynolds.jpg?quality=86&strip=all"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "Who is this person's famous Mother/Daughter?", answer : "Dakota Johnson / Melanie Griffith / Tippi Hedren",  // 
+	image : "https://thereelbits.com/wp-content/uploads/2012/06/whms001.jpg",
+	answerimage : "https://media.npr.org/assets/img/2017/11/16/01-tippi-melanie-fc880235a9fe24e0648894250f28c1205580e868.jpg"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "Who is this person's famous Mother/Daughter?", answer : "Eva Amurri / Susan Sarandon",  // 
+	image : "https://static.wikia.nocookie.net/friends/images/a/ae/EvaAmurri.png/revision/latest?cb=20181025134310",
+	answerimage : "https://s.yimg.com/ny/api/res/1.2/dnEZr7QQst8c4YES2aNALg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTEzNTcuMjEwMTc5MDc2MzQzMQ--/https://media-mbst-pub-ue1.s3.amazonaws.com/creatr-uploaded-images/2019-06/903a9340-99e1-11e9-97f9-e1f4222dd369"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "Who is this person's famous Mother/Daughter?", answer : "Sophie Ellis-Bextor / Janet Ellis",  // 
+	image : "https://evoke.ie/mrf4u/statics/i/ps/cdn1.evoke.ie/wp-content/uploads/2019/01/rex-sophie-ellis-bextor.jpg?width=1200&enable=upscale",
+	answerimage : "https://ichef.bbci.co.uk/images/ic/640x360/p04m37yb.jpg"	}); 
+addQuest(quests[questIndexBuilder],{		type : quizQuestionType2Picture,		question : "Who is this person's famous Mother/Daughter?", answer : "Isabella Rossellini / Ingrid Bergman",  // 
+	image : "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/tre-sor30ans-isabella-1-1591637713.jpg?resize=480:*",
+	answerimage : "https://i.guim.co.uk/img/media/67b69f2e66814b2dfde6e1bf86a33f7a549ab5f2/949_0_1451_1625/master/1451.jpg?width=700&quality=85&auto=format&fit=max&s=413b0ae63d3091ef7a80cd06997b516f"	}); 
+
+
+quests[++questIndexBuilder] = { //
+		name : "Mothers Day",
+		hoverover : "Questions about mothers",
+		tags : "2021-3-13,surfers,saturday,InnerWheel,specialDay",
+		questInfo: new Array()
+	};
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 	
+	question : "Who is the mother of Michael Jackson's children?  " + Table4ColumnStart + "Debbie Reynolds</td><td>Debbie Rowe</td><td>De-De-De-De-Deborah</td><td>Debbie Harry" + Table4ColumnEnd,
+	image : "https://static.onecms.io/wp-content/uploads/sites/6/2002/11/91538__mike_l.jpg",
+	answer : "Debbie Rowe"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
+	question : "In which film would you hear the immortal words 'Mother's not quite herself today!'?",
+	answer : "Psycho"  } );
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "Who played Forrest Gump's mother in the film 'Forrest Gump'?",
+	image : "https://hookedonhouses.net/wp-content/uploads/2020/02/Forrest-Gump-Movie-House-Greenbow-Alabama.jpg",
+	answer : "Sally Field"    } );
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText, 	
+	question : "Who was the last Empress of India?  " + Table4ColumnStart + "Queen Elizabeth the Queen Mother</td><td>Queen Elizabeth II</td><td>Queen Victoria</td><td>Queen Elizabeth I" + Table4ColumnEnd,
+	answer : "Queen Elizabeth the Queen Mother"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
+	question : "In which Beatle's song does '...Mother Mary come to me'?",
+	answer : "Let It Be"    } );
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText, 	
+	question : "Which of these comedians was a preferred choice to play Frank Spencer in 'Some Mothers Do Have 'Em', before the role went to Michael Crawford?  " + Table4ColumnStart + "Ronnie Corbett</td><td>Ronnie Barker</td><td>Ronnie Wood</td><td>Dick Emery" + Table4ColumnEnd,
+	answer : "Ronnie Barker"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText, 	
+	question : "In the Doctor Hook hit Sylvia's Mother, what is mother's surname?" + Table4ColumnStart + "Mrs Allen</td><td>Mrs Abraham</td><td>Mrs Alexander</td><td>Mrs Plath" + Table4ColumnEnd,
+	answer : "Mrs Abraham"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText, 	
+	question : "Who was the mother of Queen Elizabeth I?" + Table4ColumnStart + "Catherine of Aragon</td><td>Jane Seymour</td><td>Anne Boleyn</td><td>Nell Gwyn" + Table4ColumnEnd,
+	answer : "Anne Boleyn"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
+	question : "In the Pantomime, who is Aladdin's mother?",
+	answer : "Widow Twanky"} );
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
+	question : "True or False – Neil Armstrong's mother’s maiden name was Moon?",
+	answer : "False - Buzz Aldrin's was"} );
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
+	question : "Which Blue String Pudding eating family consisted of Major, Mother, Granny, Small And Tiny?",
+	answer : "The Clangers"} );
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
+	question : "The name of Spock's mother in the TV series 'Star Trek' was also the name of a late 1980's pop group, what was it?",
+	answer : "T'Pau"} );
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
+	question : "Which actress played the part of Elvis Presley's mother in the film Blue Hawaii and later went on to play a TV detective?",
+	answer : "Angela Landsbury"} );
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
+	question : "Who's Mother-In-Law is this?",
+	image : "https://vhistory.files.wordpress.com/2019/03/hippo.jpg",
+	answer : "Reggie Perrin"}) ;
+
+quests[++questIndexBuilder] = { //
+		name : "Movie Mums",
+		hoverover : "Questions about movie mothers",
+		tags : "2021-3-13,surfers,saturday,InnerWheel,movies,specialDay",
+		splash : {splashType : splashTypeText  , splashText : "Name the movie (the franchise, if appropriate, will do) these Mums are from, and name them if you can (their character's or their real name)." },
+		questInfo: new Array()
+	};
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 		question : "Who is this and what film were they in?  ",
+	image : "https://www.trend-chaser.com/wp-content/uploads/2019/06/0b192370-599e-4d41-90cd-d5b39de4bf9a-43262.jpg",
+	answer : "Kate McCallister / Catherine O'Hara - Home Alone"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 		question : "Who is this and what film were they in?  ",
+	image : "https://www.trend-chaser.com/wp-content/uploads/2019/06/carrie-mother_BANNERS-20683.jpg",
+	answer : "Margaret White / Piper Laurie - Carrie"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 		question : "Who is this and what film were they in?  ",
+	image : "https://www.trend-chaser.com/wp-content/uploads/2019/06/Capture.jpg-72700.JPG",
+	answer : "Jeanie Stifler (Stifler's Mum) / Jennifer Coolidge - American Pie"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 		question : "Who is this and what film were they in?  ",
+	image : "https://www.trend-chaser.com/wp-content/uploads/2019/06/First_appearance_of_the_other_mother-89517.jpg",
+	answer : "Other Mother / Teri Hatcher - Coraline"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 		question : "Who is this and what film were they in?  ",
+	image : "https://www.trend-chaser.com/wp-content/uploads/2019/06/mommie-dearest-still-800x450-97501.jpg",
+	answer : "Joan Crawford / Faye Dunaway - Mommie Dearest"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 		question : "Who is this and what film were they in?  ",
+	image : "https://www.trend-chaser.com/wp-content/uploads/2019/06/everett-collection-mbdgrad-ec013-1-1532705977-39282.jpg",
+	answer : "Mrs Robinson / Anne Bancroft - The Graduate"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 		question : "Who is this and what film were they in?  ",
+	image : "https://fastly.syfy.com/sites/syfy/files/styles/1200x680/public/2018/11/linda.jpg?offset-x=0&offset-y=0",
+	answer : "Sarah Connor / Linda Hamilton - Terminator"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 		question : "Who is this and what film were they in?  ",
+	image : "https://static.wikia.nocookie.net/the-incredibles/images/4/4a/Mrs_Incredible.jpg/revision/latest/top-crop/width/360/height/450?cb=20130723163357",
+	answer : "Helen Parr / Holly Hunter - The Incredibles"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 		question : "Who is this and what film were they in?  ",
+	image : "https://static.wikia.nocookie.net/psycho/images/a/a4/Psycho_15.jpg/revision/latest/scale-to-width-down/340?cb=20120919203256",
+	answer : "Mrs Bates - Psycho"	});
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture, 		question : "Who is this and what film were they in?  ",
+	image : "https://arc-anglerfish-arc2-prod-pmn.s3.amazonaws.com/public/IPAI6RIZPVBS5APZCZ2XHPFCUI.jpg",
+	answer : "Beverly Goldberg / Wendi McLendon-Covey - The Goldbergs.  Minus 5 points if you try to get points for 'Smother'"	});
+
+
+
+quests[++questIndexBuilder] = { //
+		name : "About Mum",
+		hoverover : "Songs about Mums",
+		tags : "2021-3-13,saturday,music,specialDay",
+		questInfo: new Array()
+	};
+
+addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeSpotify,
+	question : '',
+	spotify : '<iframe src="https://open.spotify.com/embed/playlist/1wFGsOGwt55ALmrGAT4dzs"   width="500" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media">></iframe>',
+	answer : ""
+} );
 
 
 /*
   addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 	question : "",
-	answer : ""
-} );
+	answer : ""} );
 
 addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
 	question : "?",
 	image : "",
-	answer : ""
-}) ;
+	answer : ""}) ;
  
  
  
@@ -5684,7 +5838,7 @@ quests[++questIndexBuilder] = { //
 		name : "Test new quiz builder",
 		hoverover : "Try out the quicker builder",
 		tags : "test",
-		splash : {splashType : splashTypeText / splashTypePictureAndText , splashText : "Test Text" }
+		splash : {splashType : splashTypeText / splashTypePictureAndText , splashText : "Test Text", splashImage : "" }
 		questInfo: new Array()
 	};
 
@@ -5700,9 +5854,8 @@ addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
 	answer : "?"	});
 
 addQuest(quests[questIndexBuilder],{	type : quizQuestionTypeText,
-	question : "What P was married to Elvis",
-	answer : "Priscilla Presley"
-} );
+	question : "",
+	answer : ""    } );
 
 addQuest(quests[questIndexBuilder],{	type : quizQuestionTypePicture,
 	question : "What movie is being described",
@@ -5858,7 +6011,11 @@ function SQStartQuizFromButton(quizIndex) {
 			sqInitPicture(quests[quizIndex].splash.splashImage);
 		}
 		return;
-	}
+	}; 
+	if (SQIsQuizMusic(quizIndex)){
+		SQGetQuestArea().innerHTML = "<p " + questionStyle + "> This quiz is a Music quiz.  Please ensure you are only sharing sound, not screen.  " + closeSplashButtonStart + quizIndex + closeSplashButtonEnd +  "</p>";
+		return;
+	};
 	
 	SQStartQuiz(quizIndex);
 }
@@ -5987,11 +6144,7 @@ function SQAnswer(questionType) {
 		SQGetImageArea().innerHTML = '';
 		SQGetQuestArea().innerHTML = "<p " + questionStyle + ">" + fullQuestion
 				+ "</p>";
-	} else if (questionType == quizQuestionTypePicture) {
-		sqInitPicture(questStageData[currQuestStageIndex].image)
-		SQGetQuestArea().innerHTML = "<p " + questionStyle + ">" + fullQuestion
-				+ "</p>";
-	} else if (questionType == quizQuestionType2Picture) {
+	} else if (questionType == quizQuestionTypePicture || questionType == quizQuestionType2Picture) {
 		sqInitPicture(questStageData[currQuestStageIndex].image)
 		SQGetQuestArea().innerHTML = "<p " + questionStyle + ">" + fullQuestion
 				+ "</p>";
@@ -6008,15 +6161,12 @@ function SQAnswer(questionType) {
 	// SQGetQuestArea().innerHTML = answerPreText;
 	answerText = '';
 	SQGetAnswerArea().innerHTML = '';
-	if (questionType == quizQuestionType2Picture)  {
+	if (questionType == quizQuestionType2Picture || questionType == quizQuestionTypePictureAnswer)  {
 		answerimage = questStageData[currQuestStageIndex].answerimage;
 		setTimeout(function(){sqInitPicture(answerimage);},3000 )
-	} else	if (questionType == quizQuestionTypePictureAnswer) {
-		answerimage = questStageData[currQuestStageIndex].answerimage;
-		setTimeout(function(){sqInitPicture(answerimage);},3000 )
-	} else {
+	}
+	if (questStageData[currQuestStageIndex].hasOwnProperty('answer')) {
 		setTimeout(SQSpeakAnswer, 3000);
-
 		setTimeout(SQWriteAnswer, 3000);
 	}
 	currQuestStageIndex++
@@ -6120,6 +6270,20 @@ function SQIncludeQuiz(optionTagsString) {
 	return false;
 }
 
+function SQIsQuizMusic(quizIndex) { 
+	
+	optionTagsString = quests[quizIndex].tags;
+	
+	optionTags = optionTagsString.split(",");
+	optionTagsCount = optionTags.length;
+	
+	for (var i = 0; i < optionTagsCount; i++) {
+		if (optionTags[i] == 'music' ) {
+			return true;
+		}
+	}
+	return false;
+}
 function SQIsQuizTodays(quizIndex) { 
 	
 	optionTagsString = quests[quizIndex].tags;
